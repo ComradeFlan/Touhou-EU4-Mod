@@ -1,0 +1,80 @@
+th_cursed_donation_box = {
+	potential = {
+		tag = HKR
+		normal_or_historical_nations = yes
+		is_free_or_tributary_trigger = yes
+		uses_doom = no
+		NOT = { has_country_flag = th_had_cursed_donation_box } 
+	}
+	
+	can_start = {
+		current_age = age_of_discovery
+		has_any_disaster = no
+		is_lesser_in_union = no
+		NOT = { adm = 6 }
+		NOT = { dip = 6 }
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			is_lesser_in_union = yes
+			stability = 3
+		}
+	}
+	
+	ended_by_country_breaking_to_rebels = no
+		
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = { legitimacy = 60 }
+		}
+		modifier = {
+			factor = 1
+			has_heir = no
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { ADM = 6 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { DIP = 6 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { MIL = 6 }
+		}
+		modifier = {
+			factor = 10
+			tag = HKR
+		}
+	}	
+	
+	can_end = {
+		stability = 2
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		custom_trigger_tooltip = {
+			tooltip = th_cursed_donation_box_end_tt
+			has_country_flag = hkr_appealed_hakurei_god
+		}
+	}
+	
+	on_start = flavor_hkr.100
+	on_end = flavor_hkr.101
+	
+	on_monthly = {
+		events = {
+		}
+		
+		random_events = { 
+			1200 = 0	
+			100 = war_of_the_roses.2
+		}
+	}
+}

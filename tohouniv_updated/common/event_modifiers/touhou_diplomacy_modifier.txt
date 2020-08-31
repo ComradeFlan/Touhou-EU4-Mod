@@ -1,0 +1,19 @@
+##################################################################################################
+# scriptable and usable for event-system below.
+##################################################################################################
+
+th_provocated_war = {
+    ae_impact = 0.05
+}
+
+th_alliance_breaker = {
+    diplomatic_reputation = -5
+}
+
+th_bribed_subject_cd = {
+    
+}
+
+th_eikis_lecture = {
+	
+}
