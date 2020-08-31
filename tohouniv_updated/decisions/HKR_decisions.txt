@@ -1,0 +1,184 @@
+country_decisions = {
+	
+	hkr_call_for_remilias_help = {
+		potential = {
+			OR = {
+				tag = HKR
+				was_tag = HKR
+			}
+			NOT = { was_tag = OKR }  #Forbid Meira from getting it
+			has_global_flag = th_incident_setting_finished
+			NOT = { has_global_flag = th_deactivated_incidents }
+			has_country_flag = th_solved_sdm_inci
+			NOT = { has_country_modifier = th_remilias_help }
+			NOT = { has_country_modifier = th_remilia_and_flandres_help }			
+		}
+
+		allow = {
+			NOT = { has_country_modifier = th_SDM_inci_mist_stopped }
+			NOT = { has_country_modifier = th_SDM_inci_extra }
+		}
+
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = th_solved_sdm_inci_extra
+				}
+				add_country_modifier = {
+					name = "th_remilia_and_flandres_help"
+					duration = -1
+				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    					}
+				}
+			}
+			else = {				
+				add_country_modifier = {
+					name = "th_remilias_help"
+					duration = -1
+				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				check_variable = { th_hkr_incident_counter = 3 }
+			}
+		}
+
+		ai_importance = 50
+	}
+
+	hkr_call_for_yuyukos_help = {
+		potential = {
+			OR = {
+				tag = HKR
+				was_tag = HKR
+			}
+			NOT = { was_tag = OKR }  #Forbid Meira from getting it
+			has_global_flag = th_incident_setting_finished
+			NOT = { has_global_flag = th_deactivated_incidents }
+			has_country_flag = th_solved_pcb_inci
+			NOT = { has_country_modifier = th_yuyukos_help }
+			NOT = { has_country_modifier = th_yuyuko_and_yukaris_help }			
+		}
+
+		allow = {
+			NOT = { has_country_modifier = th_PCB_inci_saigyou_ayakashi_repressed }
+			NOT = { has_country_modifier = th_PCB_inci_extra }
+		}
+
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = th_solved_pcb_inci_extra
+				}
+				add_country_modifier = {
+					name = "th_yuyuko_and_yukaris_help"
+					duration = -1
+				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    					}
+				}
+			}
+			else = {				
+				add_country_modifier = {
+					name = "th_yuyukos_help"
+					duration = -1
+				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				check_variable = { th_hkr_incident_counter = 3 }
+			}
+		}
+
+		ai_importance = 50
+	}
+
+
+	hkr_call_for_kaguyas_help = {
+		potential = {
+			OR = {
+				tag = HKR
+				was_tag = HKR
+			}
+			NOT = { was_tag = OKR }  #Forbid Meira from getting it
+			has_global_flag = th_incident_setting_finished
+			NOT = { has_global_flag = th_deactivated_incidents }
+			has_country_flag = th_solved_en_inci
+			NOT = { has_country_modifier = th_kaguyas_help }
+			NOT = { has_country_modifier = th_kaguya_and_mokous_help }			
+		}
+
+		allow = {
+			NOT = { has_country_modifier = th_EN_inci_breaker_of_the_fake_moon }
+			NOT = { has_country_modifier = th_EN_inci_extra }
+		}
+
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = th_solved_en_inci_extra
+				}
+				add_country_modifier = {
+					name = "th_kaguya_and_mokous_help"
+					duration = -1
+				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+					}
+				}
+			}
+			else = {				
+				add_country_modifier = {
+					name = "th_kaguyas_help"
+					duration = -1
+				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    				}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				check_variable = { th_hkr_incident_counter = 3 }
+			}
+		}
+
+		ai_importance = 50
+	}
+
+}

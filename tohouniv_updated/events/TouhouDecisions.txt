@@ -1,0 +1,29 @@
+namespace = th_decision_events
+
+#Ruler Traits
+country_event = {
+	id = th_decision_events.1
+	title = "th_decision_events.1.t"
+	desc = "th_decision_events.1.desc"
+	picture = SHRINE_eventPicture
+
+	is_triggered_only = yes
+
+	Option = {
+		name = "th_decision_events.1.a"
+		custom_tooltip = th_remove_bad_personality_tt
+		hidden_effect = {
+			remove_ruler_personality = embezzler_personality
+			remove_ruler_personality = sinner_personality
+			remove_ruler_personality = greedy_personality
+			remove_ruler_personality = obsessive_perfectionist_personality
+			remove_ruler_personality = drunkard_personality
+			remove_ruler_personality = babbling_buffoon_personality
+			remove_ruler_personality = cruel_personality
+			remove_ruler_personality = naive_personality
+			remove_ruler_personality = malevolent_personality
+			remove_ruler_personality = loose_lips_personality
+			remove_ruler_personality = craven_personality
+		}
+	}
+}

@@ -1,0 +1,256 @@
+########################################
+# Flavor Events for Hakurei Realm
+########################################
+
+namespace = flavor_hkr
+
+#Number of incident perma buffs of Reimu setup
+country_event = {
+	id = flavor_hkr.1
+	title = flavor_hkr.1.t
+	desc = flavor_hkr.1.desc
+	picture = LIBERUM_VETO_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = HKR
+		NOT = { has_country_flag = hkr_inci_setup }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = {
+				which = th_hkr_incident_counter
+				value = 0.0
+			}
+			set_country_flag = hkr_inci_setup
+		}
+	}
+	
+	option = {
+		name = flavor_hkr.1.a
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+#Ask player to remove one buff if exceeds 3 buffs
+country_event = {
+	id = flavor_hkr.2
+	title = flavor_hkr.2.t
+	desc = flavor_hkr.2.desc
+	picture = LIBERUM_VETO_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = HKR
+			was_tag = HKR
+		}
+		check_variable = {
+			which = th_hkr_incident_counter
+    			value = 4
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			subtract_variable = {
+				which = th_hkr_incident_counter
+				value = 1
+    			}
+		}
+	}
+
+	option = { #Remilia
+		name = flavor_hkr.2.a
+		trigger = {
+			OR = {
+				has_country_modifier = th_remilias_help
+				has_country_modifier = th_remilia_and_flandres_help
+			}
+		}		
+		custom_tooltip = flavor_hkr.2.a.tt
+		if = {
+			limit = {
+				has_country_modifier = th_remilias_help
+			}
+			remove_country_modifier = th_remilias_help
+		}
+		if = {
+			limit = {
+				has_country_modifier = th_remilia_and_flandres_help
+			}
+			remove_country_modifier = th_remilia_and_flandres_help
+		}			
+	
+		ai_chance = { 
+			factor = 33
+		}
+	}
+
+	option = { #Yuyuko
+		name = flavor_hkr.2.b
+		trigger = {
+			OR = {
+				has_country_modifier = th_yuyukos_help
+				has_country_modifier = th_yuyuko_and_yukaris_help
+			}
+		}		
+		custom_tooltip = flavor_hkr.2.b.tt
+		if = {
+			limit = {
+				has_country_modifier = th_yuyukos_help
+			}
+			remove_country_modifier = th_yuyukos_help
+		}
+		if = {
+			limit = {
+				has_country_modifier = th_yuyuko_and_yukaris_help
+			}
+			remove_country_modifier = th_yuyuko_and_yukaris_help
+		}			
+	
+		ai_chance = { 
+			factor = 33
+		}
+	}
+
+	option = { #Kaguya
+		name = flavor_hkr.2.c
+		trigger = {
+			OR = {
+				has_country_modifier = th_kaguyas_help
+				has_country_modifier = th_kaguya_and_mokous_help
+			}
+		}		
+		custom_tooltip = flavor_hkr.2.c.tt
+		if = {
+			limit = {
+				has_country_modifier = th_kaguyas_help
+			}
+			remove_country_modifier = th_kaguyas_help
+		}
+		if = {
+			limit = {
+				has_country_modifier = th_kaguya_and_mokous_help
+			}
+			remove_country_modifier = th_kaguya_and_mokous_help
+		}			
+	
+		ai_chance = { 
+			factor = 33
+		}
+	}
+
+	option = { #test
+		name = flavor_hkr.2.d
+		trigger = {
+			NOT = {
+				has_country_modifier = th_remilias_help
+				has_country_modifier = th_remilia_and_flandres_help
+				has_country_modifier = th_yuyukos_help
+				has_country_modifier = th_yuyuko_and_yukaris_help
+				has_country_modifier = th_kaguyas_help
+				has_country_modifier = th_kaguya_and_mokous_help
+			}
+		}
+
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
+
+#Mission events#
+
+#Beating Tenshi up
+country_event = {
+	id = flavor_hkr.3
+	title = flavor_hkr.3.t
+	desc = flavor_hkr.3.desc
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_hkr.3.a
+		custom_tooltip = flavor_hkr.3.a.tt
+		hidden_effect = {
+			every_known_country = {
+				limit = {
+					religion = ROOT
+					NOT = { tag = HVR }
+					NOT = { alliance_with = HVR }
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = th_beat_tenshi_up
+				}
+			}
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+
+
+#Events for disaster
+
+#Cursed Donation Box
+country_event = {
+	id = flavor_hkr.100
+	title = flavor_hkr.100.t
+	desc = flavor_hkr.100.desc
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_hkr.100.a
+		custom_tooltip = flavor_hkr.100.a.tt
+		add_country_modifier = {
+			name = th_donation_box_curse
+			duration = -1
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+#Curse is finally lifted
+country_event = {
+	id = flavor_hkr.101
+	title = flavor_hkr.101.t
+	desc = flavor_hkr.101.desc
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_hkr.101.a
+		custom_tooltip = flavor_hkr.101.a.tt
+		remove_country_modifier = th_donation_box_curse
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
