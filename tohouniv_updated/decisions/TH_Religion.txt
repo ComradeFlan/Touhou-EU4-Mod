@@ -195,18 +195,38 @@ country_decisions = {
 				religion = Gensokyan
 				religion = Moriya_Shintoism
 			}
-			has_estate = estate_church
+			OR = {
+				has_estate = estate_church
+				has_country_flag = th_permanent_shorter_deity_swapping
+			}
 		}
 		allow = {
 			has_regency = no
-			has_estate_privilege = th_estate_church_flexible_deities
-			custom_trigger_tooltip = {
-				tooltip = decision_once_every_twenty_years
-				OR = {
-					NOT = { has_country_flag = th_clerigy_deity_decision }
-					had_country_flag = {
-						flag = th_clerigy_deity_decision
-						days = 7300
+			if = {
+				limit = {
+					NOT = { has_country_flag = th_permanent_shorter_deity_swapping }
+				}
+				has_estate_privilege = th_estate_church_flexible_deities
+				custom_trigger_tooltip = {
+					tooltip = decision_once_every_twenty_years
+					OR = {
+						NOT = { has_country_flag = th_clerigy_deity_decision }
+						had_country_flag = {
+							flag = th_clerigy_deity_decision
+							days = 7300
+						}
+					}
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = decision_once_every_ten_years
+					OR = {
+						NOT = { has_country_flag = th_clerigy_deity_decision }
+						had_country_flag = {
+							flag = th_clerigy_deity_decision
+							days = 3650
+						}
 					}
 				}
 			}
@@ -413,7 +433,7 @@ country_decisions = {
 					id = th_bdh_meditation_events.102
 				}
 			}
-			if_else = {
+			else_if = {
 				limit = {
 					check_variable = {
 						which = th_buddhism_stage_variable
@@ -424,7 +444,7 @@ country_decisions = {
 					id = th_bdh_meditation_events.103
 				}
 			}
-			if_else = {
+			else_if = {
 				limit = {
 					check_variable = {
 						which = th_buddhism_stage_variable
@@ -588,6 +608,68 @@ country_decisions = {
 		
 		ai_will_do = {
 			factor = 0
+		}
+	}
+
+	#Counter Reformation
+	th_embrace_counter_reformation = {
+		potential = {
+			religion_group = Touhou
+			NOT = { religion = Lunarian_religion }
+			NOT = { religion = TH_Christians }
+			NOT = { religion = Moriya_Shintoism }
+			NOT = { religion = Toho_Buddhist }
+			NOT = { has_country_modifier = th_counter_reformation }
+			NOT = { has_country_modifier = th_increased_harmonization_efforts }
+			has_global_flag = th_counter_reformation_enabled
+		}
+
+		major = yes
+
+		allow = {
+			NOT = { has_idea_group = humanist_ideas }
+			stability = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = th_counter_reformation
+				duration = -1
+				desc = th_counter_reformation_tt
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	#Increased Harmonization Efforts
+	th_increase_harmonization_efforts = {
+		potential = {
+			religion_group = Touhou
+			religion = Toho_Buddhist
+			NOT = { has_country_modifier = th_counter_reformation }
+			NOT = { has_country_modifier = th_increased_harmonization_efforts }
+			has_global_flag = th_counter_reformation_enabled
+		}
+
+		major = yes
+
+		allow = {
+			stability = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = th_increased_harmonization_efforts
+				duration = -1
+				desc = th_counter_reformation_tt
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
 		}
 	}
 }

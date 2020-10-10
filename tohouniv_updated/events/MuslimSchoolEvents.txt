@@ -1770,7 +1770,9 @@ country_event = {
 					NOT = { has_province_modifier = local_sufi }
 					NOT = { has_province_modifier = local_sufi_chased_away }
 					NOT = { continent = europe }
-					same_continent = ROOT
+					owner = {
+						same_continent = ROOT
+					}
 				}
 				save_event_target_as = sufi_province
 			}

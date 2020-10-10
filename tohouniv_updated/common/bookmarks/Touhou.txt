@@ -16,7 +16,7 @@ bookmark =
 	country = EIT
 	country = FUJ
 	country = CIN
-	country = HIG
+	country = MRY
 	country = MKI
 	
 	easy_country = CRD

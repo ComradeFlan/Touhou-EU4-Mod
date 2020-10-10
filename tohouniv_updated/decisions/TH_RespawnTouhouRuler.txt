@@ -26,6 +26,7 @@ country_decisions = {
 				tag = LAR
 				tag = LCU
 				tag = LIL
+				#tag = LWE
 				tag = MHG
 				tag = MIM
 				tag = MKI
@@ -52,6 +53,9 @@ country_decisions = {
 				tag = FTP
 				tag = GNK
 				tag = MKN
+				tag = ORN
+				tag = OKU
+				
 			}
 		}
 		

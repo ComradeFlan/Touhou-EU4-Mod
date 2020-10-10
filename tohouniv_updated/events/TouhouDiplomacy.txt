@@ -461,3 +461,70 @@ country_event = {
         }
     }
 }
+
+#Nation broke peldging
+country_event = {
+    id = th_diplo_events.10
+	title = th_diplo_events.10.t
+	desc = th_diplo_events.10.desc
+	picture = SHRINE_eventPicture
+
+    mean_time_to_happen = {
+        days = 1
+    }
+
+    trigger = {
+        any_country = {
+            has_country_flag = th_pledged_to_religion_to_@ROOT
+            NOT = { has_country_modifier = th_pledged_to_remain_religious }
+        }
+        has_country_flag = th_able_to_force_religious_pledging
+    }
+
+    option = {
+        name = th_diplo_events.10.a
+        every_country = {
+            limit = {
+                has_country_flag = th_pledged_to_religion_to_@ROOT
+                NOT = { has_country_modifier = th_pledged_to_remain_religious }
+            }
+            reverse_add_casus_belli = {
+                type = cb_touhou_penance_war
+                target = ROOT
+            }
+            clr_country_flag = th_pledged_to_religion_to_@ROOT
+        }
+
+        ai_chance = {
+            factor = 100
+        }
+    }
+}
+
+#Removes punitive modifier if free again
+country_event = {
+    id = th_diplo_events.11
+	title = th_diplo_events.11.t
+	desc = th_diplo_events.11.desc
+	picture = SHRINE_eventPicture
+
+    mean_time_to_happen = {
+        days = 1
+    }
+
+    hidden = yes
+
+    trigger = {
+        has_country_modifier = th_subjugated_in_penance
+        is_subject = no
+    }
+
+    option = {
+        name = th_diplo_events.11.a
+        remove_country_modifier = th_subjugated_in_penance
+
+        ai_chance = {
+            factor = 100
+        }
+    }
+}

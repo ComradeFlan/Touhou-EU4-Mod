@@ -698,54 +698,7 @@ country_event = {
 				tag = GNK
 			}
 		}
-		if = {
-			limit = {
-				has_estate = estate_nobles
-			}
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = 15
-			}
-		}
-		else_if = {
-			limit = {
-				has_estate = estate_maratha
-				religion = hinduism
-			}
-			add_estate_loyalty = {
-				estate = estate_maratha
-				loyalty = 15
-			}
-		}
-		else_if = {
-			limit = {
-				has_estate = estate_rajput
-				religion = hinduism
-			}
-			add_estate_loyalty = {
-				estate = estate_rajput
-				loyalty = 15
-			}
-		}
-		if = {
-			limit = {
-				has_estate = estate_church
-			}
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = -15
-			}
-		}
-		else_if = {
-			limit = {
-				has_estate = estate_brahmins
-				religion = hinduism
-			}
-			add_estate_loyalty = {
-				estate = estate_brahmins
-				loyalty = -15
-			}
-		}
+
 		set_country_flag = theo_local_noble_flag # USED IN DEVOTION.TXT
 		if = {
 			limit = {
@@ -757,7 +710,7 @@ country_event = {
 				hidden = yes
 				adm = 1
 				dip = 1
-				mil = 1
+				mil = 2
 				female = yes
 				culture = event_target:noble_province
 			}
@@ -769,7 +722,7 @@ country_event = {
 				hidden = yes
 				adm = 1
 				dip = 1
-				mil = 1
+				mil = 2
 				female = yes
 			}
 		}
@@ -787,54 +740,7 @@ country_event = {
 				tag = GNK
 			}
 		}
-		if = {
-			limit = {
-				has_estate = estate_nobles
-			}
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = 15
-			}
-		}
-		else_if = {
-			limit = {
-				has_estate = estate_maratha
-				religion = hinduism
-			}
-			add_estate_loyalty = {
-				estate = estate_maratha
-				loyalty = 15
-			}
-		}
-		else_if = {
-			limit = {
-				has_estate = estate_rajput
-				religion = hinduism
-			}
-			add_estate_loyalty = {
-				estate = estate_rajput
-				loyalty = 15
-			}
-		}
-		if = {
-			limit = {
-				has_estate = estate_church
-			}
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = -15
-			}
-		}
-		else_if = {
-			limit = {
-				has_estate = estate_brahmins
-				religion = hinduism
-			}
-			add_estate_loyalty = {
-				estate = estate_brahmins
-				loyalty = -15
-			}
-		}
+
 		set_country_flag = theo_local_noble_flag # USED IN DEVOTION.TXT
 		if = {
 			limit = {
@@ -846,7 +752,7 @@ country_event = {
 				hidden = yes
 				adm = 1
 				dip = 1
-				mil = 1
+				mil = 2
 				female = yes
 				culture = event_target:noble_province
 			}
@@ -858,7 +764,7 @@ country_event = {
 				hidden = yes
 				adm = 1
 				dip = 1
-				mil = 1
+				mil = 2
 				female = yes
 			}
 		}
@@ -895,9 +801,10 @@ country_event = {	#Incident - Non-Gensokyan declares war upon Gensokyo
 	trigger = {
 		NOT = { capital_scope = { continent = gensokyo_continent } }
 		NOT = { religion_group = Touhou }
-		NOT = { has_country_flag = TH_triggered_shrine_maiden_call_to_arms }
-		any_known_country = {
+		NOT = { has_country_flag = TH_foreign_invader }
+		any_country = {
 			capital_scope = { continent = gensokyo_continent }
+			NOT = { has_country_flag = TH_asked_for_help_against_@ROOT }
 			is_in_war = {
 				attacker_leader = ROOT
 				defender_leader = THIS
@@ -913,16 +820,18 @@ country_event = {	#Incident - Non-Gensokyan declares war upon Gensokyo
 		name = touhou_theocracy.2.a
 		custom_tooltip = touhou_theocracy.2.a.tt
 		hidden_effect = {
-			set_country_flag = TH_triggered_shrine_maiden_call_to_arms
-			every_known_country = {
+			set_country_flag = TH_foreign_invader
+			every_country = {
 				limit = {
 					capital_scope = { continent = gensokyo_continent }
+					NOT = { has_country_flag = TH_asked_for_help_against_@ROOT }
 					is_in_war = {
 						attacker_leader = ROOT
 						defender_leader = THIS
 					}
 				}
 				country_event = { id = touhou_theocracy.3 }
+				set_country_flag = TH_asked_for_help_against_@ROOT
 			}
 		}
 		ai_chance = {
@@ -930,7 +839,6 @@ country_event = {	#Incident - Non-Gensokyan declares war upon Gensokyo
 		}
 	}
 }
-			
 
 country_event = {	#Incident - Gensokyo get attacked by none-gensokyan
 	id = touhou_theocracy.3
@@ -947,10 +855,17 @@ country_event = {	#Incident - Gensokyo get attacked by none-gensokyan
 		}
 		custom_tooltip = touhou_theocracy.3.a.tt
 		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = TH_called_shrine_maidens_in }
+				}
+				set_country_flag = TH_called_shrine_maidens_in
+			}
 			every_known_country = {
 				limit = {
 					has_reform = Gensokyan_shrine_theocracy
 					NOT = { war_with = ROOT }
+					NOT = { war_with = FROM }
 					capital_scope = { continent = gensokyo_continent }
 					has_opinion = {
 						who = ROOT
@@ -972,10 +887,18 @@ country_event = {	#Incident - Gensokyo get attacked by none-gensokyan
 		}
 		add_devotion = 15
 		add_prestige = 15
-		add_country_modifier = { 
-			name = th_defense_of_gensokyo
-			duration = -1  
-			desc = th_defense_of_gensokyo_tooltip
+		if = {
+			limit = {
+				NOT = { has_country_modifier = th_defense_of_gensokyo }
+			}
+			add_country_modifier = { 
+				name = th_defense_of_gensokyo
+				duration = -1  
+				desc = th_defense_of_gensokyo_tooltip
+			}
+		}
+		else = {
+			add_army_tradition = 20
 		}
 	}
 }
@@ -990,16 +913,6 @@ country_event = {	#Incident - The Shrine Maiden get the call to arms
 	
 	option = {
 		name = "touhou_theocracy.4.a"
-		ai_chance = {
-			factor = 100
-			modifier = {
-				factor = 0
-				OR = {
-					is_bankrupt = yes
-					war_exhaustion = 10
-				}
-			}
-		}
 		add_opinion = {
 			who = FROM
 			modifier = th_defense_of_gensokyo_opinion
@@ -1021,18 +934,41 @@ country_event = {	#Incident - The Shrine Maiden get the call to arms
 				modifier = th_defense_of_gensokyo_opinion
 			}
 		}
-		create_alliance = FROM
+		join_all_defensive_wars_of = FROM
 		add_devotion = 15
 		add_prestige = 15
-		add_country_modifier = { 
-			name = th_defense_of_gensokyo
-			duration = -1  
-			desc = th_defense_of_gensokyo_tooltip
+		if = {
+			limit = {
+				NOT = { has_country_modifier = th_defense_of_gensokyo }
+			}
+			add_country_modifier = { 
+				name = th_defense_of_gensokyo
+				duration = -1  
+				desc = th_defense_of_gensokyo_tooltip
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					war_exhaustion = 10
+				}
+			}
 		}
 	}
 	
 	option = { # stay out of this
 		name = "touhou_theocracy.4.b"
+		add_prestige = -25
+		add_devotion = -25
+		add_country_modifier = {
+			name = dishonoured_alliance
+			duration = 3650
+		}
+
 		ai_chance = { 
 			factor = 100
 			modifier = {
@@ -1043,8 +979,6 @@ country_event = {	#Incident - The Shrine Maiden get the call to arms
 				}
 			}
 		}
-		add_prestige = -25
-		add_devotion = -25
 	}	
 }
 
@@ -1061,14 +995,25 @@ country_event = {	#Incident - Non-Gensokyan finishes war with Gensokyan
 	hidden = yes
 	
 	trigger = {
-		has_country_flag = TH_triggered_shrine_maiden_call_to_arms
-		is_at_war = no
+		has_country_flag = TH_foreign_invader
+		all_country = {
+			limit = {
+				has_country_flag = TH_asked_for_help_against_@ROOT
+			}
+			NOT = { war_with = ROOT }
+		}
 	}
 	
 	option = {		#Delete flag
 		name = touhou_theocracy.5.a
 		hidden_effect = {
-			clr_country_flag = TH_triggered_shrine_maiden_call_to_arms
+			clr_country_flag = TH_foreign_invader
+			every_known_country = {
+				limit = {
+					has_country_flag = TH_asked_for_help_against_@ROOT
+				}
+				clr_country_flag = TH_asked_for_help_against_@ROOT
+			}
 		}
 		ai_chance = {
 			factor = 100
@@ -1088,10 +1033,17 @@ country_event = {	#Defense of Gensokyo is over
 	
 	trigger = {
 		has_country_modifier = th_defense_of_gensokyo
-		any_known_country = { 
-			NOT = { has_country_flag = TH_triggered_shrine_maiden_call_to_arms }
-		} 
-		NOT = { is_in_war = { defenders = ROOT } }
+		OR = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						has_country_flag = TH_called_shrine_maidens_in
+					}
+					amount = 1
+				}
+			}
+			NOT = { is_in_war = { defenders = ROOT } }
+		}
 	}
 	
 	option = {
@@ -1099,4 +1051,45 @@ country_event = {	#Defense of Gensokyo is over
 		remove_country_modifier = th_defense_of_gensokyo			
 	}
 }
+
+country_event = {	#Incident - Shrine Maiden Caller is not at any war
+	id = touhou_theocracy.7
+	title = touhou_theocracy.7.t
+	desc = touhou_theocracy.7.desc
+	picture = SHRINE_eventPicture
 	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	hidden = yes
+	
+	trigger = {
+		has_country_flag = TH_called_shrine_maidens_in
+		NOT = {
+			calc_true_if = {
+				all_country = {
+					capital_scope = {
+						NOT = { continent = gensokyo_continent }
+					}
+					is_in_war = {
+						attacker_leader = THIS
+						defender_leader = ROOT
+					}
+				}
+				amount = 1
+			}
+		}
+	}
+	
+	option = {		#Delete flag
+		name = touhou_theocracy.7.a
+		hidden_effect = {
+			clr_country_flag = TH_called_shrine_maidens_in
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+	}
+}

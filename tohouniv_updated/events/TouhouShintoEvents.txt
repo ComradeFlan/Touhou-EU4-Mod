@@ -641,6 +641,33 @@ country_event = {
 	mean_time_to_happen = {
 		months = 120
 	}
+	
+	option = {
+		name = "TH_shinto_events.7.e" #Shrine Theocracy don't pay
+		trigger = {
+			OR = {
+				owns = 4803
+				owns = 4846
+			}
+			has_reform = Gensokyan_shrine_theocracy
+		}
+		highlight = yes
+
+		add_dip_power = 25
+		add_prestige = 5
+		add_devotion = 5
+		if = {
+			limit = {
+				has_country_flag = th_increased_donations_from_events
+			}
+			add_years_of_income = 0.15
+		}
+
+		ai_chance = { 
+			factor = 100
+		}
+
+	}
 
 	option = {
 		name = "TH_shinto_events.7.a" #Hakurei shrine
@@ -756,27 +783,6 @@ country_event = {
 		ai_chance = { factor = 6 }
 
 	}
-	
-	option = {
-		name = "TH_shinto_events.7.e" #Shrine Theocracy don't pay
-
-		trigger = {
-			OR = {
-				owns = 4803
-				owns = 4846
-			}
-			has_reform = Gensokyan_shrine_theocracy
-		}
-
-		add_dip_power = 25
-		add_prestige = 5
-		add_devotion = 5
-
-		ai_chance = { 
-			factor = 100
-		}
-
-	}
 }
 #Hakurei gets visited
 
@@ -791,7 +797,23 @@ country_event = {
 	option = {
 		name = "TH_shinto_events.8.a"
 		add_prestige = 5
-		add_treasury = 50
+		if = {
+			limit = {
+				has_country_flag = th_increased_donations_from_events
+			}
+			if = {
+				limit = {
+					NOT = { monthly_income = 8.33 }
+				}
+				add_treasury = 100
+			}
+			else = {
+				add_years_of_income = 0.1
+			}
+		}
+		else = {
+			add_treasury = 50
+		}
 	}
 }
 #Moriya gets visited
@@ -807,7 +829,23 @@ country_event = {
 	option = {
 		name = "TH_shinto_events.9.a"
 		add_prestige = 5
-		add_treasury = 50
+		if = {
+			limit = {
+				has_country_flag = th_increased_donations_from_events
+			}
+			if = {
+				limit = {
+					NOT = { monthly_income = 8.33 }
+				}
+				add_treasury = 100
+			}
+			else = {
+				add_years_of_income = 0.1
+			}
+		}
+		else = {
+			add_treasury = 50
+		}
 	}
 }
 

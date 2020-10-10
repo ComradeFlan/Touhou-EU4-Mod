@@ -188,7 +188,7 @@ country_event = {
 				add_province_modifier = {
 					name = th_PCB_hard_winter
 					duration = -1
-					desc = th_PCB_hard_winter.tt
+					desc = th_incident_duration_tt
 				}
 			}
 			random_province = {
@@ -207,7 +207,7 @@ country_event = {
 				add_province_modifier = {
 					name = th_PCB_howling_winds
 					duration = -1
-					desc = th_PCB_howling_winds.tt
+					desc = th_incident_duration_tt
 				}
 			}
 			clr_global_flag = th_PCP_inci_setup_flag
@@ -295,7 +295,7 @@ country_event = {
 	option = {		#We should investigate this mysterious late spring.
 		name = "th_incidents_cherryblossom.4.a"
 		trigger = {
-			has_country_flag = th_incident_investigating
+			th_incident_is_investigator = yes
 		}
  		custom_tooltip = th_incidents_cherryblossom.4.a.tt
 		highlight = yes	
@@ -328,7 +328,7 @@ country_event = {
 	option = {		#I don`t want to investigate the incident.For minor character who was chosen the first investigator
 		name = "th_incidents_cherryblossom.4.b"
 		trigger = {
-			has_country_flag = th_incident_investigating
+			th_incident_is_investigator = yes
 			th_is_not_major_main_character = yes
 			th_is_not_minor_main_character = yes
 			any_known_country = {	#must have another eligible investigator country
@@ -357,7 +357,7 @@ country_event = {
 	option = {		#I shall be the first investigator!For main character player who was not chosen the first investigator
 		name = "th_incidents_cherryblossom.4.c"
 		trigger = {
-			NOT = { has_country_flag = th_incident_investigating }
+			th_incident_is_not_investigator = yes
 			OR = {
 				tag = HKR
 				tag = FOM
@@ -374,7 +374,7 @@ country_event = {
 		hidden_effect = {
 			every_known_country = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				clr_country_flag = th_incident_investigating
 			}
@@ -389,7 +389,7 @@ country_event = {
 	option = {		#Well, let it be.
 		name = "th_incidents_cherryblossom.4.d"	
 		trigger = {
-			NOT = { has_country_flag = th_incident_investigating }
+			th_incident_is_not_investigator = yes
 			NOT = { 
 				tag = NET
 				tag = MHG
@@ -518,7 +518,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_cherryblossom.6
@@ -569,9 +569,7 @@ country_event = {
 			remove_ruler_personality = kind_hearted_personality
 			add_ruler_personality = cruel_personality 
 		}
-		hidden_effect = {
-			th_incident_victory_bonus = yes	
-		}
+		th_incident_victory_bonus = yes	
 		
 		ai_chance = { 
 			factor = 20 
@@ -593,9 +591,7 @@ country_event = {
 		name = "th_incidents_cherryblossom.5.c"
 		custom_tooltip = th_incidents_cherryblossom.5.c.tt
 		add_yearly_manpower = -0.25
-		hidden_effect = {
-			th_incident_minor_defeat_bonus = yes
-		}
+		th_incident_minor_defeat_bonus = yes
 		
 		ai_chance = { 
 			factor = 20
@@ -616,9 +612,7 @@ country_event = {
 			}
 		}
 		add_dip_power = 100
-		hidden_effect = {
-			th_incident_minor_victory_bonus = yes
-		}
+		th_incident_minor_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 100
@@ -688,7 +682,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_cherryblossom.7
@@ -721,9 +715,7 @@ country_event = {
 		name = "th_incidents_cherryblossom.6.b"
 		custom_tooltip = th_incidents_cherryblossom.6.b.tt
 		add_years_of_income = -0.75
-		hidden_effect = {
-			th_incident_minor_victory_bonus = yes
-		}
+		th_incident_minor_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 15
@@ -734,9 +726,7 @@ country_event = {
 		name = "th_incidents_cherryblossom.6.c"
 		custom_tooltip = th_incidents_cherryblossom.6.c.tt
 		add_adm_power = 125
-		hidden_effect = {
-			th_incident_defeat_bonus = yes
-		}
+		th_incident_defeat_bonus = yes
 		
 		ai_chance = { 
 			factor = 15
@@ -754,9 +744,7 @@ country_event = {
 		}
 		custom_tooltip = th_incidents_cherryblossom.6.d.tt
 		add_prestige = 25
-		hidden_effect = {
-			th_incident_major_victory_bonus = yes
-		}
+		th_incident_major_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 100
@@ -855,7 +843,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_cherryblossom.8
@@ -900,9 +888,7 @@ country_event = {
 		add_army_tradition = 40
 		add_army_professionalism = 0.5
 		add_mil_power = 200
-		hidden_effect = {
-			th_incident_major_victory_bonus = yes
-		}
+		th_incident_major_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 100 
@@ -919,9 +905,7 @@ country_event = {
 		custom_tooltip = th_incidents_cherryblossom.7.c.tt
 		highlight = yes
 		add_adm_power = 25
-		hidden_effect = {
-			th_incident_major_victory_bonus = yes
-		}
+		th_incident_major_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 100
@@ -946,9 +930,7 @@ country_event = {
 				add_mil_power = 200
 			}
 		}
-		hidden_effect = {
-			th_incident_minor_victory_bonus = yes
-		}
+		th_incident_minor_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 25
@@ -970,9 +952,7 @@ country_event = {
 		}
 		custom_tooltip = th_incidents_cherryblossom.7.e.tt
 		add_legitimacy = 25
-		hidden_effect = {
-			th_incident_victory_bonus = yes
-		}
+		th_incident_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 100
@@ -1049,7 +1029,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_cherryblossom.9
@@ -1089,9 +1069,7 @@ country_event = {
 		custom_tooltip = th_incidents_cherryblossom.8.b.tt
 		highlight = yes
 		add_adm_power = 25
-		hidden_effect = {
-			th_incident_major_victory_bonus = yes
-		}
+		th_incident_major_victory_bonus = yes
 		
 		ai_chance = { 
 			factor = 100
@@ -1161,7 +1139,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_cherryblossom.10
@@ -1354,7 +1332,7 @@ country_event = { #Nothing changes and the Frost will kill us all!
 	trigger = {
 		has_global_flag = th_PCB_incident_end
 		has_country_flag = th_incident_last_fight_terribly_lost
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_global_flag = th_cherry_blossom_incident_solved }
 	}
 	
@@ -1426,7 +1404,7 @@ country_event = { #Nothing changes and the tree blooms
 	
 	trigger = {
 		has_global_flag = th_PCB_incident_end
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_global_flag = th_cherry_blossom_incident_solved }
 		check_variable = {
 			which = th_PCB_inci_goodbad_level
@@ -1540,7 +1518,7 @@ country_event = {
 	
 	trigger = {
 		has_global_flag = th_PCB_incident_end
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_country_flag = th_incident_last_fight_terribly_lost }
 		NOT = { has_global_flag = th_cherry_blossom_incident_solved }
 		check_variable = {
@@ -1644,7 +1622,7 @@ country_event = { #Yuyuko visits the shrine
 			which = th_PCB_inci_goodbad_level
 			value = 10
 		}
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_country_flag = th_incident_last_fight_terribly_lost }
 	}
 	
@@ -1799,7 +1777,15 @@ country_event = { #Yuyuko and Yukari visit the shrine
 			}
 		}
 		add_adm_power = 150
-		add_years_of_income = 2
+		if = {
+			limit = {
+				has_country_flag = th_increased_donations_from_events
+			}
+			add_years_of_income = 3
+		}
+		else = {
+			add_years_of_income = 2
+		}
 		add_prestige = 50
 		add_devotion = 10
 	}
@@ -2030,7 +2016,7 @@ province_event = {
 		add_permanent_province_modifier = {
 			name = th_PCB_hard_winter
 			duration = -1
-			desc = th_PCB_hard_winter.tt
+			desc = th_incident_duration_tt
 		}
 		
 		ai_chance = { 
@@ -2094,7 +2080,7 @@ province_event = {
 		add_permanent_province_modifier = {
 			name = th_PCB_howling_winds
 			duration = -1
-			desc = th_PCB_howling_winds.tt
+			desc = th_incident_duration_tt
 		}
 		
 		ai_chance = { 
@@ -2158,7 +2144,7 @@ province_event = {
 		add_permanent_province_modifier = {
 			name = th_PCB_frozen_land
 			duration = -1
-			desc = th_PCB_frozen_land.tt
+			desc = th_incident_duration_tt
 		}
 		
 		ai_chance = { 
@@ -2220,7 +2206,7 @@ province_event = {
 		add_permanent_province_modifier = {
 			name = th_PCB_permanent_blizzard
 			duration = -1
-			desc = th_PCB_permanent_blizzard.tt
+			desc = th_incident_duration_tt
 		}
 		
 		ai_chance = { 
@@ -2280,7 +2266,7 @@ province_event = {
 		add_permanent_province_modifier = {
 			name = th_PCB_endless_winter
 			duration = -1
-			desc = th_PCB_endless_winter.tt
+			desc = th_incident_duration_tt
 		}
 		
 		ai_chance = { 
@@ -2637,13 +2623,11 @@ country_event = {
 
 	trigger = {
 		calc_true_if = {
-			amount = 20
-			every_owned_province = {
-				limit = {
-					superregion = gensokyo_superregion
-				}
+			all_owned_province = {
+				superregion = gensokyo_superregion
 				has_province_modifier = th_PCB_endless_winter
 			}
+			amount = 20
 		}
 		NOT = { has_country_modifier = th_PCB_the_icy_purge }
 		has_global_flag = th_current_incident_cherry_blossom
@@ -2709,7 +2693,7 @@ country_event = {
 	picture = SHRINE_eventPicture
 	
 	trigger = {
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		any_known_country = { 
 			any_owned_province = {
 				OR = {
@@ -2729,11 +2713,8 @@ country_event = {
 		modifier = {
 			factor = 0.5			
 			calc_true_if = {
-				amount = 15
 				all_province = {
-					limit = {
-						superregion = gensokyo_superregion
-					}
+					superregion = gensokyo_superregion
 					OR = {
 						has_province_modifier = th_PCB_howling_winds
 						has_province_modifier = th_PCB_frozen_land
@@ -2741,6 +2722,7 @@ country_event = {
 						has_province_modifier = th_PCB_endless_winter
 					}
 				}
+				amount = 15
 			}
 		}
 	}
@@ -2858,12 +2840,10 @@ country_event = {
 		
 		if = {
 			limit = {
-				has_country_flag = th_incident_investigating
+				th_incident_is_investigator = yes
 			}
 			custom_tooltip = th_incidents_cherryblossom.37.a.tt
-			hidden_effect = {
-				th_incident_minor_victory_bonus = yes
-			}
+			th_incident_minor_victory_bonus = yes
 		}
 		
 		ai_chance = { 
@@ -2948,12 +2928,10 @@ province_event = {
 		
 		if = {
 			limit = {
-				owner = { has_country_flag = th_incident_investigating }
+				owner = { th_incident_is_investigator = yes }
 			}
 			custom_tooltip = th_incidents_cherryblossom.37.a.tt
-			hidden_effect = {
-				th_incident_minor_victory_bonus = yes
-			}
+			th_incident_minor_victory_bonus = yes
 		}
 		
 		ai_chance = { 

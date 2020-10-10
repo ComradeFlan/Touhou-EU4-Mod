@@ -48,7 +48,8 @@ country_decisions = {
 						}
 					}
 				}
-				religious_school = shinki_school
+				#religious_school = shinki_school
+				add_prestige = 5
 			}
 		}
 		ai_will_do = {
