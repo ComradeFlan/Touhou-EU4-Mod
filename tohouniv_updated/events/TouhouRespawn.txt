@@ -1483,9 +1483,6 @@ country_event = {
 					tag = YAC
 					tag = YOF
 					tag = MKN
-					tag = ORN
-					tag = OKU
-					#tag = LWE
 				}
 			}
 		}

@@ -845,7 +845,7 @@ country_event = {
 	option = {	#Nice
 		name = th_taoism_events.19.a
 		add_stability = 1
-		change_government_reform_progress = 25
+		change_reform_progress_effect = 25		
 		
 		ai_chance = {
 			factor = 50

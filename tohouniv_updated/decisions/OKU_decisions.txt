@@ -24,10 +24,10 @@ country_decisions = {
 				modifier = th_follows_our_religion
 			}
 		}
-		ai_will_do = {
-			factor = 1
+	ai_will_do = {
+		factor = 1
 		}
-		ai_importance = 100
+	ai_importance = 100
 	}
 }
 
