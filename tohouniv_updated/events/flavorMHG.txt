@@ -63,7 +63,7 @@ country_event = {
 			is_subject_of_type = th_yukari_daimyo
 		}
 		overlord = {
-			NOT = { has_reform = TH_puppet_master_reform }
+			NOT = { has_reform = TH_Puppet_Master_reform }
 		}
 	}
 	

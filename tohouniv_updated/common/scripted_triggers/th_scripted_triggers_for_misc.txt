@@ -196,32 +196,3 @@ th_fuj_has_n_volcanos = {
 		value = $value$
 	}
 }
-
-###PLEDGED TO RELIGION###
-th_religious_pledged = {
-	custom_trigger_tooltip = {
-		tooltip = th_pledged_to_religion_tt
-		OR = {
-			has_country_flag = th_pledged_to_religion_to_@$tag$
-			AND = {
-				is_subject_of = $tag$
-				has_country_modifier = th_subjugated_in_penance
-			}
-		}
-	}
-}
-
-###MASKED ILLUSION IS RULER###
-th_ruler_is_a_masked_illusion = {
-	custom_trigger_tooltip = {
-		tooltip = th_ruler_is_a_masked_illusion_tt
-		has_ruler_flag = th_a_feminist_major
-	}
-}
-
-th_ruler_is_not_a_masked_illusion = {
-	custom_trigger_tooltip = {
-		tooltip = th_ruler_is_not_a_masked_illusion_tt
-		NOT = { has_ruler_flag = th_a_feminist_major }
-	}
-}

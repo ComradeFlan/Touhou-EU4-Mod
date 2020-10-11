@@ -98,88 +98,90 @@ country_event = {
 					religion = catholic
 				}
 				set_ruler_flag = touhou_character_ruler
-
-				add_ruler_personality = immortal_personality
-				add_accepted_culture = flemish
-				add_accepted_culture = dutch
-				add_accepted_culture = wallonian
-				add_adm_power = 112
-				add_dip_power = 84
-				add_mil_power = 126
-				add_manpower = 5
-				add_sailors = 100
-				add_prestige = 87
-				set_capital = 90
-				change_estate_land_share = {
-					estate = estate_church
-					share = 20
-				}
-				change_estate_land_share = {
-					estate = estate_burghers
-					share = 20
-				}
-				change_estate_land_share = {
-					estate = estate_nobles
-					share = 29
-				}
-				capital_scope = {
-					build_to_forcelimit = {
-						infantry = 0.6
-						cavalry = 0.3
-						light_ship = 0.4
-						transport = 0.5
+	
+				hidden_effect = {
+					add_ruler_personality = immortal_personality
+					add_accepted_culture = flemish
+					add_accepted_culture = dutch
+					add_accepted_culture = wallonian
+					add_adm_power = 112
+					add_dip_power = 84
+					add_mil_power = 126
+					add_manpower = 5
+					add_sailors = 100
+					add_prestige = 87
+					set_capital = 90
+					change_estate_land_share = {
+						estate = estate_church
+						share = 20
 					}
-				}
+					change_estate_land_share = {
+						estate = estate_burghers
+						share = 20
+					}
+					change_estate_land_share = {
+						estate = estate_nobles
+						share = 29
+					}
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.6
+							cavalry = 0.3
+							light_ship = 0.4
+							transport = 0.5
+						}
+					}
 				iberia_region = {
 					discover_country = FLR
-				}
+					}
 				low_countries_region = {
 					discover_country = FLR
-				}
+					}
 				france_region = {
 					discover_country = FLR
-				}
+					}
 				british_isles_region = {
 					discover_country = FLR
-				}
+					}
 				mediterrenean_region = {
 					discover_country = FLR
-				}	
+					}	
 				carpathia_region = {
 					discover_country = FLR
-				}
+					}
 				balkan_region = {
 					discover_country = FLR
-				}
+					}
 				north_german_region = {
 					discover_country = FLR
-				}
+					}
 				south_german_region = {
 					discover_country = FLR
-				}
+					}
 				italy_region = {
 					discover_country = FLR
-				}
+					}
 				celtic_sea_area = {
 					discover_country = FLR
-				}
+					}
 				english_channel_area = {
 					discover_country = FLR
-				}
+					}
 				bay_of_biscay_area = {
 					discover_country = FLR
-				}
+					}
 				north_sea_area = {
 					discover_country = FLR
-				}
+					}
 				1290 = {
 					discover_country = FLR
-				}
+					}
 				1291 = {
 					discover_country = FLR
-				}
+					}
 				1292 = {
 					discover_country = FLR
+					}
 				}
 			}
 			90 = {
@@ -246,20 +248,24 @@ country_event = {
 	hidden = yes
 
 	immediate = {
-		set_country_flag = flr_flanclone_created
+		hidden_effect = {
+			set_country_flag = flr_flanclone_created
+		}
 	}
 
 	option = {
 		name = flavor_flr.201.a
-		country_event = {  		#Clear event after 30 years
-			id = flavor_net.202
-			days = 10950
+		}
+		hidden_effect = {
+			country_event = {  		#Clear event after 30 years
+				id = flavor_net.202
+				days = 10950
+			}
 		}
 
 		ai_chance = { 
 			factor = 100
 		}
-	}
 }
 
 
@@ -292,11 +298,11 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 	
-	immediate = {
+		immediate = {
 		set_country_flag = pragmatic_sanction
 	}
 	
-	option = {
+		option = {
 		name = "flavor_flr.3.a"
 		set_allow_female_emperor = yes
 	}
@@ -313,12 +319,11 @@ country_event = {
 	
 	option = {
 		name = flavor_flr.31.a
-
-		add_country_modifier = {
+			add_country_modifier = {
 			name = th_FLR_logic_power
 			duration = 7300
+			}
 		}
-	}
 }
 
 country_event = {
@@ -691,6 +696,10 @@ country_event = {
 				subject_type = personal_union
 				subject = SCR
 			}
+		
+			ai_chance = { 
+				factor = 100
+			}
 		}
 		else_if = {
 			limit = { exists = SCD }
@@ -698,10 +707,10 @@ country_event = {
 				subject_type = personal_union
 				subject = SCD
 			}
-		}
 		
-		ai_chance = { 
-			factor = 100
+			ai_chance = { 
+				factor = 100
+			}
 		}
 	}
 }

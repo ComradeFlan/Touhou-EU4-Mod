@@ -193,7 +193,7 @@ country_event = {
 				add_country_modifier = {
 					name = th_EN_fake_moon_negative
 					duration = -1
-					desc = th_incident_duration_tt
+					desc = th_EN_fake_moon_negative_tooltip
 				}
 			}
 			clr_global_flag = th_EN_inci_setup_flag
@@ -287,7 +287,7 @@ country_event = {
 	option = {		#We should investigate this strange moon.
 		name = "th_incidents_eternalnight.400.a"
 		trigger = {
-			th_incident_is_investigator = yes
+			has_country_flag = th_incident_investigating
 		}
  		custom_tooltip = th_incidents_eternalnight.400.a.tt
 		highlight = yes	
@@ -320,7 +320,7 @@ country_event = {
 	option = {		#I don`t want to investigate the incident.For minor character who was chosen the first investigator
 		name = "th_incidents_eternalnight.400.b"
 		trigger = {
-			th_incident_is_investigator = yes
+			has_country_flag = th_incident_investigating
 			th_is_not_major_main_character = yes
 			th_is_not_minor_main_character = yes
 			any_known_country = {	#must have another eligible investigator country
@@ -349,7 +349,7 @@ country_event = {
 	option = {		#I shall be the first investigator!For main character player who was not chosen the first investigator
 		name = "th_incidents_eternalnight.400.c"
 		trigger = {
-			th_incident_is_not_investigator = yes
+			NOT = { has_country_flag = th_incident_investigating }
 			OR = {
 				tag = HKR
 				tag = FOM
@@ -368,7 +368,7 @@ country_event = {
 		hidden_effect = {
 			every_known_country = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				clr_country_flag = th_incident_investigating
 			}
@@ -383,7 +383,7 @@ country_event = {
 	option = {		#Well, let it be.
 		name = "th_incidents_eternalnight.400.d"	
 		trigger = {
-			th_incident_is_not_investigator = yes
+			NOT = { has_country_flag = th_incident_investigating }
 			NOT = { 
 				tag = EIT
 				tag = FUJ
@@ -527,7 +527,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.3
@@ -560,7 +560,9 @@ country_event = {
 		name = "th_incidents_eternalnight.2.b"
 		custom_tooltip = th_incidents_eternalnight.2.b.tt
 		add_prestige = -5
-		th_incident_minor_defeat_bonus = yes
+		hidden_effect = {
+			th_incident_minor_defeat_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 20
@@ -571,7 +573,9 @@ country_event = {
 		name = "th_incidents_eternalnight.2.c"
 		custom_tooltip = th_incidents_eternalnight.2.c.tt
 		th_incident_cruel_decision = yes
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 20
@@ -655,7 +659,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.4
@@ -691,7 +695,9 @@ country_event = {
 		}
 		custom_tooltip = th_incidents_eternalnight.3.b.tt
 		add_prestige = 15
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 15
@@ -712,7 +718,9 @@ country_event = {
 				duration = 1825
 			}
 		}
-		th_incident_major_victory_bonus = yes
+		hidden_effect = {
+			th_incident_major_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 100
@@ -729,7 +737,9 @@ country_event = {
 		}
 		custom_tooltip = th_incidents_eternalnight.3.d.tt
 		add_dip_power = -25
-		th_incident_victory_bonus = yes
+		hidden_effect = {
+			th_incident_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 100
@@ -740,7 +750,9 @@ country_event = {
 		name = "th_incidents_eternalnight.3.e"
 		custom_tooltip = th_incidents_eternalnight.3.e.tt
 		add_dip_power = 50
-		th_incident_defeat_bonus = yes
+		hidden_effect = {
+			th_incident_defeat_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 15
@@ -751,7 +763,9 @@ country_event = {
 		name = "th_incidents_eternalnight.3.f"
 		custom_tooltip = th_incidents_eternalnight.3.f.tt
 		add_treasury = -150
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 20
@@ -768,7 +782,9 @@ country_event = {
 		}
 		custom_tooltip = th_incidents_eternalnight.3.g.tt
 		add_adm_power = 50
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 15
@@ -857,7 +873,7 @@ country_event = {
 						tag = SCR
 						tag = SCD
 					}
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.51  #Reimu encountered
@@ -872,7 +888,7 @@ country_event = {
 						tag = NET
 						tag = NMG		
 					}
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.52  #Marisa encountered
@@ -881,7 +897,7 @@ country_event = {
 			}
 			else_if = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				random_list = {
 					50 = {
@@ -977,7 +993,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.6
@@ -1010,7 +1026,9 @@ country_event = {
 		name = "th_incidents_eternalnight.51.b"
 		custom_tooltip = th_incidents_eternalnight.51.b.tt
 		add_treasury = -2000
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 25 
@@ -1035,7 +1053,9 @@ country_event = {
 			}
 		}
 		add_adm_power = 50
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 100
@@ -1109,7 +1129,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.6
@@ -1144,7 +1164,9 @@ country_event = {
 		add_adm_power = -150
 		add_dip_power = -150
 		add_mil_power = -150
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 25 
@@ -1169,7 +1191,9 @@ country_event = {
 			}
 		}
 		add_adm_power = 50
-		th_incident_minor_victory_bonus = yes
+		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
+		}
 		
 		ai_chance = { 
 			factor = 100
@@ -1216,7 +1240,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.71
@@ -1317,7 +1341,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					th_incident_is_investigator = yes
+					has_country_flag = th_incident_investigating
 				}
 				country_event = {
 					id = th_incidents_eternalnight.72
@@ -1438,7 +1462,7 @@ country_event = {
 			has_country_flag = th_incident_last_fight_lost
 		}
 		NOT = { has_country_flag = th_just_finished_danmaku_fight }
-		th_incident_is_investigator = yes
+		has_country_flag = th_incident_investigating
 	}	
 
 	mean_time_to_happen = {
@@ -1492,7 +1516,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_EN_fake_moon_continues
-					duration = 1825
+					duration = 5475
 				}
 			}
 		}
@@ -1512,7 +1536,7 @@ country_event = {
 	trigger = {
 		has_global_flag = th_EN_incident_end
 		has_country_flag = th_incident_last_fight_terribly_lost
-		th_incident_is_investigator = yes
+		has_country_flag = th_incident_investigating
 		NOT = { has_global_flag = th_eternal_night_incident_solved }
 		NOT = { has_country_flag = th_just_finished_danmaku_fight }
 	}
@@ -1568,7 +1592,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_EN_fake_moon_continues
-					duration = 1825
+					duration = 5475
 				}
 			}
 		}
@@ -1588,7 +1612,7 @@ country_event = {
 	trigger = {
 		has_global_flag = th_EN_inci_kaguya_encountered
 		has_global_flag = th_EN_incident_end
-		th_incident_is_investigator = yes
+		has_country_flag = th_incident_investigating
 		NOT = { has_country_flag = th_just_finished_danmaku_fight }
 		NOT = { has_global_flag = th_eternal_night_incident_solved }
 		check_variable = {
@@ -1655,7 +1679,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_EN_fake_moon_continues
-					duration = 1825
+					duration = 5475
 				}
 			}
 		}
@@ -1721,7 +1745,7 @@ country_event = {
 		has_global_flag = th_EN_inci_kaguya_encountered
 		has_global_flag = th_EN_incident_end
 		NOT = { has_country_flag = th_just_finished_danmaku_fight }
-		th_incident_is_investigator = yes
+		has_country_flag = th_incident_investigating
 		NOT = { has_country_flag = th_incident_last_fight_terribly_lost }
 		NOT = { has_global_flag = th_eternal_night_incident_solved }
 		check_variable = {
@@ -1753,8 +1777,8 @@ country_event = {
 	major = yes
 	
 	option = {		#Finally, it's over.
-		name = "th_incidents_eternalnight.12.a"
-		custom_tooltip = th_incidents_eternalnight.12.a.tt
+		name = "th_incidents_eternalnight.10.a"
+		custom_tooltip = th_incidents_eternalnight.10.a.tt
 		if = {
 			limit = {
 				OR = {
@@ -1851,7 +1875,7 @@ country_event = {	#Kaguya invited heroines to Eientei and enjoy the night of ful
 			which = th_EN_inci_goodbad_level
 			value = 10
 		}
-		th_incident_is_investigator = yes
+		has_country_flag = th_incident_investigating
 		NOT = { has_country_flag = th_incident_last_fight_terribly_lost }
 		NOT = { has_global_flag = th_eternal_night_incident_solved }
 	}
@@ -2038,15 +2062,7 @@ country_event = { #Kaguya and Mokou visit the shrine
 			}
 		}
 		add_adm_power = 150
-		if = {
-			limit = {
-				has_country_flag = th_increased_donations_from_events
-			}
-			add_years_of_income = 3
-		}
-		else = {
-			add_years_of_income = 2
-		}
+		add_years_of_income = 2
 		add_prestige = 50
 		add_devotion = 10
 	}
@@ -2081,7 +2097,7 @@ country_event = {
 		add_country_modifier = {
 			name = "th_EN_fake_moon_negative"
 			duration = -1
-			desc = th_incident_duration_tt
+			desc = th_EN_fake_moon_negative.tooltip
 		}
 		ai_chance = {
 			factor = 100
@@ -2446,9 +2462,12 @@ province_event = {
 		
 		if = {
 			limit = {
-				owner = { th_incident_is_investigator = yes }
+				owner = { has_country_flag = th_incident_investigating }
 			}
-			th_incident_minor_victory_bonus = yes
+			custom_tooltip = th_incidents_eternalnight.21.a.tt
+			hidden_effect = {
+				th_incident_minor_victory_bonus = yes
+			}
 		}
 		
 		ai_chance = { 
@@ -2502,7 +2521,7 @@ country_event = {
 				tag = GNK
 				has_reform = Gensokyan_shrine_theocracy
 			}
-			th_incident_is_investigator = yes
+			has_country_flag = th_incident_investigating
 		}
 		any_known_country = { 
 			any_owned_province = {
@@ -2599,10 +2618,12 @@ country_event = {
 		
 		if = {
 			limit = {
-				th_incident_is_investigator = yes
+				has_country_flag = th_incident_investigating
 			}
 			custom_tooltip = th_incidents_eternalnight.25.a.tt
-			th_incident_minor_victory_bonus = yes
+			hidden_effect = {
+				th_incident_minor_victory_bonus = yes
+			}
 		}
 		
 		ai_chance = { 
@@ -2654,7 +2675,7 @@ country_event = {
 	
 	trigger = {
 		has_global_flag = th_EN_inci_keine_encountered
-		th_incident_is_investigator = yes
+		has_country_flag = th_incident_investigating
 		NOT = { has_global_flag = th_EN_inci_lengthened_night }
 	}
 	
@@ -2939,7 +2960,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_EN_fake_moon_continues
-					duration = 1825
+					duration = 5475
 				}
 			}
 		}
@@ -2968,7 +2989,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_EN_fake_moon_continues
-					duration = 1825
+					duration = 5475
 				}
 			}
 		}
@@ -2995,7 +3016,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_EN_fake_moon_continues
-					duration = 1825
+					duration = 5475
 				}
 			}
 		}

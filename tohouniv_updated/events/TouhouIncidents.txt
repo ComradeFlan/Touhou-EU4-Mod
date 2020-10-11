@@ -41,8 +41,9 @@ country_event = {
 	
 	option = {
 		name = "th_incidents_event.2.a"
-		th_incident_major_victory_bonus = yes
+		custom_tooltip = th_incidents_event.2.tt
 		hidden_effect = {
+			th_incident_major_victory_bonus = yes
 			set_country_flag = th_incident_last_fight_won
 			clr_country_flag = th_incident_last_fight_lost
 			clr_country_flag = th_incident_last_fight_terribly_lost 
@@ -71,8 +72,9 @@ country_event = {
 	
 	option = {
 		name = "th_incidents_event.3.a"
-		th_incident_victory_bonus = yes
+		custom_tooltip = th_incidents_event.3.tt
 		hidden_effect = {
+			th_incident_victory_bonus = yes
 			set_country_flag = th_incident_last_fight_won
 			clr_country_flag = th_incident_last_fight_lost
 			clr_country_flag = th_incident_last_fight_terribly_lost
@@ -100,8 +102,9 @@ country_event = {
 
 	option = {
 		name = "th_incidents_event.4.a"
-		th_incident_minor_victory_bonus = yes
+		custom_tooltip = th_incidents_event.4.tt
 		hidden_effect = {
+			th_incident_minor_victory_bonus = yes
 			set_country_flag = th_incident_last_fight_won
 			clr_country_flag = th_incident_last_fight_lost
 			clr_country_flag = th_incident_last_fight_terribly_lost
@@ -128,8 +131,9 @@ country_event = {
 
 	option = {
 		name = "th_incidents_event.5.a"
-		th_incident_minor_defeat_bonus = yes
+		custom_tooltip = th_incidents_event.5.tt
 		hidden_effect = {
+			th_incident_minor_defeat_bonus = yes
 			clr_country_flag = th_incident_last_fight_won
 			set_country_flag = th_incident_last_fight_lost
 			clr_country_flag = th_incident_last_fight_terribly_lost
@@ -156,8 +160,9 @@ country_event = {
 
 	option = {
 		name = "th_incidents_event.6.a"
-		th_incident_defeat_bonus = yes
+		custom_tooltip = th_incidents_event.6.tt
 		hidden_effect = {
+			th_incident_defeat_bonus = yes
 			clr_country_flag = th_incident_last_fight_won
 			clr_country_flag = th_incident_last_fight_lost
 			set_country_flag = th_incident_last_fight_terribly_lost
@@ -243,7 +248,6 @@ country_event = {
 	trigger = {
 		NOT = { has_country_flag = th_eligible_investigator }
 		has_global_flag = th_active_incident
-		NOT = { has_global_flag = th_current_incident_mountain_of_faith }
 		capital_scope = {
 			superregion = gensokyo_superregion
 		}
@@ -682,34 +686,6 @@ country_event = {
 	}
 }
 
-#General Incident - Get the current investigator
-country_event = {
-	id = th_incidents_event.27
-	title = "th_incidents_event.27.t"
-	desc = {
-		trigger = {
-			th_incident_is_not_investigator = yes
-		}
-		desc = "th_incidents_event.27.desc.1"
-	}
-	desc = {
-		trigger = {
-			th_incident_is_investigator = yes
-		}
-		desc = "th_incidents_event.27.desc.2"
-	}
-	picture = YUKARI_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {		#I've got it
-		name = "th_incidents_event.27.a"
-		event_target:th_incident_investigator = {
-			custom_tooltip = th_incidents_event.27.a.tt
-		}
-	}
-}
-
 
 
 #General Incident - Danamku Type List
@@ -729,14 +705,6 @@ country_event = {
 	option = {		#I want to hear more about diplo danmaku fights
 		name = "th_incidents_event.100.b"
 		country_event = { id = th_incidents_event.26 }
-	}
-	
-	option = {		#Actually, I want to know more about the current investigator
-		name = "th_incidents_event.100.c"
-		trigger = {
-			th_incident_has_incident_active = yes
-		}
-		country_event = { id = th_incidents_event.27 }
 	}
 	
 	option = {		#Sorry, I misclicked

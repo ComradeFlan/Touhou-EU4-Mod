@@ -28,17 +28,23 @@ country_decisions = {
 					name = "th_remilia_and_flandres_help"
 					duration = -1
 				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    				}
+				}
 			}
 			else = {				
 				add_country_modifier = {
 					name = "th_remilias_help"
 					duration = -1
 				}
-			}
-			hidden_effect = {
-				change_variable = {
-					which = th_hkr_incident_counter
-					value = 1
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    				}
 				}
 			}
 		}
@@ -85,17 +91,23 @@ country_decisions = {
 					name = "th_yuyuko_and_yukaris_help"
 					duration = -1
 				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    					}
+				}
 			}
 			else = {				
 				add_country_modifier = {
 					name = "th_yuyukos_help"
 					duration = -1
 				}
-			}
-			hidden_effect = {
-				change_variable = {
-					which = th_hkr_incident_counter
-					value = 1
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    					}
 				}
 			}
 		}
@@ -142,17 +154,23 @@ country_decisions = {
 					name = "th_kaguya_and_mokous_help"
 					duration = -1
 				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+					}
+				}
 			}
 			else = {				
 				add_country_modifier = {
 					name = "th_kaguyas_help"
 					duration = -1
 				}
-			}
-			hidden_effect = {
-				change_variable = {
-					which = th_hkr_incident_counter
-					value = 1
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    				}
 				}
 			}
 		}
@@ -199,17 +217,23 @@ country_decisions = {
 					name = "th_kanako_and_suwakos_help"
 					duration = -1
 				}
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+					}
+				}
 			}
 			else = {				
 				add_country_modifier = {
 					name = "th_kanakos_help"
 					duration = -1
 				}
-			}
-			hidden_effect = {
-				change_variable = {
-					which = th_hkr_incident_counter
-					value = 1
+				hidden_effect = {
+					change_variable = {
+						which = th_hkr_incident_counter
+						value = 1
+    				}
 				}
 			}
 		}
@@ -220,7 +244,7 @@ country_decisions = {
 				factor = 0
 				check_variable = {
 					which = th_hkr_incident_counter
-					value = 3
+						value = 3
 				}
 			}
 		}
@@ -248,15 +272,16 @@ country_decisions = {
 		}
 
 		effect = {
-			remove_country_modifier = th_remilias_help
-			remove_country_modifier = th_remilia_and_flandres_help
-			remove_country_modifier = th_yuyukos_help
-			remove_country_modifier = th_yuyuko_and_yukaris_help
-			remove_country_modifier = th_kaguyas_help
-			remove_country_modifier = th_kaguya_and_mokous_help
-			remove_country_modifier = th_kanakos_help
-			remove_country_modifier = th_kanako_and_suwakos_help
+			custom_tooltip = hkr_clear_all_help_tt
 			hidden_effect = {
+				remove_country_modifier = th_remilias_help
+				remove_country_modifier = th_remilia_and_flandres_help
+				remove_country_modifier = th_yuyukos_help
+				remove_country_modifier = th_yuyuko_and_yukaris_help
+				remove_country_modifier = th_kaguyas_help
+				remove_country_modifier = th_kaguya_and_mokous_help
+				remove_country_modifier = th_kanakos_help
+				remove_country_modifier = th_kanako_and_suwakos_help
 				set_variable = {
 					which = th_hkr_incident_counter
 					value = 0

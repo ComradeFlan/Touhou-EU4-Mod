@@ -609,14 +609,13 @@ th_religious_tributary = {
 	diplomacy_subject_sprite = GFX_diplomacy_amtributary
 
 	# Properties:
-	has_power_projection = yes
 	transfer_trade_if_merchant_republic = no
 	joins_overlords_wars = no
 	joins_colonial_wars = no
 	can_be_annexed = no
 	takes_diplo_slot = no
 	uses_military_focus = no
-	overlord_can_fabricate_for = yes
+	overlord_can_fabricate_for = no
 	can_send_tribute = yes
 
 	trust_on_start = 0
@@ -628,21 +627,6 @@ th_religious_tributary = {
 	relative_power_class = 1	
 	overlord_opinion_modifier = is_tributary
 	subject_opinion_modifier = is_tributary
-	
-	can_rival = {
-		independent_nations = yes
-		same_overlord = th_religious_tributary
-		other_overlord = all
-	}
-	can_ally = {
-		independent_nations = yes
-		same_overlord = th_religious_tributary
-	}
-	can_marry = {
-		independent_nations = yes
-		same_overlord = th_religious_tributary
-		other_overlord = all
-	}
 
 	# Subject Interactions:
 	# (immediate)

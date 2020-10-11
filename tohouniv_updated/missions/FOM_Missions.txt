@@ -1113,7 +1113,7 @@ fom_on_the_hunt_after_immortality_slot = {
 			owns_core_province = 4823
 			owns_core_province = 4811
 		}
-		effect = {
+		effect = {			
 			add_mercantilism = 5
 			add_stability = 6
 			add_prestige = 200

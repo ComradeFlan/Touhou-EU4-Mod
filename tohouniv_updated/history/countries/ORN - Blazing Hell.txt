@@ -2,13 +2,12 @@ government = monarchy
 add_government_reform = Gensokyan_monarchy
 government_rank = 1
 primary_culture = Chireidean
+add_accepted_culture = Oni_culture
 religion = Gensokyan
 technology_group = tech_gensokyan
 capital = 5140 #HellCat's Resting Place
 historical_friend = OKU
 historical_friend = CRD
-historical_friend = SCD
-
 1443.1.1 = {
     monarch = {
         name = "Kaenbyou"

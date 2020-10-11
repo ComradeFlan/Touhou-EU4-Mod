@@ -20,12 +20,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 4803
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -35,9 +29,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -69,12 +60,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 4837
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -84,9 +69,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -123,12 +105,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 4830
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -138,9 +114,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -172,12 +145,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 4980
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -187,9 +154,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -221,12 +185,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 4982
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -236,9 +194,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -263,12 +218,6 @@ Touhou = {
 			can_invite_scholar = {
 				adm_power = 50
 				NOT = { has_country_modifier = th_junko_scholar_modifier }
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -278,9 +227,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -317,12 +263,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 4839
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -332,9 +272,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -366,12 +303,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 5062
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -381,9 +312,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -415,12 +343,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 5090
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -430,9 +352,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
@@ -464,12 +383,6 @@ Touhou = {
 					}
 					owns_or_non_sovereign_subject_of = 5035
 				}
-				if = {
-					limit = {
-						ai = yes
-					}
-					NOT = { has_country_modifier = th_ai_picked_scholar }
-				}
 			}
 
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
@@ -479,9 +392,6 @@ Touhou = {
 						ai = no
 					}
 					add_adm_power = -50
-				}
-				else = {
-					add_country_modifier = { name = th_ai_picked_scholar duration = 7300 hidden = yes }
 				}
 				th_clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
