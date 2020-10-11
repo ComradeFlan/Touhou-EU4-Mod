@@ -34,7 +34,6 @@ OKR = "countries/Meira's Realm.txt"		#done
 YUM = "countries/Okazi Realm.txt"		#done
 TFR = "countries/Sangetsusei.txt"		#done
 LIL = "countries/Lily's Town.txt"		#done
-LWE = "countries/Crown Of Spring.txt"
 LAR = "countries/Larva's Realm.txt"		#done
 AKI = "countries/Aki Realm.txt"			#done
 ONI = "countries/Oni Realm.txt"			#done

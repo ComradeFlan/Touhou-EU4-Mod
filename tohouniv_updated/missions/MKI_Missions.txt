@@ -336,13 +336,15 @@ mki_missions_empire_slot = {
 		icon = mission_touhou_shinki
 		required_missions = { MKI_capture_mugetsu  MKI_capture_ruukoto  MKI_capture_sakuya  MKI_capture_vivit }
 		position = 10
-		custom_trigger_tooltip = {
-			tooltip = mki_all_maids_assembled_tooltip
-			check_variable = {
-				which = mki_maids_counter
-				value = 4
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = MKI_all_maids_assembled_tooltip
+				check_variable = {
+					which = mki_maids_counter
+					value = 4
 				}
 			}
+		}
 		effect = {
 			add_country_modifier = {
 				name = mki_all_maids_assembled
@@ -442,7 +444,7 @@ mki_missions_expand_slot = {
 		provinces_to_highlight = {
 			OR = {
 				area = World_of_fantasies
-				area = Konngaras_state			
+				area = Konngaras_state		
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -454,7 +456,6 @@ mki_missions_expand_slot = {
 					OR = {
 						area = World_of_fantasies
 						area = Konngaras_state		
-						area = Yumemi_space_state	
 					}
 				}
 				owns_or_subject_of = 4881

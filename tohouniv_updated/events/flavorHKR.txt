@@ -9,7 +9,7 @@ country_event = {
 	id = flavor_hkr.1
 	title = flavor_hkr.1.t
 	desc = flavor_hkr.1.desc
-	picture = LIBERUM_VETO_eventPicture
+	picture = HAKUREIGOD_eventPicture
 	
 	fire_only_once = yes
 	
@@ -48,7 +48,7 @@ country_event = {
 	id = flavor_hkr.2
 	title = flavor_hkr.2.t
 	desc = flavor_hkr.2.desc
-	picture = LIBERUM_VETO_eventPicture
+	picture = HAKUREIGOD_eventPicture
 	
 	trigger = {
 		OR = {
@@ -57,7 +57,7 @@ country_event = {
 		}
 		check_variable = {
 			which = th_hkr_incident_counter
-    			value = 4
+    		value = 4
 		}
 	}
 
@@ -70,7 +70,7 @@ country_event = {
 			subtract_variable = {
 				which = th_hkr_incident_counter
 				value = 1
-    			}
+    		}
 		}
 	}
 
@@ -82,7 +82,6 @@ country_event = {
 				has_country_modifier = th_remilia_and_flandres_help
 			}
 		}		
-		custom_tooltip = flavor_hkr.2.a.tt
 		if = {
 			limit = {
 				has_country_modifier = th_remilias_help
@@ -108,8 +107,7 @@ country_event = {
 				has_country_modifier = th_yuyukos_help
 				has_country_modifier = th_yuyuko_and_yukaris_help
 			}
-		}		
-		custom_tooltip = flavor_hkr.2.b.tt
+		}
 		if = {
 			limit = {
 				has_country_modifier = th_yuyukos_help
@@ -135,8 +133,7 @@ country_event = {
 				has_country_modifier = th_kaguyas_help
 				has_country_modifier = th_kaguya_and_mokous_help
 			}
-		}		
-		custom_tooltip = flavor_hkr.2.c.tt
+		}
 		if = {
 			limit = {
 				has_country_modifier = th_kaguyas_help
@@ -155,55 +152,29 @@ country_event = {
 		}
 	}
 
-	option = { #test
+	option = { #Sanae
 		name = flavor_hkr.2.d
 		trigger = {
-			NOT = {
-				has_country_modifier = th_remilias_help
-				has_country_modifier = th_remilia_and_flandres_help
-				has_country_modifier = th_yuyukos_help
-				has_country_modifier = th_yuyuko_and_yukaris_help
-				has_country_modifier = th_kaguyas_help
-				has_country_modifier = th_kaguya_and_mokous_help
+			OR = {
+				has_country_modifier = th_kanakos_help
+				has_country_modifier = th_kanako_and_suwakos_help
 			}
 		}
-
-		ai_chance = { 
-			factor = 0
-		}
-	}
-}
-
-#Mission events#
-
-#Beating Tenshi up
-country_event = {
-	id = flavor_hkr.3
-	title = flavor_hkr.3.t
-	desc = flavor_hkr.3.desc
-	picture = LIBERUM_VETO_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = flavor_hkr.3.a
-		custom_tooltip = flavor_hkr.3.a.tt
-		hidden_effect = {
-			every_known_country = {
-				limit = {
-					religion = ROOT
-					NOT = { tag = HVR }
-					NOT = { alliance_with = HVR }
-				}
-				add_opinion = {
-					who = ROOT
-					modifier = th_beat_tenshi_up
-				}
+		if = {
+			limit = {
+				has_country_modifier = th_kanakos_help
 			}
+			remove_country_modifier = th_kanakos_help
 		}
-		
+		if = {
+			limit = {
+				has_country_modifier = th_kanako_and_suwakos_help
+			}
+			remove_country_modifier = th_kanako_and_suwakos_help
+		}			
+	
 		ai_chance = { 
-			factor = 100
+			factor = 33
 		}
 	}
 }
@@ -213,16 +184,9 @@ country_event = {
 	id = flavor_hkr.4
 	title = flavor_hkr.4.t
 	desc = flavor_hkr.4.desc
-	picture = LIBERUM_VETO_eventPicture   #Need a picture of Suika
+	picture = SUIKA_eventPicture   #Need a picture of Suika
 	
 	fire_only_once = yes
-
-	trigger = {
-		tag = HKR
-		NOT = { was_tag = OKR }
-		is_year = 1493
-		NOT = { has_global_flag = th_active_incident }
-	}	
 
 	immediate = {
 		hidden_effect = {
@@ -230,14 +194,7 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 12
-
-		modifier = {
-			factor = 0.1
-			is_year = 1499
-		}
-	}
+	is_triggered_only = yes
 
 	option = { #Let Suika be a general
 		name = flavor_hkr.4.a
@@ -250,6 +207,10 @@ country_event = {
 			name = "Suika Ibuki"
 			female = yes
 		}
+		4905 = {
+			change_culture = Oni_culture
+		}
+		add_accepted_culture = Oni_culture
 		hidden_effect = {
 			set_country_flag = hkr_suika_general       #Has chosen Suika to be general
 			set_country_flag = hkr_suika_general_unavailable   #Currently unavailable to call Suika again
@@ -293,6 +254,10 @@ country_event = {
 			name = th_suikas_help
 			duration = 36500
 		}
+		4905 = {
+			change_culture = Oni_culture
+		}
+		add_accepted_culture = Oni_culture
 
 		ai_chance = { 
 			factor = 50
@@ -305,7 +270,7 @@ country_event = {
 	id = flavor_hkr.400
 	title = flavor_hkr.400.t
 	desc = flavor_hkr.400.desc
-	picture = LIBERUM_VETO_eventPicture   #Need a picture of Suika
+	picture = SUIKA_eventPicture   #Need a picture of Suika
 
 	is_triggered_only = yes
 
@@ -332,16 +297,20 @@ country_event = {
 	id = flavor_hkr.5
 	title = flavor_hkr.5.t
 	desc = flavor_hkr.5.desc
-	picture = LIBERUM_VETO_eventPicture   #Need a picture of Suika
+	picture = SUIKAMIKO_eventPicture   #Need a picture of Suika
 	
 	fire_only_once = yes
 
 	trigger = {
 		had_country_flag = {
 			flag = hkr_met_suika
-			days = 1095
+			days = 10950
 		}
-	}	
+	}
+
+	immediate = {
+		clr_country_flag = hkr_met_suika
+	}
 	
 	mean_time_to_happen = {
 		months = 1
@@ -358,7 +327,6 @@ country_event = {
 
 	option = { #Let Suika be Reimu's heir
 		name = flavor_hkr.5.b
-		custom_tooltip = flavor_hkr.5.b.tt
 		define_heir = {
 			name = "Suika"
 			dynasty = "Ibuki"
@@ -382,7 +350,6 @@ country_event = {
 
 	option = { #Let Suika be the ruler right away
 		name = flavor_hkr.5.c
-		custom_tooltip = flavor_hkr.5.c.tt
 		define_ruler = {
 			name = "Suika"
 			dynasty = "Ibuki"
@@ -411,7 +378,7 @@ country_event = {
 	id = flavor_hkr.6
 	title = flavor_hkr.6.t
 	desc = flavor_hkr.6.desc
-	picture = LIBERUM_VETO_eventPicture   #Need a picture of Suika in miko's cloth
+	picture = SUIKAMIKO_eventPicture   #Need a picture of Suika in miko's cloth
 	
 	fire_only_once = yes
 
@@ -456,7 +423,7 @@ country_event = {
 	id = flavor_hkr.7
 	title = flavor_hkr.7.t
 	desc = flavor_hkr.7.desc
-	picture = LIBERUM_VETO_eventPicture   #Need a picture of Suika in miko's cloth
+	picture = SADSUIKA_eventPicture   #Need a picture of Suika in miko's cloth
 
 	trigger = {
 		has_ruler_flag = HKR_suika_in_charge
@@ -488,13 +455,12 @@ country_event = {
 	id = flavor_hkr.102
 	title = flavor_hkr.102.t
 	desc = flavor_hkr.102.desc
-	picture = HAKUREI_eventPicture
+	picture = HAKUREIGOD_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		has_ruler = "Reimu"
-		dynasty = "Hakurei"
+		has_ruler_flag = th_current_ruler_reimu_hakurei
 		has_global_flag = th_incident_setting_finished
 		NOT = { has_global_flag = th_deactivated_incidents }
 	}	
@@ -519,19 +485,19 @@ country_event = {
 	id = flavor_hkr.103
 	title = flavor_hkr.103.t
 	desc = flavor_hkr.103.desc
-	picture = HAKUREI_eventPicture
+	picture = HAKUREIGOD_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		has_ruler = "Reimu"
-		dynasty = "Hakurei"
+		has_ruler_flag = th_current_ruler_reimu_hakurei
 		ruler_has_personality = immortal_personality
 		#all incident has been solved
 		has_global_flag = th_scarlet_mists_incident_solved
 		has_global_flag = th_cherry_blossom_incident_solved
 		has_global_flag = th_eternal_night_incident_solved
 		has_global_flag = th_mountain_of_faith_incident_solved
+		NOT = { has_country_modifier = hkr_blessed_by_hakurei }
 	}	
 	
 	mean_time_to_happen = {
@@ -544,6 +510,610 @@ country_event = {
 
 		ai_chance = { 
 			factor = 100
+		}
+	}
+}
+
+
+
+#Mission events#
+
+#Beating Tenshi up
+country_event = {
+	id = flavor_hkr.10
+	title = flavor_hkr.10.t
+	desc = flavor_hkr.10.desc
+	picture = TENSHI_eventPicture	
+	
+	trigger = {
+		calc_true_if = {
+			all_province = {
+				OR = {
+					area = Dragon_islands
+					area = Eastern_dragon_islands
+					area = Western_dragon_islands
+				}
+				owner = {
+					religion = ROOT
+				}
+			}
+			amount = 8
+		}
+		4880 = {
+			religion = ROOT
+		}
+		NOT = { was_tag = OKR }
+		OR = {
+			tag = HKR
+			was_tag = HKR
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = flavor_hkr.10.a
+		custom_tooltip = flavor_hkr.10.a.tt
+		hidden_effect = {
+			every_known_country = {
+				limit = {
+					religion = ROOT
+					NOT = { tag = HVR }
+					NOT = { alliance_with = HVR }
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = th_beat_tenshi_up
+				}
+			}
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+#Integrate Yukari
+country_event = {
+	id = flavor_hkr.11
+	title = flavor_hkr.11.t
+	desc = flavor_hkr.11.desc
+	picture = YUKARI2_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_hkr.11.a
+		if = {
+			limit = {
+				MHG = {
+					is_subject_of = ROOT
+				}
+			}
+			add_historical_friend = MHG
+			MHG = {
+				add_historical_friend = ROOT
+			}
+		}		
+		add_country_modifier = {
+			name = hkr_barrier_team
+			duration = 9125
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+#Sake Gift of the Miko
+country_event = {
+	id = flavor_hkr.12
+	title = flavor_hkr.12.t
+	desc = flavor_hkr.12.desc
+	picture = SUIKA_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_hkr.12.a
+		custom_tooltip = th_hkr_sake_production_tt
+		hidden_effect = {
+			set_country_flag = th_hkr_sake_production
+		}
+		4905 = {
+			add_permanent_province_modifier = {
+				name = hkr_sake_production
+				duration = -1
+			}
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+#Break of the Curse!
+country_event = {
+	id = flavor_hkr.13
+	title = flavor_hkr.13.t
+	desc = flavor_hkr.13.desc
+	picture = HAKUREIGOD_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_hkr.13.a
+		custom_tooltip = hkr_appealed_hakurei_god_tt
+		hidden_effect = {
+			set_country_flag = hkr_appealed_hakurei_god
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+#Immortal Reimu
+country_event = {
+	id = flavor_hkr.14
+	title = "flavor_hkr.14.t"
+	desc = "flavor_hkr.14.desc"
+	picture = HAKUREIGOD_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	#Reimu shall return forever!
+		name = flavor_hkr.14.a
+
+		trigger = {
+			NOT = { has_ruler_flag = th_current_ruler_reimu_hakurei }
+		}
+		
+		define_ruler = {
+			name = "Reimu"
+			dynasty = "Hakurei"
+			adm = 6
+			dip = 6
+			mil = 6
+			age = 20
+			culture = ROOT
+			religion = ROOT
+			claim = 100
+			female = yes
+		}
+		add_ruler_personality = immortal_personality
+		set_ruler_flag = th_current_ruler_reimu_hakurei
+
+		if = {
+			limit = {
+				has_country_flag = th_hkr_married_meira
+			}
+			define_consort = {
+				name = "Meira"
+				dynasty = "of Hakurei"
+				adm = 5
+				dip = 3
+				mil = 6
+				age = 20
+				culture = ROOT
+				religion = ROOT
+				claim = 100
+				female = yes
+			}
+			add_queen_personality = immortal_personality
+		}
+	}
+	
+	option = {	#Let current ruler be blessed
+		name = flavor_hkr.14.b
+		trigger = {
+			has_regency = no
+			has_consort_regency = no
+			NOT = { has_ruler_flag = th_current_ruler_reimu_hakurei }
+		}
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				NOT = {
+					ruler_has_personality = immortal_personality
+				}
+			}
+			add_ruler_personality = immortal_personality
+		}
+	}
+	
+	option = {	#Let current ruler be blessed
+		name = flavor_hkr.14.c
+		trigger = {
+			has_ruler_flag = th_current_ruler_reimu_hakurei
+		}
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				NOT = {
+					ruler_has_personality = immortal_personality
+				}
+			}
+			add_ruler_personality = immortal_personality
+		}
+	}
+	
+	option = {	#Let current ruler be blessed
+		name = flavor_hkr.14.d
+		trigger = {
+			NOT = { has_ruler_flag = th_current_ruler_reimu_hakurei }
+		}
+		add_adm_power = 200
+		add_dip_power = 200
+		add_mil_power = 200
+	}
+}
+
+#Marry Meira
+country_event = {
+	id = flavor_hkr.15
+	title = "flavor_hkr.15.t"
+	desc = "flavor_hkr.15.desc"
+	picture = MEIRA_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	#Marry Meira
+		name = flavor_hkr.15.a
+
+		if = {
+			limit = {
+				has_ruler_flag = th_current_ruler_reimu_hakurei
+			}
+			define_consort = {
+				name = "Meira"
+				dynasty = "of Hakurei"
+				adm = 5
+				dip = 3
+				mil = 6
+				age = 20
+				culture = ROOT
+				religion = ROOT
+				claim = 100
+				female = yes
+			}
+			if = {
+				limit = {
+					ruler_has_personality = immortal_personality
+				}
+				add_queen_personality = immortal_personality
+			}
+		}
+		else = {
+			custom_tooltip = flavor_hkr.15.a.tt
+		}
+
+		hidden_effect = {
+			set_country_flag = th_hkr_married_meira
+		}
+	}
+	
+	option = {	#Let current ruler be blessed
+		name = flavor_hkr.15.b
+	}
+}
+
+#CB against Shinki
+country_event = {
+	id = flavor_hkr.16
+	title = "flavor_hkr.16.t"
+	desc = "flavor_hkr.16.desc"
+	picture = SHINKISM_eventPicture
+	
+	trigger = {
+		is_year = 1515
+		is_religion_enabled = TH_Shinkism
+		has_country_flag = th_hkr_ready_for_mki_war
+	}
+
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = th_hkr_ready_for_mki_war
+		}
+	}
+	
+	option = {	#Get all the claims
+		name = flavor_hkr.16.a
+		custom_tooltip = flavor_hkr.16.a.tt
+
+		hidden_effect = {
+			every_province = {
+				limit = {
+					religion = TH_Shinkism
+					NOT = { area = Makai }
+					NOT = { area = Makai_coast_state }
+					NOT = { area = Makai_peninsula_state }
+					NOT = { area = Western_makai_state }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+#Unifying the incident investigators
+country_event = {
+	id = flavor_hkr.17
+	title = "flavor_hkr.17.t"
+	desc = "flavor_hkr.17.desc"
+	picture = MARISA_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {	#Now or never! Marisa needs to be under our belt!
+		name = flavor_hkr.17.a
+		trigger = {
+			FOM = {
+				ai = yes
+				was_player = no
+			}
+		}
+		
+		declare_war_with_cb = {
+			casus_belli = cb_restore_personal_union
+			who = FOM
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+	
+	option = {	#It is not the time now, but we keep this in mind
+		name = flavor_hkr.17.b
+		
+		add_casus_belli = {
+			type = cb_restore_personal_union
+			target = FOM
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	
+	option = {	#Friends shouldn't turn against eachother
+		name = flavor_hkr.17.c
+		
+		FOM = {
+			add_opinion = {
+				who = ROOT
+				modifier = th_maiden_and_witch_friendship
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = th_maiden_and_witch_friendship
+			}
+		}
+		add_trust = {
+			who = FOM
+			value = 20
+			mutual = yes
+		}
+		ai_chance = {
+			factor = 85
+		}
+	}
+}
+
+#Visitor Randomizer Event
+country_event = {
+	id = flavor_hkr.19
+	title = flavor_hkr.19.t
+	desc = flavor_hkr.19.desc
+	picture = SHRINE_eventPicture
+
+	trigger = {
+		has_country_flag = th_hkr_more_popularity
+		OR = {
+			NOT = { has_country_flag = th_had_shrine_visitor }
+			had_country_flag = {
+				flag = th_had_shrine_visitor
+				days = 1460
+			}
+
+		}
+		NOT = { has_country_flag = th_has_currently_a_visitor }
+	}
+
+	hidden = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = th_has_currently_a_visitor
+			clr_country_flag = th_had_shrine_visitor
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			set_country_flag = th_had_shrine_visitor
+			clr_country_flag = th_has_currently_a_visitor
+		}
+	}
+
+	option = {
+		name = flavor_hkr.19.a
+		if = {
+			limit = {
+				NOT = { has_country_flag = th_hkr_sake_production }
+			}
+			random_list = {
+				25 = {
+					country_event = {
+						id = flavor_hkr.20
+					}
+				}
+				25 = {
+					country_event = {
+						id = flavor_hkr.21
+					}
+				}
+				25 = {
+					country_event = {
+						id = flavor_hkr.22
+					}
+				}
+				25 = {
+					country_event = {
+						id = flavor_hkr.23
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				8 = {
+					country_event = {
+						id = flavor_hkr.20
+					}
+				}
+				8 = {
+					country_event = {
+						id = flavor_hkr.21
+					}
+				}
+				8 = {
+					country_event = {
+						id = flavor_hkr.22
+					}
+				}
+				8 = {
+					country_event = {
+						id = flavor_hkr.23
+					}
+				}
+				68 = {
+					country_event = {
+						id = flavor_hkr.24
+					}
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+
+
+#Youkai Visitors
+country_event = {
+	id = flavor_hkr.20
+	title = flavor_hkr.20.t
+	desc = flavor_hkr.20.desc
+	picture = SHRINE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_hkr.20.a
+		change_government_reform_progress = 15
+		add_mil_power = 25
+	}
+}
+
+#Human Visitors
+country_event = {
+	id = flavor_hkr.21
+	title = flavor_hkr.21.t
+	desc = flavor_hkr.21.desc
+	picture = SHRINE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_hkr.21.a
+		if = {
+			limit = {
+				has_country_flag = th_increased_donations_from_events
+			}
+			add_years_of_income = 0.2
+		}
+		else = {
+			add_years_of_income = 0.1
+		}
+	}
+}
+
+#Magician Visitors
+country_event = {
+	id = flavor_hkr.22
+	title = flavor_hkr.22.t
+	desc = flavor_hkr.22.desc
+	picture = SHRINE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_hkr.22.a
+		add_dip_power = 50
+	}
+}
+
+#Old Visitors
+country_event = {
+	id = flavor_hkr.23
+	title = flavor_hkr.23.t
+	desc = flavor_hkr.23.desc
+	picture = SHRINE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_hkr.23.a
+		add_adm_power = 50
+	}
+}
+
+#Suika Visitor (rare)
+country_event = {
+	id = flavor_hkr.24
+	title = flavor_hkr.24.t
+	desc = flavor_hkr.24.desc
+	picture = SUIKA_eventPicture
+
+	trigger = {
+		tag = HKR
+		NOT = { was_tag = OKR }
+		NOT = { has_global_flag = th_active_incident }
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = th_hkr_sake_production
+		}
+	}
+
+	option = {
+		name = flavor_hkr.24.a
+		country_event = {
+			id = flavor_hkr.4
+			days = 7
 		}
 	}
 }

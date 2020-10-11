@@ -467,19 +467,19 @@ flr_slot3_branch = {
 				value = 0.25
 			}
 			OR = {
-					AND = {
-						calc_true_if = {
-							amount = 3
-							all_elector = {
-								has_opinion = { who = ROOT value = 100 }
-								}
+				AND = {
+					calc_true_if = {
+						amount = 3
+						all_elector = {
+							has_opinion = { who = ROOT value = 100 }
 							}
-						diplomatic_reputation = 6
-					}
-					AND = {
-						NOT = { hre_size = 1 }
-						NOT = { exists = HLR }
-					}
+						}
+					diplomatic_reputation = 6
+				}
+				AND = {
+					NOT = { hre_size = 1 }
+					NOT = { exists = HLR }
+				}
 			}
 		}
 		
@@ -790,7 +790,7 @@ flr_slot3_branch = {
 				add_permanent_claim = ROOT
 			}
 			former_hell_region = {
-				imit = {
+				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}

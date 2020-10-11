@@ -26,8 +26,8 @@ country_decisions = {
 				set_country_flag = ORN_converted_to_moriya
 			}
 		}
-	ai_will_do = {
-		factor = 0
+		ai_will_do = {
+			factor = 0
 		}
 	}
 }

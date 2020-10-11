@@ -534,5 +534,44 @@ spriteTypes = {
 		texturefile = "gfx/event_pictures/Touhou/SATORIPETS_eventPicture.dds"
 		allwaystransparent = yes
 	}
-
+	spriteType = {
+	    name = "DONATIONBOX_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/DONATIONBOX_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "SUIKAMIKO_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/SUIKAMIKO_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "SUIKA_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/SUIKA_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "TENSHI_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/TENSHI_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "HAKUREIGOD_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/HAKUREIGOD_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "FOURSWORDSMEN_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/FOURSWORDSMEN_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "MEIRA_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/MEIRA_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "SADSUIKA_eventPicture"
+		texturefile = "gfx/event_pictures/Touhou/SADSUIKA_eventPicture.dds"
+		allwaystransparent = yes
+	}	
 }

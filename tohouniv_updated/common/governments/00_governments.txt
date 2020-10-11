@@ -40,7 +40,6 @@ monarchy = {
 				Gensokyan_mokou_states_reform
 				Lunarian_monarchy
 				Gensokyan_divine_state
-				Fairy_colonial_empire
 			}
 		}
 		hereditary_vs_nobility = {
@@ -172,7 +171,6 @@ monarchy = {
 		tsardom_legacy
 		holy_state_legacy
 		#TOUHOU
-		Fairy_colonial_empire_legacy
 		Gensokyan_monarchy_legacy
 		Gensokyan_shrine_theocracy_legacy
 		Gensokyan_monarchy_fairy_government_legacy
@@ -208,7 +206,6 @@ monarchy = {
 		Gensokyan_mokou_states_reform
 		Lunarian_monarchy
 		Gensokyan_divine_state
-		Fairy_colonial_empire
 	}
 	
 	# Dictatorships etc
@@ -869,10 +866,6 @@ pre_dharma_mapping = {
 		legacy_government = despotic_monarchy
 	}
 	#TOUHOU
-	Fairy_colonial_empire = {
-		government = monarchy
-		legacy_government = Fairy_colonial_empire_legacy
-	}
 	Gensokyan_monarchy = {
 		government = monarchy
 		legacy_government = Gensokyan_monarchy_legacy

@@ -162,6 +162,13 @@ country_event = {
 	option = {		#Check any possible investigator country
 		name = "th_incidents_mountainoffaith.1.a"
 		th_incident_search_for_eligible_investigator = yes
+		every_country = {
+			limit = {
+				religion = Moriya_Shintoism
+				has_country_flag = th_eligible_investigator
+			}
+			clr_country_flag = th_eligible_investigator
+		}
 		ai_chance = { 
 			factor = 100
 		}
@@ -196,7 +203,7 @@ country_event = {
 				add_country_modifier = {
 					name = th_MOF_religious_turmoil_negative
 					duration = -1
-					desc = th_MOF_religious_turmoil_negative_tooltip
+					desc = th_incident_duration_tt
 				}
 			}
 			clr_global_flag = th_MOF_inci_setup_flag
@@ -300,7 +307,7 @@ country_event = {
 	option = {		#I`ll never close my shrine!I must found who sent this arrogant message.
 		name = "th_incidents_mountainoffaith.400.a"
 		trigger = {
-			has_country_flag = th_incident_investigating
+			th_incident_is_investigator = yes
 			tag = HKR
 		}
  		custom_tooltip = th_incidents_mountainoffaith.400.a.tt
@@ -334,7 +341,7 @@ country_event = {
 	option = {		#Seems red-white miko is facing challenge. Interesting. Let`s check who`s doing tricks.
 		name = "th_incidents_mountainoffaith.400.b"
 		trigger = {
-			has_country_flag = th_incident_investigating
+			th_incident_is_investigator = yes
 			NOT = { tag = HKR }
 		}
  		custom_tooltip = th_incidents_mountainoffaith.400.b.tt
@@ -368,7 +375,7 @@ country_event = {
 	option = {		#I don`t want to investigate the incident, and I don`t want to convert either. For minor character who was chosen the first investigator
 		name = "th_incidents_mountainoffaith.400.c"
 		trigger = {
-			has_country_flag = th_incident_investigating
+			th_incident_is_investigator = yes
 			th_is_not_major_main_character = yes
 			th_is_not_minor_main_character = yes
 			any_known_country = {	#must have another eligible investigator country
@@ -397,7 +404,7 @@ country_event = {
 	option = {		#I shall be the first investigator!For main character player who was not chosen the first investigator
 		name = "th_incidents_mountainoffaith.400.d"
 		trigger = {
-			NOT = { has_country_flag = th_incident_investigating }
+			th_incident_is_not_investigator = yes
 			OR = {
 				tag = HKR
 				tag = FOM
@@ -414,7 +421,7 @@ country_event = {
 		hidden_effect = {
 			every_known_country = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				clr_country_flag = th_incident_investigating
 			}
@@ -429,7 +436,7 @@ country_event = {
 	option = {		#Well, let`s follow the new faith then
 		name = "th_incidents_mountainoffaith.400.e"	
 		trigger = {
-			NOT = { has_country_flag = th_incident_investigating }
+			th_incident_is_not_investigator = yes
 			NOT = { 
 				religion = Moriya_Shintoism 
 			}
@@ -455,7 +462,7 @@ country_event = {
 	option = {		#Send the missionary back. I don`t want to follow this new faith
 		name = "th_incidents_mountainoffaith.400.f"	
 		trigger = {
-			NOT = { has_country_flag = th_incident_investigating }
+			th_incident_is_not_investigator = yes
 			NOT = { 
 				religion = Moriya_Shintoism 
 			}
@@ -533,7 +540,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_mountainoffaith.3
@@ -568,8 +575,11 @@ country_event = {
 		trigger = {
 			has_personal_deity = Aki_Sisters
 		}
-		add_legitimacy = -15
 		add_devotion = 5
+		add_country_modifier = {
+			name = th_deity_blessed_crops
+			duration = 1825
+		}
 		if = {
 			limit = {
 				exists = AKI
@@ -581,13 +591,43 @@ country_event = {
 				add_mil_power = 100
 			}
 		}
-		th_incident_minor_victory_bonus = yes
+		th_incident_minor_defeat_bonus = yes
 
 		ai_chance = {
 			factor = 100
 			modifier = {
 				factor = 0
 				is_rival = AKI
+			}
+		}
+	}
+	
+	option = {		#Help them with their harvest
+		name = "th_incidents_mountainoffaith.2.c"
+		custom_tooltip = th_incidents_mountainoffaith.2.c.tt
+		add_adm_power = -100
+		th_incident_minor_victory_bonus = yes
+
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
+			}
+		}
+	}
+	
+	option = {		#Discuss your way through
+		name = "th_incidents_mountainoffaith.2.d"
+		custom_tooltip = th_incidents_mountainoffaith.2.d.tt
+		add_dip_power = 100
+		th_incident_minor_defeat_bonus = yes
+
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
 			}
 		}
 	}
@@ -624,7 +664,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_mountainoffaith.4
@@ -659,8 +699,10 @@ country_event = {
 		trigger = {
 			has_personal_deity = Hina
 		}
-		add_legitimacy = -30
 		add_devotion = 5
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
 		if = {
 			limit = {
 				exists = YOF
@@ -672,13 +714,73 @@ country_event = {
 				add_mil_power = 100
 			}
 		}
-		th_incident_minor_victory_bonus = yes
+		th_incident_major_victory_bonus = yes
 
 		ai_chance = {
-			factor = 100
+			factor = 200
 			modifier = {
 				factor = 0
 				is_rival = YOF
+			}
+		}
+	}
+	
+	option = {		#Cause unrest to satisfy Hina
+		name = "th_incidents_mountainoffaith.3.c"
+		custom_tooltip = th_incidents_mountainoffaith.3.c.tt
+		th_incident_minor_victory_bonus = yes
+		random_owned_province = {
+			limit = {
+				superregion = gensokyo_superregion
+			}		
+			spawn_rebels = {
+				type = th_youkai_rebels
+				size = 1
+				unrest = 3
+			}
+		}
+
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
+			}
+		}
+	}
+	
+	option = {		#Collect unrest for her
+		name = "th_incidents_mountainoffaith.3.d"
+		custom_tooltip = th_incidents_mountainoffaith.3.d.tt
+		th_incident_minor_victory_bonus = yes
+		add_country_modifier = {
+			name = th_MOF_misfortune_collection
+			duration = 1095
+		}
+
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
+			}
+		}
+	}
+	
+	option = {		#Completely ignore her
+		name = "th_incidents_mountainoffaith.3.e"
+		custom_tooltip = th_incidents_mountainoffaith.3.e.tt
+		th_incident_minor_victory_bonus = yes
+		add_country_modifier = {
+			name = th_MOF_bad_luck
+			duration = 1095
+		}
+
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
 			}
 		}
 	}
@@ -715,7 +817,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_mountainoffaith.5
@@ -798,7 +900,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_mountainoffaith.6
@@ -827,7 +929,79 @@ country_event = {
 			}
 		}
 	}
-	#+other necessary special or common options	
+	
+	option = {		#Alright, I buy your fake news if you let me pass
+		name = "th_incidents_mountainoffaith.5.b"
+		custom_tooltip = th_incidents_mountainoffaith.5.b.tt
+		th_incident_defeat_bonus = yes
+		add_treasury = -150
+		add_dip_power = 75
+		
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
+			}
+		}
+	}
+	
+	option = {		#How about ... you write something in my favor
+		name = "th_incidents_mountainoffaith.5.c"
+		custom_tooltip = th_incidents_mountainoffaith.5.c.tt
+		th_incident_minor_defeat_bonus = yes
+		add_corruption = 1
+		add_country_modifier = {
+			name = th_MOF_biased_news
+			duration = 1825
+		}
+		
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
+			}
+		}
+	}
+	
+	option = {		#Ok, I promise to let your newspaper be praised
+		name = "th_incidents_mountainoffaith.5.d"
+		custom_tooltip = th_incidents_mountainoffaith.5.d.tt
+		th_incident_minor_defeat_bonus = yes
+		if = {
+			limit = {
+				exists = TGU
+			}
+			custom_tooltip = th_incidents_mountainoffaith.5.d.ttt
+			hidden_effect = {
+				TGU = {
+					every_known_country = {
+						limit = {
+							capital_scope = {
+								superregion = gensokyo_superregion
+							}
+						}
+						add_opinion = {
+							who = TGU
+							modifier = th_MOF_news_propaganda
+						}
+					}
+				}
+			}
+		}
+		else = {
+			add_dip_power = -100
+		}
+		
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0
+				th_winnable_fight_trigger = yes
+			}
+		}
+	}
 }
 
 #Mountain of faith Incident - Sanae Encounter
@@ -861,7 +1035,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				country_event = {
 					id = th_incidents_mountainoffaith.7
@@ -939,7 +1113,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_country_flag = th_incident_investigating
+					th_incident_is_investigator = yes
 				}
 				set_global_flag = th_MOF_incident_end
 			}
@@ -1004,7 +1178,7 @@ country_event = {
 	trigger = {
 		has_global_flag = th_MOF_incident_end
 		has_country_flag = th_incident_last_fight_terribly_lost
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_global_flag = th_mountain_of_faith_incident_solved }
 		NOT = { has_country_flag = th_just_finished_danmaku_fight }
 	}
@@ -1065,7 +1239,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_MOF_undermined_authority
-					duration = 7300
+					duration = 1825
 				}
 			}
 		}
@@ -1085,7 +1259,7 @@ country_event = {
 	
 	trigger = {
 		has_global_flag = th_MOF_incident_end
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_country_flag = th_just_finished_danmaku_fight }
 		NOT = { has_global_flag = th_mountain_of_faith_incident_solved }
 		check_variable = {
@@ -1157,7 +1331,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_MOF_undermined_authority
-					duration = 7300
+					duration = 1825
 				}
 			}
 		}
@@ -1172,49 +1346,13 @@ country_event = {
 country_event = { 
 	id = th_incidents_mountainoffaith.11
 	title = "th_incidents_mountainoffaith.11.t"
-	desc = {
-		trigger = { tag = HKR }
-		desc = "th_incidents_mountainoffaith.11.desc.1"
-	}
-	desc = {
-		trigger = { tag = FOM }
-		desc = "th_incidents_mountainoffaith.11.desc.2"
-	}
-	desc = {
-		trigger = { 
-			OR = {
-				tag = SCR
-				tag = SCD
-			}
-		}
-		desc = "th_incidents_mountainoffaith.11.desc.3"
-	}
-	desc = {
-		trigger = { 
-			OR = {
-				tag = NET
-				was_tag = NET
-			}
-		}
-		desc = "th_incidents_mountainoffaith.11.desc.4"
-	}
-	desc = {
-		trigger = { 
-			NOT = { tag = HKR }
-			NOT = { tag = FOM }
-			NOT = { tag = SCR }
-			NOT = { tag = SCD }
-			NOT = { tag = NET }
-			NOT = { tag = NMG }
-		}
-		desc = "th_incidents_mountainoffaith.11.desc.5"
-	}
+	desc = "th_incidents_mountainoffaith.11.desc"
 	picture = SHRINE_eventPicture
 	
 	trigger = {
 		has_global_flag = th_MOF_incident_end
 		NOT = { has_country_flag = th_just_finished_danmaku_fight }
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_country_flag = th_incident_last_fight_terribly_lost }
 		NOT = { has_global_flag = th_mountain_of_faith_incident_solved }
 		check_variable = {
@@ -1277,43 +1415,7 @@ country_event = {
 country_event = {	#Stage bosses visited Hakurei Shrine
 	id = th_incidents_mountainoffaith.12
 	title = "th_incidents_mountainoffaith.12.t"
-	desc = {
-		trigger = { tag = HKR }
-		desc = "th_incidents_mountainoffaith.12.desc.1"
-	}
-	desc = {
-		trigger = { tag = FOM }
-		desc = "th_incidents_mountainoffaith.12.desc.2"
-	}
-	desc = {
-		trigger = { 
-			OR = {
-				tag = SCR
-				tag = SCD
-			}
-		}
-		desc = "th_incidents_mountainoffaith.12.desc.3"
-	}
-	desc = {
-		trigger = { 
-			OR = {
-				tag = NET
-				was_tag = NET
-			}
-		}
-		desc = "th_incidents_mountainoffaith.12.desc.4"
-	}
-	desc = {
-		trigger = { 
-			NOT = { tag = HKR }
-			NOT = { tag = FOM }
-			NOT = { tag = SCR }
-			NOT = { tag = SCD }
-			NOT = { tag = NET }
-			NOT = { tag = NMG }
-		}
-		desc = "th_incidents_mountainoffaith.12.desc.5"
-	}
+	desc = "th_incidents_mountainoffaith.12.desc"
 	picture = THFEST_eventPicture
 	
 	trigger = {
@@ -1323,7 +1425,7 @@ country_event = {	#Stage bosses visited Hakurei Shrine
 			which = th_MOF_inci_goodbad_level
 			value = 10
 		}
-		has_country_flag = th_incident_investigating
+		th_incident_is_investigator = yes
 		NOT = { has_country_flag = th_incident_last_fight_terribly_lost }
 		NOT = { has_global_flag = th_mountain_of_faith_incident_solved }
 	}
@@ -1479,7 +1581,15 @@ country_event = { #
 			}
 		}
 		add_adm_power = 150
-		add_years_of_income = 2
+		if = {
+			limit = {
+				has_country_flag = th_increased_donations_from_events
+			}
+			add_years_of_income = 3
+		}
+		else = {
+			add_years_of_income = 2
+		}
 		add_prestige = 50
 		add_devotion = 10
 	}
@@ -1512,7 +1622,7 @@ country_event = {
 		add_country_modifier = {
 			name = "th_MOF_religious_turmoil_negative"
 			duration = -1
-			desc = th_MOF_religious_turmoil_negative_tooltip
+			desc = th_incident_duration_tt
 		}
 		ai_chance = {
 			factor = 100
@@ -1556,10 +1666,9 @@ province_event = {
 	
 	trigger = {
 		owner = { 
-			NOT = { tag = MYO } 
 			NOT = { religion = Moriya_Shintoism }
 		}
-		continent = gensokyo_continent
+		superregion = gensokyo_superregion
 		religion = Moriya_Shintoism
 		has_global_flag = th_current_incident_mountain_of_faith
 		NOT = { has_province_modifier = th_MOF_stubborn_heretics }
@@ -1571,7 +1680,7 @@ province_event = {
 		months = 48
 	}
 
-	option = {
+	option = { #ignore them
 		name = "th_incidents_mountainoffaith.16.a"
 		add_province_modifier = {
 			name = th_MOF_stubborn_heretics
@@ -1579,7 +1688,81 @@ province_event = {
 		}
 		
 		ai_chance = { 
-			factor = 100
+			factor = 50
+			modifier = {
+				owner = {
+					NOT = { years_of_income = 0.3 }
+				}
+				factor = 100
+			}
+		}
+	}
+	option = { #try to bribe or threaten them
+		name = "th_incidents_mountainoffaith.16.b"
+		owner = {
+			add_years_of_income = -0.25
+		}
+		add_province_modifier = {
+			name = th_MOF_reconversion
+			duration = 1460
+		}
+		
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				owner = {
+					NOT = { years_of_income = 0.3 }
+				}
+				factor = 0
+			}
+		}
+	}
+	option = { #we must do our best to maintain religious unity!
+		name = "th_incidents_mountainoffaith.16.c"
+		trigger = { # only available for investigator
+			owner = {
+				th_incident_is_investigator = yes
+			}
+		}
+		owner = {
+			add_years_of_income = -0.3
+			add_adm_power = 25
+		}
+		add_province_modifier = {
+			name = th_MOF_reconversion
+			duration = 1460
+		}		
+		random_country = {
+			limit = {
+				NOT = { religion = Moriya_Shintoism }
+				any_owned_province = {
+					religion = Moriya_Shintoism
+				}
+				capital_scope = {
+					superregion = gensokyo_superregion
+				}
+			}
+			random_owned_province = {
+				limit = {
+					religion = Moriya_Shintoism
+					NOT = { has_province_modifier = th_MOF_reconversion }
+				}
+				add_province_modifier = {
+					name = th_MOF_reconversion
+					duration = 1460
+				}
+			}
+		}
+		th_incident_minor_victory_bonus = yes
+
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				owner = {
+					NOT = { years_of_income = 0.3 }
+				}
+				factor = 0
+			}
 		}
 	}
 }
@@ -1593,10 +1776,10 @@ province_event = {
 	
 	trigger = {
 		owner = { 
-			NOT = { tag = MYO } 
-			NOT = { religion = Moriya_Shintoism }
+			NOT = { religion = Moriya_Shintoism }		
 		}
-		continent = gensokyo_continent
+		superregion = gensokyo_superregion
+		NOT = { region = orbital_region } #HVR and YUM not affected
 		NOT = { religion = Moriya_Shintoism }
 		NOT = { religion = Lunarian_religion }
 		has_global_flag = th_current_incident_mountain_of_faith
@@ -1651,6 +1834,7 @@ province_event = {
 			OR = {
 				religion = TH_Christians
 				religion = Lunarian_religion
+				religion = TH_Shinkism
 			}
 		}
 	}
@@ -2039,19 +2223,16 @@ province_event = {
 				limit = {
 					NOT = { religion = Moriya_Shintoism }
 					superregion = gensokyo_superregion
+					NOT = { has_province_modifier = religious_zeal_at_conv }
+					has_missionary = no
+					NOT = { has_province_modifier = th_center_of_reformation }
 				}
 				change_religion = Moriya_Shintoism
 			}
 		}
 		
 		ai_chance = { 
-			factor = 100
-			modifier = {
-				owner = {
-					years_of_income = 0.2
-				}
-				factor = 0
-			}
+			factor = 50
 		}
 	}
 
@@ -2063,7 +2244,7 @@ province_event = {
 		}
 		
 		ai_chance = { 
-			factor = 100
+			factor = 50
 			modifier = {
 				owner = {
 					NOT = { years_of_income = 0.2 }
@@ -2141,12 +2322,6 @@ country_event = {
 		}
 	}
 }
-
-
-
-
-
-
 
 
 #Mountain of faith Incident - Forbid AKI, YOF, KPP, TGU and MRY to become investigators
@@ -2242,7 +2417,7 @@ country_event = {
 		name = "th_incidents_mountainoffaith.26.a"
 		custom_tooltip = th_incidents_mountainoffaith.26.a.tt					
 		add_country_modifier = {
-			name = "th_MOF_era_of_moriya_shinto"
+			name = "th_MOF_unstoppable_trend_of_reformation"
 			duration = 9125
 		}		
 	}
@@ -2330,7 +2505,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_MOF_undermined_authority
-					duration = 7300
+					duration = 1825
 				}
 			}
 		}
@@ -2369,7 +2544,7 @@ country_event = {
 				}
 				add_country_modifier = {
 					name = th_MOF_undermined_authority
-					duration = 7300
+					duration = 1825
 				}
 			}
 		}
@@ -2382,6 +2557,8 @@ country_event = {
 	title = "th_incidents_mountainoffaith.28.t"
 	desc = "th_incidents_mountainoffaith.28.desc"
 	picture = MOUNTAINOFFAITH_eventPicture
+	
+	hidden = yes
 	
 	trigger = {
 		NOT = { has_global_flag = th_current_incident_mountain_of_faith }
@@ -2399,8 +2576,6 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
-	major = yes
 	
 	option = {		#The time of reformations is over
 		name = "th_incidents_mountainoffaith.28.a"
@@ -2434,10 +2609,126 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {		#The Moriya Shintoism will triumph!
-		name = "th_incidents_mountainoffaith.29.a"		
+		name = "th_incidents_mountainoffaith.29.a"
+		add_years_of_income = 0.25	
 		th_create_random_center_of_reform = {
 			superregion = gensokyo_superregion
 			religion = Moriya_Shintoism
+		}
+	}
+}
+
+#Mountain of Faith Incident - Random Heresy events - Okuu gains her power
+country_event = {
+	id = th_incidents_mountainoffaith.30
+	title = "th_incidents_mountainoffaith.30.t"
+	desc = "th_incidents_mountainoffaith.30.desc"
+	picture = MOUNTAINOFFAITH_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = OKU
+			was_tag = OKU
+		}
+		has_global_flag = th_current_incident_mountain_of_faith
+	}
+
+	
+	option = {		#The Moriya Shintoism will triumph!
+		name = "th_incidents_mountainoffaith.30.a"
+		if = {
+			limit = {
+				NOT = { religion = Moriya_Shintoism }
+			}
+			change_religion = Moriya_Shintoism
+		}
+		th_create_random_center_of_reform = {
+			superregion = gensokyo_superregion
+			religion = Moriya_Shintoism
+		}
+
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	
+	option = {		#Nah
+		name = "th_incidents_mountainoffaith.30.b"
+
+		ai_chance = {
+			factor = 20
+			modifier = {
+				religion = Moriya_Shintoism
+				factor = 0
+			}
+		}
+	}
+}
+
+#Mountain of Faith Incident - Any country converted to Moriya shinto loses eligibility
+country_event = {
+	id = th_incidents_mountainoffaith.31
+	title = "th_incidents_mountainoffaith.31.t"
+	desc = "th_incidents_mountainoffaith.31.desc"
+	picture = MOUNTAINOFFAITH_eventPicture
+
+	trigger = {
+		religion = Moriya_Shintoism
+		has_country_flag = th_eligible_investigator
+		has_global_flag = th_current_incident_mountain_of_faith
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	hidden = yes
+
+	option = {		
+		name = "th_incidents_mountainoffaith.31.a"
+		clr_country_flag = th_eligible_investigator
+
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#Mountain of Faith Incident - Regain eligibility
+country_event = {
+	id = th_incidents_mountainoffaith.32
+	title = "th_incidents_mountainoffaith.32.t"
+	desc = "th_incidents_mountainoffaith.32.desc"
+	picture = MOUNTAINOFFAITH_eventPicture
+
+	trigger = {
+		capital_scope = {
+			superregion = gensokyo_superregion
+		}
+		is_free_or_tributary_trigger = yes
+		has_global_flag = th_current_incident_mountain_of_faith
+		NOT = { religion = Moriya_Shintoism }
+		NOT = { has_country_flag = th_eligible_investigator }
+		NOT = {	has_country_flag = th_is_not_valid_for_investiagtor_role }
+		NOT = { has_country_flag = th_refused_investigator }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	hidden = yes
+
+	option = {		
+		name = "th_incidents_mountainoffaith.32.a"
+		set_country_flag = th_eligible_investigator
+
+		ai_chance = {
+			factor = 100
 		}
 	}
 }

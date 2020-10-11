@@ -20,13 +20,17 @@ th_godmode = {
 
 th_mission_god = {
 	colonists = 25
-	global_colonial_growth = 1000
+	diplomats = 5
+	global_colonial_growth = 10000
+	envoy_travel_time = -0.95
 	range = 5
 	diplomatic_reputation = 10
 	build_cost = -1
 	build_time = -0.9
 	development_cost = -0.95
 	stability_cost_modifier = -1
+	global_regiment_recruit_speed = -0.99
+	global_ship_recruit_speed = -0.99
 }
 
 th_defeated_in_danmaku = {		#Ruler modifier
@@ -36,18 +40,6 @@ th_defeated_in_danmaku = {		#Ruler modifier
 	republican_tradition = -0.2
 	horde_unity = -0.5
 	meritocracy = -0.5
-}
-
-queen_flandre = {
-	shock_damage = 0.4
-	fire_damage = 0.4
-	stability_cost_modifier = 1.5
-	global_unrest = 2
-}
-
-empress_flandre = {
-	shock_damage = 0.25
-	fire_damage = 0.25
 }
 
 th_conquest_of_a_legend = {
@@ -120,7 +112,8 @@ th_SDM_inci_unchecked_cirno_rampage = {
 th_SDM_inci_mist_spreading = {
 	ae_impact = -0.2 
 	fabricate_claims_cost= -0.5
-	core_creation = -0.1
+	core_creation = -0.15
+	land_morale = 0.15
 }
 
 th_SDM_inci_mist_stopped = {
@@ -261,10 +254,10 @@ th_PCB_demands_independence = {
 }
 
 th_PCB_revived_soul_within_saigyou = {
-	ae_impact = -0.2 
-	core_creation = -0.25
-	land_forcelimit_modifier = 0.5
-	naval_forcelimit_modifier = 0.5
+	ae_impact = -0.1
+	core_creation = -0.2
+	land_forcelimit_modifier = 0.2
+	naval_forcelimit_modifier = 0.2
 	land_maintenance_modifier = -0.25
 	naval_maintenance_modifier = -0.25
 }
@@ -391,13 +384,13 @@ th_MOF_reconversion = {
 }
 
 th_MOF_religious_turmoil_ended = {
-	land_forcelimit_modifier = 0.15
-	missionaries = 1
+	manpower_in_true_faith_provinces = 0.15
+	global_missionary_strength = 0.02
 	prestige = 0.25
 }
 
 th_MOF_inci_extra = {
-	global_heretic_missionary_strength = 0.03
+	global_tax_modifier = 0.1
 	development_cost = -0.1
 }
 
@@ -416,16 +409,16 @@ th_MOF_undermined_authority = {
 	religion = yes
 }
 
-#Counter Reformation Decision
+th_MOF_misfortune_collection = {
+	global_unrest = -10
+}
 
-th_counter_reformation = {
-	missionary_maintenance_cost = -0.33
-	global_heretic_missionary_strength = 0.03
-	missionaries = 1
-	harmonization_speed = 0.2
-	technology_cost = 0.05
-	idea_cost = 0.05
-	religion = yes
+th_MOF_bad_luck = {
+	global_unrest = 5
+}
+
+th_MOF_biased_news = {
+	ae_impact = -0.1
 }
 
 #Center of Reformation province modifier
@@ -478,10 +471,12 @@ th_the_lunarian_threat = {
 th_anti_earth_weapons_modifier = {
 	fire_damage = 0.5
 	shock_damage = 0.5
-	discipline = 0.15
+	discipline = 0.5
+	land_morale = 0.5
 	reinforce_speed = 1
 	reinforce_cost_modifier = -0.75
 	global_manpower_modifier = 3
+	manpower_recovery_speed = 2
 	land_maintenance_modifier = -0.75
 	war_exhaustion = -0.15
 	global_sailors_modifier = 3
@@ -626,16 +621,16 @@ th_kaguya_and_mokous_help = {
 }
 
 th_kanakos_help = {
-	land_forcelimit_modifier = 0.15
-	missionaries = 1
+	manpower_in_true_faith_provinces = 0.15
+	global_missionary_strength = 0.02
 	prestige = 0.25
 }
 
 th_kanako_and_suwakos_help = {
-	land_forcelimit_modifier = 0.15
-	missionaries = 1
+	global_tax_modifier = 0.1
 	development_cost = -0.1
-	global_heretic_missionary_strength = 0.03
+	manpower_in_true_faith_provinces = 0.15
+	global_missionary_strength = 0.02
 	prestige = 0.25
 }
 
@@ -686,18 +681,18 @@ th_dbc_decaying_shrine = {
 	prestige = -0.25
 }
 
-th_dbc_natural_inflation = {
-	inflation_reduction = -0.1
+th_dbc_natural_deflation = {
+	inflation_reduction = 0.1
 }
 
 th_dbc_pillaging_trivialized = {
 	loot_amount = 1
-	war_taxes_cost_modifier = -1
-	global_unrest = 2
+	land_maintenance_modifier = -0.15
+	army_tradition = -0.5
 }
 
 th_dbc_sticking_with_the_right_path = {
-	army_tradition = 0.5
 	yearly_army_professionalism = 0.01
+	army_tradition = 0.5
 	land_maintenance_modifier = 0.15
 }

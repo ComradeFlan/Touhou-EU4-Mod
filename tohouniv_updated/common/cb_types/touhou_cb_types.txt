@@ -77,20 +77,6 @@ cb_touhou_mission_eit_fuj_war = {
 	war_goal = th_superiority_war_mission_eit_fuj
 }
 
-#Touhou Spread Religion War
-cb_touhou_world_crusade = {
-	valid_for_subject = no
-
-	prerequisites = {
-		has_country_flag = th_enable_global_crusade
-		NOT = { religion_group = FROM }
-		NOT = {	has_matching_religion = FROM }
-		is_revolutionary = no
-	}
-
-	war_goal = th_superiority_world_crusade
-}
-
 #Moriya anti heretic cb
 cb_touhou_enforce_religon = {
 	valid_for_subject = no
@@ -103,7 +89,88 @@ cb_touhou_enforce_religon = {
 		NOT = { religion_group = FROM }
 		NOT = {	has_matching_religion = FROM }
 		is_revolutionary = no
+		always = no
 	}
 
 	war_goal = th_spread_true_faith
+}
+
+#Enforce Religious Tributary
+cb_touhou_force_religious_tributary = {
+	valid_for_subject = no
+
+	prerequisites = {
+		has_country_flag = th_enable_religious_tributary_war
+		FROM = { 
+			is_subject = no 
+			is_revolutionary = no
+			is_emperor_of_china = no
+			is_emperor = no
+		}
+		has_matching_religion = FROM
+		is_revolutionary = no
+	}
+
+	war_goal = th_superiority_force_religious_tributary
+}
+
+#Religious Superiority cb
+cb_touhou_religious_superiority_war = {
+	valid_for_subject = no
+
+	prerequisites = {
+		has_country_flag = th_enable_domination_war
+		FROM = { 
+			is_subject = no 
+			is_revolutionary = no
+			is_emperor_of_china = no
+			is_emperor = no
+			NOT = { has_country_modifier = th_pledged_to_remain_religious }
+		}
+		has_matching_religion = FROM
+		is_revolutionary = no
+	}
+
+	attacker_disabled_po = {
+		po_demand_provinces
+		po_release_vassals
+		po_release_annexed
+		po_return_cores
+		po_become_vassal
+		po_become_tributary_state
+		po_form_personal_union
+		po_transfer_vassals
+	}
+
+	war_goal = th_religious_superiority_war
+}
+
+#Pledging to religion cb
+cb_touhou_religious_pledge_war = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 1200
+
+	war_goal = th_pledge_to_religion_war
+}
+
+#Penance for pledge breaking cb
+cb_touhou_penance_war = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 1200
+
+	war_goal = th_penance_war
+}
+
+#Touhou Spread Religion War
+cb_touhou_crusade = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 1200
+
+	war_goal = th_superiority_crusade
 }

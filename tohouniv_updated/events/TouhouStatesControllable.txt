@@ -1160,9 +1160,11 @@ country_event = {
 		desc = "th_states_flavor_con.debug.desc"
 	}
 	picture = {
-		OR = {
-			trigger = { has_reform = Gensokyan_mokou_states_reform }
-			trigger = { has_reform = Gensokyan_kaguya_states_reform }
+		trigger = {
+			OR = {
+				has_reform = Gensokyan_mokou_states_reform
+				has_reform = Gensokyan_kaguya_states_reform
+			}
 		}
 		picture = KAGUYAVSMOKOU_eventPicture
 	 }

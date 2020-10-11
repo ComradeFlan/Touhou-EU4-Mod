@@ -179,13 +179,24 @@ country_event = {
 	mean_time_to_happen = {
 		months = 4
 	}
+
 	after = {
 		hidden_effect = {
 			ORN = {
 				change_religion = Gensokyan
 			}
 			OKU = {
-				change_religion = Gensokyan
+				if = {
+					limit = {
+						ROOT = {
+							religion = Moriya_Shintoism
+						}
+					}
+					change_religion = Moriya_Shintoism
+				}
+				else = {
+					change_religion = Gensokyan
+				}
 			}
 		}
 	}
@@ -193,728 +204,103 @@ country_event = {
 
 	option = {  #Releasing Orin and Okuu both
 		name = flavor_crd.4.a
+		th_crd_release_orn_and_okuu = yes
 		hidden_effect = {
-
-		4861 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		5143 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		5127 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-        4859 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-	}
-		release = OKU
-		hidden_effect = {
-		OKU = {
-			change_government = monarchy
-			add_government_reform = Gensokyan_monarchy
-			change_government_reform_progress = -100
-			add_accepted_culture = Oni_culture
-			change_religion = catholic
-			define_ruler = {
-				name = "Utsuho"
-				dynasty = "Reiuji"
-				age = 90
-				adm = 4
-				dip = 3
-				mil = 6
-				fixed = yes
-				female = yes
-			}
-			add_ruler_personality = immortal_personality
-			set_ruler_flag = touhou_character_ruler
-			add_adm_power = 100
-			add_dip_power = 64
-			add_mil_power = 130
-			add_manpower = 5
-			add_prestige = 100
-			add_sailors = 100
-			change_estate_land_share = {
-			estate = estate_nobles
-			share = 29
-		}
-		change_estate_land_share = {
-			estate = estate_church
-			share = 20
-		}
-		change_estate_land_share = {
-			estate = estate_burghers
-			share = 20
-		}
-			capital_scope = {
-			build_to_forcelimit = {
-				infantry = 0.4
-				cavalry = 0.3
-				galley = 0.3
-				transport = 0.2
-				light_ship = 0.2
-			}
-		}
-		4861 = {
-			add_base_manpower = 4
-			add_base_tax = 5
-		}
-		5127 = {
-			add_base_tax = 4
-			add_base_manpower = 5
-		}
-		5143 = {
-			add_base_tax = 4
-			add_base_manpower = 3
-		}
-		4859 = {
-			add_base_tax = 1
-		}
-		
-	}
-		
-	    5140 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-		5141 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-		5142 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-        5126 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-	}
-		release = ORN
-		hidden_effect = {
-		ORN = {
-			change_government = monarchy
-			add_government_reform = Gensokyan_monarchy
-			change_government_reform_progress = -100
-			add_accepted_culture = Oni_culture
-			change_religion = catholic
-			define_ruler = {
-				name = "Rin"
-				dynasty = "Kaenbyou"
-				age = 93
-				adm = 4
-				dip = 5
-				mil = 5
-				fixed = yes
-				female = yes
-			}
-			add_ruler_personality = immortal_personality
-			set_ruler_flag = touhou_character_ruler
-			add_adm_power = 100
-			add_dip_power = 130
-			add_mil_power = 120
-			add_manpower = 5
-			add_prestige = 100
-			add_sailors = 100
-			capital_scope = {
-			build_to_forcelimit = {
-				infantry = 0.5
-				cavalry = 0.2
-			}
-		}
-		5140 = {
-			add_base_tax = 5
-			add_base_production = 2
-			add_base_manpower = 5
-		}
-		5126 = {
-			add_base_tax = 2
-			add_base_production = 2
-			add_base_manpower = 4
-		}
-		5141 = {
-			add_base_tax = 3
-			add_base_production = 1
-			add_base_manpower = 3
-		}
-		5142 = {
-			add_base_tax = 3
-			add_base_production = 4
-			add_base_manpower = 3
-			build_to_forcelimit = {
-				transport = 0.2
-				light_ship = 0.2
-			}
-		}
-		change_estate_land_share = {
-			estate = estate_nobles
-			share = 29
-		}
-		change_estate_land_share = {
-			estate = estate_church
-			share = 20
-		}
-		change_estate_land_share = {
-			estate = estate_burghers
-			share = 20
-		}
+			add_truce_with = OKU
+			add_truce_with = ORN
 		}
 	
-	    ai_chance = {
+		ai_chance = {
 			factor = 10
 		}
 
-		add_truce_with = OKU
-		add_truce_with = ORN
 	}
 
-	}
 	option = {  #Let them but under watch
 		name = flavor_crd.4.b
-		hidden_effect = {
-
-		4861 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		5143 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		5127 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		4859 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		
-		release = OKU
-		OKU = {
-			change_government = monarchy
-			add_government_reform = Gensokyan_monarchy
-			change_government_reform_progress = -100
-			add_accepted_culture = Oni_culture
-			change_religion = catholic
-			define_ruler = {
-				name = "Utsuho"
-				dynasty = "Reiuji"
-				age = 90
-				adm = 4
-				dip = 3
-				mil = 6
-				fixed = yes
-				female = yes
-			}
-			add_ruler_personality = immortal_personality
-			set_ruler_flag = touhou_character_ruler
-			add_adm_power = 100
-			add_dip_power = 64
-			add_mil_power = 130
-			add_manpower = 5
-			add_prestige = 100
-			add_sailors = 100
-			capital_scope = {
-			build_to_forcelimit = {
-				infantry = 0.4
-				cavalry = 0.3
-				galley = 0.3
-				transport = 0.2
-				light_ship = 0.2
-			}
-		}
-		4861 = {
-			add_base_manpower = 4
-			add_base_tax = 5
-		}
-		5127 = {
-			add_base_tax = 4
-			add_base_manpower = 5
-		}
-		5143 = {
-			add_base_tax = 4
-			add_base_manpower = 3
-		}
-		4859 = {
-			add_base_tax = 1
-		}
-		change_estate_land_share = {
-			estate = estate_nobles
-			share = 29
-		}
-		change_estate_land_share = {
-			estate = estate_church
-			share = 20
-		}
-		change_estate_land_share = {
-			estate = estate_burghers
-			share = 20
-		}
-      }
-	}
+		th_crd_release_orn_and_okuu = yes
 		create_subject = {
-    subject_type = th_satori_vassal
-    subject = OKU
-}
-        hidden_effect = {
-
-	    5140 = {
-			add_core = ORN
-			remove_core = ROOT
+			subject_type = th_satori_vassal
+			subject = OKU
 		}
-		5141 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-		5142 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-        5126 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-		
-		release = ORN
-		ORN = {
-			change_government = monarchy
-			add_government_reform = Gensokyan_monarchy
-			change_government_reform_progress = -100
-			add_accepted_culture = Oni_culture
-			change_religion = catholic
-			define_ruler = {
-				name = "Rin"
-				dynasty = "Kaenbyou"
-				age = 93
-				adm = 4
-				dip = 5
-				mil = 5
-				fixed = yes
-				female = yes
-			}
-			add_ruler_personality = immortal_personality
-			set_ruler_flag = touhou_character_ruler
-			add_adm_power = 100
-			add_dip_power = 130
-			add_mil_power = 120
-			add_manpower = 5
-			add_prestige = 100
-			add_sailors = 100
-			capital_scope = {
-			build_to_forcelimit = {
-				infantry = 0.5
-				cavalry = 0.2
-			}
-		}
-		5140 = {
-			add_base_tax = 5
-			add_base_production = 2
-			add_base_manpower = 5
-		}
-		5126 = {
-			add_base_tax = 2
-			add_base_production = 2
-			add_base_manpower = 4
-		}
-		5141 = {
-			add_base_tax = 3
-			add_base_production = 1
-			add_base_manpower = 3
-		}
-		5142 = {
-			add_base_tax = 3
-			add_base_production = 4
-			add_base_manpower = 3
-			build_to_forcelimit = {
-				transport = 0.2
-				light_ship = 0.2
-			}
-		}
-		change_estate_land_share = {
-			estate = estate_nobles
-			share = 29
-		}
-		change_estate_land_share = {
-			estate = estate_church
-			share = 20
-		}
-		change_estate_land_share = {
-			estate = estate_burghers
-			share = 20
-		}
-	  }
-	}
 		create_subject = {
-    subject_type = th_satori_vassal
-    subject = ORN
-}
+			subject_type = th_satori_vassal
+			subject = ORN
+		}
 	
 	    ai_chance = {
-			factor = 35
+			factor = 40
 		}
 	}
 
 	option = {  #Release and play as Okuu
 		name = flavor_crd.4.c
-		hidden_effect = {
-
-		4861 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		5143 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		5127 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		4859 = {
-			add_core = OKU
-			remove_core = ROOT
-		}
-		
-		release = OKU
-		OKU = {
-			change_government = monarchy
-			add_government_reform = Gensokyan_monarchy
-			change_government_reform_progress = -100
-			add_accepted_culture = Oni_culture
-			change_religion = catholic
-			define_ruler = {
-				name = "Utsuho"
-				dynasty = "Reiuji"
-				age = 90
-				adm = 4
-				dip = 3
-				mil = 6
-				fixed = yes
-				female = yes
-			}
-			add_ruler_personality = immortal_personality
-			set_ruler_flag = touhou_character_ruler
-			add_adm_power = 100
-			add_dip_power = 64
-			add_mil_power = 130
-			add_manpower = 5
-			add_prestige = 100
-			add_sailors = 100
-			capital_scope = {
-			build_to_forcelimit = {
-				infantry = 0.4
-				cavalry = 0.3
-				galley = 0.3
-				transport = 0.2
-				light_ship = 0.2
-			}
-		}
-		4861 = {
-			add_base_manpower = 4
-			add_base_tax = 5
-		}
-		5127 = {
-			add_base_tax = 4
-			add_base_manpower = 5
-		}
-		5143 = {
-			add_base_tax = 4
-			add_base_manpower = 3
-		}
-		4859 = {
-			add_base_tax = 1
-		}
-		change_estate_land_share = {
-			estate = estate_nobles
-			share = 29
-		}
-		change_estate_land_share = {
-			estate = estate_church
-			share = 20
-		}
-		change_estate_land_share = {
-			estate = estate_burghers
-			share = 20
-		}
-	}
-	5140 = {
-		add_core = ORN
-		remove_core = ROOT
-	}
-	5141 = {
-		add_core = ORN
-		remove_core = ROOT
-	}
-	5142 = {
-		add_core = ORN
-		remove_core = ROOT
-	}
-	5126 = {
-		add_core = ORN
-		remove_core = ROOT
-	}
-	
-	release = ORN
-	ORN = {
-		change_government = monarchy
-		add_government_reform = Gensokyan_monarchy
-		change_government_reform_progress = -100
-		add_accepted_culture = Oni_culture
-		change_religion = catholic
-		define_ruler = {
-			name = "Rin"
-			dynasty = "Kaenbyou"
-			age = 93
-			adm = 4
-			dip = 5
-			mil = 5
-			fixed = yes
-			female = yes
-		}
-		add_ruler_personality = immortal_personality
-		set_ruler_flag = touhou_character_ruler
-		add_adm_power = 100
-		add_dip_power = 130
-		add_mil_power = 120
-		add_manpower = 5
-		add_prestige = 100
-		add_sailors = 100
-		capital_scope = {
-		build_to_forcelimit = {
-			infantry = 0.5
-			cavalry = 0.2
-		}
-	}
-	5140 = {
-		add_base_tax = 5
-		add_base_production = 2
-		add_base_manpower = 5
-	}
-	5126 = {
-		add_base_tax = 2
-		add_base_production = 2
-		add_base_manpower = 4
-	}
-	5141 = {
-		add_base_tax = 3
-		add_base_production = 1
-		add_base_manpower = 3
-	}
-	5142 = {
-		add_base_tax = 3
-		add_base_production = 4
-		add_base_manpower = 3
-		build_to_forcelimit = {
-			transport = 0.2
-			light_ship = 0.2
-		}
-	}
-	change_estate_land_share = {
-		estate = estate_nobles
-		share = 29
-	}
-	change_estate_land_share = {
-		estate = estate_church
-		share = 20
-	}
-	change_estate_land_share = {
-		estate = estate_burghers
-		share = 20
-	}
-  }
-		}
+		th_crd_release_orn_and_okuu = yes
 		switch_tag = OKU
+		
 		ai_chance = {
 			factor = 0
 		}
-}
+	}
 
     option = {  #Release and play as Orin
 		name = flavor_crd.4.d
-		hidden_effect = {
-		
-		5140 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-		5141 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-		5142 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-        5126 = {
-			add_core = ORN
-			remove_core = ROOT
-		}
-		
-		release = ORN
-		ORN = {
-			change_government = monarchy
-			add_government_reform = Gensokyan_monarchy
-			change_government_reform_progress = -100
-			add_accepted_culture = Oni_culture
-			change_religion = catholic
-			define_ruler = {
-				name = "Rin"
-				dynasty = "Kaenbyou"
-				age = 93
-				adm = 4
-				dip = 5
-				mil = 5
-				fixed = yes
-				female = yes
-			}
-			add_ruler_personality = immortal_personality
-			set_ruler_flag = touhou_character_ruler
-			add_adm_power = 100
-			add_dip_power = 130
-			add_mil_power = 120
-			add_manpower = 5
-			add_prestige = 100
-			add_sailors = 100
-			capital_scope = {
-			build_to_forcelimit = {
-				infantry = 0.5
-				cavalry = 0.2
-			}
-		}
-		5140 = {
-			add_base_tax = 5
-			add_base_production = 2
-			add_base_manpower = 5
-		}
-		5126 = {
-			add_base_tax = 2
-			add_base_production = 2
-			add_base_manpower = 4
-		}
-		5141 = {
-			add_base_tax = 3
-			add_base_production = 1
-			add_base_manpower = 3
-		}
-		5142 = {
-			add_base_tax = 3
-			add_base_production = 4
-			add_base_manpower = 3
-			build_to_forcelimit = {
-				transport = 0.2
-				light_ship = 0.2
-			}
-		}
-		change_estate_land_share = {
-			estate = estate_nobles
-			share = 29
-		}
-		change_estate_land_share = {
-			estate = estate_church
-			share = 20
-		}
-		change_estate_land_share = {
-			estate = estate_burghers
-			share = 20
-		}
-	}
-		
-		
-			4861 = {
-				add_core = OKU
-				remove_core = ROOT
-			}
-			5143 = {
-				add_core = OKU
-				remove_core = ROOT
-			}
-			5127 = {
-				add_core = OKU
-				remove_core = ROOT
-			}
-			4859 = {
-				add_core = OKU
-				remove_core = ROOT
-			}
-			release = OKU
-			OKU = {
-				change_government = monarchy
-				add_government_reform = Gensokyan_monarchy
-				change_government_reform_progress = -100
-				add_accepted_culture = Oni_culture
-				change_religion = catholic
-				define_ruler = {
-					name = "Utsuho"
-					dynasty = "Reiuji"
-					age = 90
-					adm = 4
-					dip = 3
-					mil = 6
-					fixed = yes
-					female = yes
-				}
-				add_ruler_personality = immortal_personality
-				set_ruler_flag = touhou_character_ruler
-				add_adm_power = 100
-				add_dip_power = 64
-				add_mil_power = 130
-				add_manpower = 5
-				add_prestige = 100
-				add_sailors = 100
-				capital_scope = {
-				build_to_forcelimit = {
-					infantry = 0.4
-					cavalry = 0.3
-					galley = 0.3
-					transport = 0.2
-					light_ship = 0.2
-				}
-			}
-			4861 = {
-				add_base_manpower = 4
-				add_base_tax = 5
-			}
-			5127 = {
-				add_base_tax = 4
-				add_base_manpower = 5
-			}
-			5143 = {
-				add_base_tax = 4
-				add_base_manpower = 3
-			}
-			4859 = {
-				add_base_tax = 1
-			}
-			change_estate_land_share = {
-				estate = estate_nobles
-				share = 29
-			}
-			change_estate_land_share = {
-				estate = estate_church
-				share = 20
-			}
-			change_estate_land_share = {
-				estate = estate_burghers
-				share = 20
-			}
-		}
-	}
+		th_crd_release_orn_and_okuu = yes
 		switch_tag = ORN
+
 		ai_chance = {
 			factor = 0
 		}
-	
-}
+	}
 
 	option = {  #Refuse
 	    name = flavor_crd.4.e
 		ai_chance = {
-			factor = 25
+			factor = 50
 		}
 	}
-}	
+}
+
+#Kanakos Gift
+country_event = {
+	id = flavor_crd.5
+	title = flavor_crd.5.t
+	desc = flavor_crd.5.desc
+	picture = KANAKOBOSS_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = OKU
+			was_tag = OKU
+		}
+		is_lesser_in_union = no
+		has_ruler = "Utsuho"
+		dynasty = "Reiuji"
+		NOT = { adm = 3 }
+		has_ruler_flag = touhou_character_ruler
+		religion = Moriya_Shintoism
+		former_hell_region = {
+			religion = Moriya_Shintoism
+			type = all
+		}
+		OR = {
+			has_idea_group = innovativeness_ideas
+			innovativeness = 10
+		}
+	}
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {	#Level adm up
+		name = flavor_crd.5.a
+		change_adm = 1
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}

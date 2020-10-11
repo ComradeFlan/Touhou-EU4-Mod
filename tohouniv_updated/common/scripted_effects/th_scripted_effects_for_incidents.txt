@@ -562,6 +562,7 @@ th_incident_set_investigator = {
 		}
 		ROOT = {
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 	else_if = {
@@ -579,6 +580,7 @@ th_incident_set_investigator = {
 				NOT = { has_country_flag = th_is_not_valid_for_investiagtor_role }
 			}
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 	else_if = {
@@ -596,6 +598,7 @@ th_incident_set_investigator = {
 				NOT = { has_country_flag = th_is_not_valid_for_investiagtor_role }
 			}
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 	else_if = {
@@ -606,6 +609,7 @@ th_incident_set_investigator = {
 		}
 		ROOT = {
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 	else_if = {
@@ -623,6 +627,7 @@ th_incident_set_investigator = {
 				ai = no
 			}
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 	else = {
@@ -632,6 +637,7 @@ th_incident_set_investigator = {
 				has_country_flag = th_eligible_investigator
 			}
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 
@@ -673,6 +679,7 @@ th_incident_setup_investigator = {
 			}
 		}
 		set_country_flag = th_incident_investigating
+		save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 	}
 	else_if = {	#FOM becomes investigator, whe HKR doesn't exist. Else HKR investigates
 		limit = {
@@ -696,10 +703,12 @@ th_incident_setup_investigator = {
 			}
 			HKR = {
 				set_country_flag = th_incident_investigating
+				save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 			}
 		}
 		else = {
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 	else_if = {	#MRY becomes investigator, when HKR and FOM are not aviable
@@ -724,6 +733,7 @@ th_incident_setup_investigator = {
 			}
 			HKR = {
 				set_country_flag = th_incident_investigating
+				save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 			}
 		}
 		else_if = {
@@ -741,10 +751,12 @@ th_incident_setup_investigator = {
 			}
 			FOM = {
 				set_country_flag = th_incident_investigating
+				save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 			}
 		}
 		else = {
 			set_country_flag = th_incident_investigating
+			save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 		}
 	}
 	else_if = {	#SCR and NET shares the same priority
@@ -773,6 +785,7 @@ th_incident_setup_investigator = {
 			}
 			HKR = {
 				set_country_flag = th_incident_investigating
+				save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 			}
 		}
 		else_if = {
@@ -790,6 +803,7 @@ th_incident_setup_investigator = {
 			}
 			FOM = {
 				set_country_flag = th_incident_investigating
+				save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 			}
 		}
 		else_if = {
@@ -807,6 +821,7 @@ th_incident_setup_investigator = {
 			}
 			MRY = {
 				set_country_flag = th_incident_investigating
+				save_global_event_target_as = th_incident_investigator		#Now our investigator has his own scope! To call him type "event_target:th_incident_investigator"
 			}
 		}
 	}

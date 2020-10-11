@@ -1,10 +1,6 @@
-spriteTypes = {	
-	spriteType = {
-		name = "government_reform_english_monarchy"
-		texturefile = "gfx//interface//government_reform_icons//english_monarchy.dds"
-	}
-    spriteType = {
-        name = "government_reform_Fairy_colonial_empire"
-	    texturefile = "gfx//interface//government_reform_icons//Fairy_colonial_empire.dds"
-    }
-}
+#spriteTypes = {	
+#	spriteType = {
+#		name = "government_reform_Fairy_colonial_empire"
+#		texturefile = "gfx//interface//government_reform_icons//english_monarchy.dds"
+#	}
+#}

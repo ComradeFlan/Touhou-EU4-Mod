@@ -90,32 +90,38 @@ spriteTypes = {
 	
 	spriteType = {
 		name = "GFX_th_aspect_celebrate_holiday"
-		texturefile = "gfx/interface/aspects/th_aspect_celebrate_holiday.dds"
+		texturefile = "gfx/interface/aspects/GFX_th_aspect_celebrate_holiday.dds"
+		legacy_lazy_load = no
 	}	
 	
 	spriteType = {
 		name = "GFX_th_aspect_create_battalion"
-		texturefile = "gfx/interface/aspects/th_aspect_create_battalion.dds"
+		texturefile = "gfx/interface/aspects/GFX_th_aspect_create_battalion.dds"
+		legacy_lazy_load = no
 	}	
 	
 	spriteType = {
 		name = "GFX_th_aspect_create_new_servants"
-		texturefile = "gfx/interface/aspects/th_aspect_create_new_servants.dds"
+		texturefile = "gfx/interface/aspects/GFX_th_aspect_create_new_servants.dds"
+		legacy_lazy_load = no
 	}	
 	
 	spriteType = {
 		name = "GFX_th_aspect_create_trade_fleet"
-		texturefile = "gfx/interface/aspects/th_aspect_create_trade_fleet.dds"
+		texturefile = "gfx/interface/aspects/GFX_th_aspect_create_trade_fleet.dds"
+		legacy_lazy_load = no
 	}	
 	
 	spriteType = {
 		name = "GFX_th_aspect_dissolve_shrines"
-		texturefile = "gfx/interface/aspects/th_aspect_dissolve_shrines.dds"
+		texturefile = "gfx/interface/aspects/GFX_th_aspect_dissolve_shrines.dds"
+		legacy_lazy_load = no
 	}	
 	
 	spriteType = {
 		name = "GFX_th_aspect_holy_war"
-		texturefile = "gfx/interface/aspects/th_aspect_holy_war.dds"
+		texturefile = "gfx/interface/aspects/GFX_th_aspect_holy_war.dds"
+		legacy_lazy_load = no
 	}	
 }
 

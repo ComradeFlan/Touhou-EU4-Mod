@@ -41,6 +41,13 @@ moriya_center_of_reformation = {
 			has_province_modifier = th_religious_center
 		}
 		modifier = {
+			factor = 0
+			OR = {
+				region = moon_region
+				region = orbital_region
+			}
+		}
+		modifier = {
 			factor = 0.01
 			owner = {
 				OR = {
@@ -81,7 +88,13 @@ moriya_center_of_reformation = {
 		modifier = {
 			factor = 2
 			culture_group = FROM
-			development = 10
+			NOT = { development = 10 }
+			NOT = { num_of_centers_of_reformation = { religion = Moriya_Shintoism count = 2 } }
+		}
+		modifier = {
+			factor = 0.5
+			culture_group = FROM
+			development = 30
 			NOT = { num_of_centers_of_reformation = { religion = Moriya_Shintoism count = 2 } }
 		}
 		modifier = {

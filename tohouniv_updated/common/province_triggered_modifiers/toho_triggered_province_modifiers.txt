@@ -446,30 +446,3 @@ TH_Myouren_Temple_Controlled_By_Taoist = {
 	on_deactivation = {
 	}
 }
-
-########Province Modifiers########
-
-Parsee_bridge = {
-	potential = {
-	}
-		trigger = {
-			owner = {
-				OR = {
-					tag = CRD
-					tag = ORN
-					tag = OKU
-				}
-			}
-		}
-	
-		defensiveness = 0.2
-		prestige = 0.2
-
-		on_activation = {
-	
-		}
-		
-		on_deactivation = {
-		}
-	
-}
