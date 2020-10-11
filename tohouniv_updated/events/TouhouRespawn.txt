@@ -1381,6 +1381,58 @@ country_event = {
 		set_ruler_flag = touhou_character_ruler
 		set_heir_flag = touhou_character_ruler
 	}
+	option = {		#Orin
+		name = touhou_respawn.1.au
+		trigger = {
+			OR = {
+				tag = ORN
+				AND = {
+					tag = GNK
+					was_tag = ORN
+				}
+			}
+		}
+		define_ruler = {
+			name = "Kaenbyou"
+			dynasty = "Rin"
+			culture = Chireidean
+			fixed = yes
+			adm = 4
+			dip = 5
+			mil = 5
+			age = 20
+			claim = 100
+			female = yes
+		}
+		add_ruler_personality = immortal_personality
+		set_ruler_flag = touhou_character_ruler
+	}
+	option = {		#Okuu
+		name = touhou_respawn.1.av
+		trigger = {
+			OR = {
+				tag = OKU
+				AND = {
+					tag = GNK
+					was_tag = OKU
+				}
+			}
+		}
+		define_ruler = {
+			name = "Utsuho"
+			dynasty = "Reiuji"
+			culture = Chireidean
+			fixed = yes
+			adm = 4
+			dip = 3
+			mil = 6
+			age = 20
+			claim = 100
+			female = yes
+		}
+		add_ruler_personality = immortal_personality
+		set_ruler_flag = touhou_character_ruler
+	}
 	option = {		#Standard
 		name = touhou_respawn.1.zz
 		trigger = {
@@ -1431,6 +1483,9 @@ country_event = {
 					tag = YAC
 					tag = YOF
 					tag = MKN
+					tag = ORN
+					tag = OKU
+					#tag = LWE
 				}
 			}
 		}

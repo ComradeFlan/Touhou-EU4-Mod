@@ -902,6 +902,46 @@ country_event = {
 		set_ruler_flag = touhou_character_ruler
 		set_heir_flag = touhou_character_ruler
 	}
+	option = {		#Orin
+		name = touhou_setting.1.ak
+		trigger = {
+			tag = ORN
+		}
+		define_ruler = {
+			name = "Kaenbyou"
+			dynasty = "Rin"
+			culture = Chireidean
+			fixed = yes
+			adm = 4
+			dip = 5
+			mil = 5
+			age = 20
+			claim = 100
+			female = yes
+		}
+		add_ruler_personality = immortal_personality
+		set_ruler_flag = touhou_character_ruler
+	}
+	option = {		#Okuu
+		name = touhou_setting.1.al
+		trigger = {
+			tag = OKU
+		}
+		define_ruler = {
+			name = "Utsuho"
+			dynasty = "Reiuji"
+			culture = Chireidean
+			fixed = yes
+			adm = 4
+			dip = 3
+			mil = 6
+			age = 20
+			claim = 100
+			female = yes
+		}
+		add_ruler_personality = immortal_personality
+		set_ruler_flag = touhou_character_ruler
+	}
 	option = {		#Standard
 		name = touhou_setting.3.zz
 		trigger = {
@@ -957,7 +997,9 @@ country_event = {
 	desc = "touhou_setting.4.desc"
 	picture = GENSOKYOTHRONE_eventPicture
 	
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 	
 	trigger = {
 		ruler_age = 50
@@ -1007,7 +1049,9 @@ country_event = {
 	desc = "touhou_setting.5.desc"
 	picture = GENSOKYOTHRONE_eventPicture
 	
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 	
 	trigger = {
 		ruler_age = 50
@@ -1211,5 +1255,87 @@ country_event = {
 			production = -6
 			manpower = -6
 		}
+	}
+}
+
+#Set age for Orin
+
+country_event = {
+	id = touhou_setting.10
+	title = "touhou_setting.5.t"
+	desc = "touhou_setting.5.desc"
+	picture = GENSOKYOTHRONE_eventPicture
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		ruler_age = 50
+		tag = FLR
+		NOT = { has_dlc = "Rights of Man" }
+		NOT = { has_country_flag = TH_picked_younger_Orin }
+	}
+	
+	immediate = {
+		set_country_flag = TH_picked_younger_Orin
+	}
+	
+	option = {		#Younger Orin
+		name = touhou_setting.10.a
+		define_ruler = {
+			name = "Kaenbyou"
+			dynasty = "Rin"
+			culture = Chireidean
+			fixed = yes
+			adm = 4
+			dip = 5
+			mil = 5
+			age = 20
+			claim = 100
+			female = yes
+		}
+		set_ruler_flag = touhou_character_ruler
+	}
+}
+
+#Set age for Okuu
+
+country_event = {
+	id = touhou_setting.11
+	title = "touhou_setting.5.t"
+	desc = "touhou_setting.5.desc"
+	picture = GENSOKYOTHRONE_eventPicture
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		ruler_age = 50
+		tag = FLR
+		NOT = { has_dlc = "Rights of Man" }
+		NOT = { has_country_flag = TH_picked_younger_Okuu }
+	}
+	
+	immediate = {
+		set_country_flag = TH_picked_younger_Okuu
+	}
+	
+	option = {		#Younger Okuu
+		name = touhou_setting.11.a
+		define_ruler = {
+			name = "Utsuho"
+			dynasty = "Reiuji"
+			culture = Chireidean
+			fixed = yes
+			adm = 4
+			dip = 3
+			mil = 6
+			age = 20
+			claim = 100
+			female = yes
+		}
+		set_ruler_flag = touhou_character_ruler
 	}
 }

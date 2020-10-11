@@ -18,5 +18,6 @@ religious_school = hakurei_school
 		mil = 6
 		female = yes
 	}
+	set_ruler_flag = th_current_ruler_reimu_hakurei
 }
 

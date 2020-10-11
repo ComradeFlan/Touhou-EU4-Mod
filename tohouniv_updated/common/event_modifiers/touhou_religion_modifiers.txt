@@ -229,59 +229,76 @@ th_shinki_court_servants = {
 
 ###SCHOLARS###
 
+th_ai_picked_scholar = {
+	religion = yes
+}
+
 th_hakurei_scholar_modifier = {
 	tolerance_own = 1
+	religion = yes
 }
 
 th_yakumo_scholar_modifier = {
 	diplomatic_reputation = 1
+	religion = yes
 }
 
 th_hecatia_scholar_modifier = {
 	harsh_treatment_cost = -0.25
+	religion = yes
 }
 
 th_okina_scholar_modifier = {
 	range = 0.15
+	religion = yes
 }
 
 th_aki_scholar_modifier = {
 	production_efficiency = 0.1
+	religion = yes
 }
 
 th_junko_scholar_modifier = {
 	army_tradition = 0.5
+	religion = yes
 }
 
 th_kishin_scholar_modifier = {
 	naval_morale = 0.1
+	religion = yes
 }
 
 th_shinki_scholar_modifier = {
 	technology_cost = -0.05
+	religion = yes
 }
 
 th_keiki_scholar_modifier = {
 	reinforce_speed = 0.1
+	religion = yes
 }
 
 th_hina_scholar_modifier = {
 	global_unrest = -0.75
+	religion = yes
 }
 
 th_kochiya_scholar_modifier = {
 	manpower_recovery_speed = 0.15
 	production_efficiency = 0.1
+	religion = yes
 }
 
 th_moriya_scholar_modifier = {
 	idea_cost = -0.05
 	technology_cost = -0.05
+	religion = yes
 }
 
 th_kanako_scholar_modifier = {
 	land_morale = 0.1
 	naval_morale = 0.1
+	religion = yes
 }
 
 ###DEITY EVENT MODIFIERS###
@@ -707,4 +724,24 @@ th_chr_inspired_workers = {	#Province
 
 th_chr_inspired_soldiers = {	#Province
 	local_manpower_modifier = 0.1
+}
+
+#Counter Reformation Decision
+
+th_counter_reformation = {
+	missionary_maintenance_cost = -0.33
+	global_heretic_missionary_strength = 0.03
+	missionaries = 1
+	technology_cost = 0.05
+	idea_cost = 0.05
+	religion = yes
+}
+
+th_increased_harmonization_efforts = {
+	yearly_harmony = 0.75
+	global_heretic_missionary_strength = 0.03
+	harmonization_speed = 0.25
+	technology_cost = 0.05
+	idea_cost = 0.05
+	religion = yes
 }

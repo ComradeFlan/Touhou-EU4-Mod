@@ -28,7 +28,6 @@ historical_friend = HMC
 		shock = 3
 		manuever = 2
 		siege = 2
-		female = yes
 	}
 }
 

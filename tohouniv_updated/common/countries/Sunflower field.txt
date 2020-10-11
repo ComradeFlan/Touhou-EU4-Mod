@@ -7,14 +7,14 @@ random_nation_chance = 0
 historical_score = 500
 
 historical_idea_groups = {
-	#
-	#
-	#
-	#
-	#
-	#
-	#
-	#
+	religious_ideas
+    offensive_ideas
+	economic_ideas
+	quantity_ideas
+	quality_ideas
+	administrative_ideas
+	defensive_ideas
+	influence_ideas
 }
 
 historical_units = {

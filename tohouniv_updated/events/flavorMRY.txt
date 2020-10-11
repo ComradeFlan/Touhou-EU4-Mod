@@ -4,6 +4,101 @@
 
 namespace = flavor_mry
 
+
+#Visit of Suwako Moriya in Higan 
+country_event = {
+	id = flavor_mry.1
+	title = flavor_mry.1.t
+	desc = flavor_mry.1.desc
+	picture = SUWAKO_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {	#Try to convince Eiki to convert
+		name = flavor_mry.1.a
+		
+		if = {
+			limit = {
+				alliance_with = HIG
+			}
+			HIG = {
+				country_event = {
+					id = flavor_mry.2
+				}
+			}
+		}
+		else = {
+			every_heretic_province = {
+				limit = {
+					region = hell_region
+				}
+				add_province_modifier = { 
+					name = th_yof_banned_heretics
+					duration = 1825
+				}
+			}
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+	
+	option = {	#Not worth it
+		name = flavor_mry.1.b
+		
+		add_adm_power = 100
+		
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
+
+#Visit of Suwako Moriya in Higan (for HIG)
+country_event = {
+	id = flavor_mry.2
+	title = flavor_mry.2.t
+	desc = flavor_mry.2.desc
+	picture = SUWAKO_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {	#Send the Shrine Maidens! I can't tolerate any heretics in my land!
+		name = flavor_mry.2.a
+		
+		change_religion = Moriya_Shintoism		
+		add_country_modifier = { 
+			name = th_converted_to_moriya
+			duration = 5475
+		}
+		reverse_add_opinion = {
+			who = FROM
+			modifier = th_follows_our_religion
+		}
+		
+		ai_chance = { 
+			factor = 100
+		}
+	}
+	
+	option = {	#Nah
+		name = flavor_mry.2.b
+		
+		add_prestige = 5
+		
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
+
 #Clear incited zealot flag of target country
 country_event = {
 	id = flavor_mry.100
@@ -142,7 +237,7 @@ country_event = {
 	id = flavor_mry.103
 	title = flavor_mry.103.t
 	desc = flavor_mry.103.desc
-	picture = YUKARI_eventPicture
+	picture = KANAKOBOSS_eventPicture
 	
 	mean_time_to_happen = {
 		months = 1
@@ -155,9 +250,7 @@ country_event = {
 				NOT = { tag = MRY }
 				NOT = { tag = GNK }
 			}
-			AND = { #Mustn`t change government to others
-				NOT = {	has_reform = Gensokyan_shrine_theocracy }
-			}
+			NOT = {	has_reform = Gensokyan_shrine_theocracy }
 			NOT = { religion = Moriya_Shintoism }
 		}
 
@@ -175,6 +268,7 @@ country_event = {
 	
 	option = {	#Well, we shouldn`t abandon our old tradition.
 		name = flavor_mry.103.a
+		custom_tooltip = flavor_mry.103.a.tt
 	}
 }
 
@@ -188,10 +282,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		AND = {
-			is_subject = yes
-			is_subject_of_type = th_religious_tributary
-		}
+		is_subject = yes
+		is_subject_of_type = th_religious_tributary
 		overlord = {
 			OR = {
 				AND = {

@@ -462,31 +462,42 @@ flr_slot3_branch = {
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			diplomatic_reputation = 6
 			has_global_modifier_value = {
 				which = discipline
 				value = 0.25
 			}
 			OR = {
-						calc_true_if = {
-							amount = 3
-							all_elector = {
-								has_opinion = { who = ROOT value = 100 }
+				AND = {
+					calc_true_if = {
+						amount = 3
+						all_elector = {
+							has_opinion = { who = ROOT value = 100 }
 							}
 						}
-						AND = {
-							NOT = { hre_size = 1 }
-							NOT = { exists = HLR }
-						}
+					diplomatic_reputation = 6
+				}
+				AND = {
+					NOT = { hre_size = 1 }
+					NOT = { exists = HLR }
+				}
 			}
 		}
 		
 		effect = {
-			if = { 
-				limit = { exist = HLR }
+			add_prestige = 50
+			custom_tooltip = flr_lex_salica_tt
+			if = {
+				limit = {
+					AND = {
+						NOT = { hre_size = 1 }
+						NOT = { exists = HLR }
+					}
+				}
+				country_event = { id = flavor_flr.31 }
+			}
+			else = {
 				country_event = { id = flavor_flr.3 }
 			}
-			add_prestige = 50
 		}
 	}
 	flr_hegemony_in_germany = {
@@ -514,21 +525,37 @@ flr_slot3_branch = {
 				}
 				AND = {
 					NOT = { exists = HLR }
-					total_development = 1000
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 41
+						region = north_german_region
+					}
 				}
 			}
 		}
 		effect = {
-				add_imperial_influence = 20
 				south_german_region = {
 					limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 					}
 				add_permanent_claim = ROOT
+				}
+				custom_tooltip = flr_hegemony_in_germany_tt
+				if = {
+					limit = { is_emperor = yes }
+					add_country_modifier = {
+						name = th_FLR_authority_kaiserin
+						duration = 7300
 					}
+				}
+				else = {
+					add_country_modifier = {
+						name = th_FLR_hegemony_germany
+						duration = 7300
+					}
+				}
 			}
-		}
+	}
 	flr_imperial_crown_of_germany = {
 		icon = spread_the_von_wettins
 		required_missions = {
@@ -544,14 +571,13 @@ flr_slot3_branch = {
 		}
 		position = 8
 		trigger = {
-			north_german_region = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			south_german_region = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 100
+					OR = {
+						region = north_german_region
+						region = south_german_region
+					}
+				}
 		}
 		effect = {
 			france_region = {
@@ -601,6 +627,13 @@ flr_slot3_branch = {
 					add_claim = root
 				}
 			}
+			if = {
+				limit = {
+						is_emperor = no
+						NOT = { government_rank = 3 }
+					}
+				set_government_rank = 3 
+			}
 			add_country_modifier = {
 					name = th_FLR_keiserin_germany
 					duration = -1
@@ -631,9 +664,20 @@ flr_slot3_branch = {
 			}
 		}
 		effect = {
-			add_country_modifier = {
-				name = "th_FLR_guardian_europe"
-				duration = -1
+			if = {
+				limit = {
+					religion_group = christian
+				}
+				add_country_modifier = {
+					name = "th_FLR_guardian_europe"
+					duration = -1
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = "th_FLR_terror_of_balkans"
+					duration = -1
+				}
 			}
 		}
 	}
@@ -746,7 +790,7 @@ flr_slot3_branch = {
 				add_permanent_claim = ROOT
 			}
 			former_hell_region = {
-				imit = {
+				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
@@ -832,11 +876,22 @@ flr_slot4_branch = {
 		}
 		trigger = {
 			has_institution = industrialization
-			calc_true_if = {
+			if = {
+				limit = {
+					has_dlc = "Rule Britannia"
+				}
+				calc_true_if = {
 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 					trade_goods = coal
 				}
 				amount = 5
+				}
+			}
+			else = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 40
+					has_manufactory_trigger = yes
+				}
 			}
 		}
 		effect = {

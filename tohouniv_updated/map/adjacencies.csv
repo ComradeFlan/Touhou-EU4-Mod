@@ -104,4 +104,10 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 4919;4924;sea;4794;-1;-1;-1;-1;Sdm-Gnk
 4886;5138;sea;4903;-1;-1;-1;-1;Scr-Crd
 5032;5149;sea;4797;-1;-1;-1;-1;Yum-Gnk
+4884;4880;sea;4798;-1;-1;-1;-1;Celestial Town-Dragons Palace
+4884;5161;sea;4798;-1;-1;-1;-1;Celestial Town-Halls of Heaven
+5157;5154;sea;4798;-1;-1;-1;-1;Heaven-Jade Village
+5156;4900;sea;4798;-1;-1;-1;-1;Serpent Dragon Peak-Hinanawi Clan
+5156;5155;sea;4798;-1;-1;-1;-1;Serpent Dragon Peak-Windward Land
+5158;5159;sea;4798;-1;-1;-1;-1;Aboretum-Keystone Port
 -1;-1;;-1;-1;-1;-1;-1;-1;
