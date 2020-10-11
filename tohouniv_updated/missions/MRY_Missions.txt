@@ -612,9 +612,9 @@ moriya_missions_west_and_north_slot = {
 				}
 				set_government_rank = 3
 			}
-			custom_tooltip = mry_enables_tributary_war_tt
+			custom_tooltip = th_enables_global_crusade_tt
 			hidden_effect = {
-				set_country_flag = th_enable_religious_tributary_war
+				set_country_flag = th_enable_global_crusade
 			}
 			add_country_modifier = {
 				name = mry_religious_hegemony
@@ -777,20 +777,11 @@ moriya_missions_empire_and_religion_slot = {
 					exists = HMC
 					HMC = {
 						religion = ROOT
-						is_subject = no
-						NOT = { total_development = 200 }
 					}
 				}
 				create_subject = {
 					subject_type = th_religious_tributary
 					subject = HMC
-				}
-			}
-			else = {
-				capital_scope = {
-					add_base_tax = 2
-					add_base_production = 2
-					add_base_manpower = 2
 				}
 			}
 			add_dip_power = 150
@@ -1400,13 +1391,6 @@ moriya_missions_outworld_slot = {
 				}
 				add_permanent_claim = ROOT
 			}
-			xinan_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 			liaoning_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1424,23 +1408,24 @@ moriya_missions_outworld_slot = {
 		
 		provinces_to_highlight = {
 			OR = {
-				region = north_china_region
-				region = south_china_region
-				region = xinan_region
+				AND = {
+					region = north_china_region
+					NOT = { religion = ROOT }
+				}
+				AND = {
+					area = liaoning_area
+					NOT = { religion = ROOT }
+				}
 			}
-			NOT = { religion = ROOT }
 		}
 		trigger = {
-			calc_true_if = {
-				all_province = {
-					OR = {
-						region = north_china_region
-						region = south_china_region
-						region = xinan_region
-					}
-					religion = ROOT
-				}
-				amount = 70
+			north_china_region = {
+				type = all
+				religion = ROOT
+			}
+			liaoning_area = {
+				type = all
+				religion = ROOT
 			}
 		}
 		effect = {
@@ -1448,6 +1433,34 @@ moriya_missions_outworld_slot = {
 			add_country_modifier = {
 				name = "mry_asian_religious_unity"
 				duration = -1
+			}
+			xinan_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			manchuria_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mongolia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tibet_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 			country_event = { id = TH_mission_events.3 }
 		}

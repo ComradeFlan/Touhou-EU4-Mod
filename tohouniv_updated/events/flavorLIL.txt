@@ -1,0 +1,209 @@
+########################################
+# Flavor Events for Jasmine Path
+########################################	
+
+namespace = flavor_lil
+
+#Discovery Event
+country_event = {
+	id = flavor_lil.1
+	title = flavor_lil.1.t
+	desc = flavor_lil.1.desc
+	picture = SHRINE_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_lil.1.a
+		add_prestige = 50
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
+	}
+
+}
+
+#Establishing first colony event
+country_event = {
+	id = flavor_lil.2
+	title = flavor_lil.2.t
+	desc = flavor_lil.2.desc
+	picture = SHRINE_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_lil.2.a
+		change_adm = 1
+		add_treasury = 400
+		add_country_modifier = {
+			name = "lil_new_dawn"
+			duration = -1
+		}
+	}
+}
+
+
+#Friendship Event
+country_event = {
+	id = flavor_lil.3
+	title = flavor_lil.3.t
+	desc = flavor_lil.3.desc
+	picture = SHRINE_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_lil.3.a
+		create_alliance = CRD
+		add_trust = {
+			who = CRD
+			value = 20
+			mutual = yes
+		}
+		add_dip_power = 100
+		add_prestige = 15
+	}
+}
+
+#Scarlet Doomed
+country_event = {
+	id = flavor_lil.4
+	title = flavor_lil.4.t
+	desc = flavor_lil.4.desc
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_lil.4.a
+		add_mil_power = 200
+		add_prestige = 40
+		change_mil = 1
+	}
+}
+
+#Treaty of Misty Coast
+country_event = {
+	id = flavor_lil.5
+	title = flavor_lil.5.t
+	desc = flavor_lil.5.desc
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		tag = LIL
+		has_country_flag = LIL_CRD_Deal
+		total_development = 100
+		alliance_with = CRD
+	}
+
+	mean_time_to_happen = {
+		months = 8
+	}
+
+	option = {
+		name = flavor_lil.5.a  #Accept Treaty
+		add_historical_friend = CRD
+		CRD = {
+			add_historical_friend = LIL
+		}
+		hidden_effect = {
+		add_trust = {
+			who = CRD
+			value = 20
+			mutual = yes
+		}
+	}
+		change_dip = 1
+		add_dip_power = 200
+			Scarlett_domain = {
+				remove_claim = LIL
+				remove_claim = CRD
+			}
+			Scarlet_island = {
+				remove_claim = CRD
+			}
+			Scarlet_mountain = {
+				remove_claim = CRD
+			}
+			4886 = {   #Western Misty Coast
+				if = {
+					NOT = { owned_by = CRD }
+				}
+				cede_province = CRD
+			}
+			4923 = {   #Flandre's Playground
+				cede_province = CRD
+			}
+			4885 = {   #Scarlet Path
+				cede_province = CRD
+			}
+			hidden_effect = {
+			4920 = {   #Voile Library
+				if = {
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+			4926 = {   #Eastern Misty Coast
+				if = {
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+			4927 = {   #Forgotten Castle
+				if = {
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+			4925 = {   #Scarlet Mountain
+				if = {
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+			4924 = {   #Mansion's Garden
+				if = {
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+
+	option = {
+		name = flavor_lil.5.b #Reject Treaty
+		add_trust = {
+			who = CRD
+			value = -30
+			mutual = no
+		}
+		add_prestige = -10
+		add_treasury = 500 #Take all the land for yourself
+		ai_chance = {
+			factor = 15
+		}
+	}
+}
+
+	
+			
+
+
+			
+
+		
+	
+
+	

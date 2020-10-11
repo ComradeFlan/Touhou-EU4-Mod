@@ -1,0 +1,654 @@
+fairytopia_missions_colonizing_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = FTP
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	FTP_quest_for_fairy_homes = {
+		icon = mission_rb_a_mighty_fleet
+		required_missions = { }
+		position = 4
+		trigger = {
+			has_global_modifier_value = {
+				which = colonists
+				value = 2
+			}
+			has_idea = quest_for_the_new_world
+		}
+		effect = {
+			moluccas_region = {
+				limit = {
+					is_empty = no
+					NOT = { core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "ftp_rush_for_the_new_world"
+				duration = 9125
+			}
+		}
+	}
+	
+	FTP_colonize_the_islands = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { FTP_quest_for_fairy_homes }
+		position = 5
+		provinces_to_highlight = {
+			region = moluccas_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			calc_true_if = {
+				all_province = {
+					region = moluccas_region
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 5
+			}
+		}
+		effect = {
+			add_treasury = 200
+			4358 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 9125
+					power = 20
+					key = FTP_fairy_merchants
+				}
+			}
+		}
+	}
+	
+	FTP_colonize_the_islands = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { FTP_quest_for_fairy_homes }
+		position = 5
+		provinces_to_highlight = {
+			region = moluccas_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			calc_true_if = {
+				all_province = {
+					region = moluccas_region
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 5
+			}
+		}
+		effect = {
+			add_treasury = 200
+			4358 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 9125
+					power = 20
+					key = FTP_fairy_merchants
+				}
+			}
+		}
+	}
+}
+
+cirnia_missions_liberate_fairies_slot = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = FTP
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	FTP_regain_our_independence = {
+		icon = mission_have_two_subjects
+		required_missions = { }
+		
+		trigger = {
+			is_subject = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cin_free_fairies"
+				duration = 7300
+			}
+			custom_tooltip = cin_mission_cores_on_fairy_provinces
+			hidden_effect = {
+				gensokyo_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						culture = Fairy
+						owner = {
+							NOT = { primary_culture = Fairy }
+						}
+					}
+					add_core = ROOT
+				}
+				gensokyan_forest_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						culture = Fairy
+						owner = {
+							NOT = { primary_culture = Fairy }
+						}
+					}
+					add_core = ROOT
+				}
+			}		
+			Scarlett_domain = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Scarlet_mountain = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Scarlet_island = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Fairy_land = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Northern_fairy_land = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	FTP_liberate_the_fairies_in_sdm = {
+		icon = mission_touhou_scarlet_mansion
+		required_missions = { FTP_regain_our_independence }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 4816
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			4816 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 25
+			4816 = {
+				change_province_name = "Fairy Greathall"
+			}
+			capital_scope = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 1
+				if = {
+					limit = {
+						NOT = { province_id = 4816 }
+					}
+					change_province_name = "Cirnia"
+				}
+				rename_capital = "Cirnia" 
+				if = {
+					limit = {
+						NOT = { province_has_center_of_trade_of_level = 1 }
+					}
+					center_of_trade = 1 
+				}
+			}
+			if = {
+				limit = { has_dlc = "Dharma" }
+				change_government_reform_progress = 100
+			}
+		}
+	}
+	
+	FTP_unite_fairy_land = {
+		icon = mission_touhou_army
+		required_missions = { FTP_liberate_the_fairies_in_sdm }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = Fairy_land
+				province_id = 4931
+				province_id = 4932
+			}
+			NOT = {
+				is_core = ROOT
+			}
+		}
+		trigger = {
+			Fairy_land = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			owns_core_province = 4931
+			owns_core_province = 4932
+		}
+		effect = {
+			add_adm_power = 100
+			if = {
+				limit = { has_dlc = "Dharma" }
+				change_government_reform_progress = 100
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			Forest_of_magic = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Eastern_mountains = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Mayohiga_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Ran_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Forest_edge_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Forest_coast_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	FTP_reclaim_fairy_homes = {
+		icon = mission_touhou_fairies
+		required_missions = { FTP_unite_fairy_land }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = Forest_of_magic
+				area = Eastern_mountains
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			Forest_of_magic = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			Eastern_mountains = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			if = {
+				limit = { has_dlc = "Dharma" }
+				change_government_reform_progress = 100
+			}
+			Chireiden = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Road_to_hell_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Chireiden_canal_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Blazing_hell_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Oni_exclave_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Yuugi_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	FTP_defeat_kasha = {
+		icon = mission_touhou_evil_kaenbyou
+		required_missions = { FTP_reclaim_fairy_homes }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4855
+				province_id = 4859
+				province_id = 5143
+				province_id = 4861
+				province_id = 5140
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			4855 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4859 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			5143 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4861 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			5140 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_dlc = "Dharma" }
+				change_government_reform_progress = 100
+			}
+			add_yearly_manpower = 0.5
+			add_army_tradition = 10
+			gensokyo_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			netherworld_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Moriya_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Moriya_coast_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Southern_moriya = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Makai = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Makai_peninsula_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Western_makai_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Makai_coast_state = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Sunny_plains = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			Perfect_cut_coast = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}		
+		}
+	}
+	
+	FTP_defeat_the_evil_humans = {
+		icon = mission_touhou_cirno_duels_youmu
+		required_missions = { FTP_defeat_kasha }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4803
+				province_id = 4938
+				province_id = 4806
+				province_id = 4846
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			4803 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4938 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4806 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4846 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_dlc = "Dharma" }
+				change_government_reform_progress = 100
+			}
+			add_prestige = 50
+			add_country_modifier = { 
+				name = cin_control_over_the_humans
+				duration = 7300
+			}
+			add_accepted_culture = Gensokyo_human
+		}
+	}
+}
+
+cirnia_missions_second_slot = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = FTP
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes	
+	
+	FTP_unite_sunflower_fairies = {
+		icon = mission_touhou_yuuka_ominous
+		position = 7
+		required_missions = { FTP_defeat_kasha }
+		provinces_to_highlight = {
+			OR = {
+				area = Perfect_cut_coast
+				area = Sunny_plains
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			Perfect_cut_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			Sunny_plains = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_dlc = "Dharma" }
+				change_government_reform_progress = 100
+			}
+			add_army_professionalism = 0.1
+			add_army_tradition = 25
+			add_yearly_manpower = 0.5 
+		}
+	}
+}
+
+cirnia_missions_middle_screen_slot = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = FTP
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	FTP_form_cirnos_empire_mission = {
+		icon = mission_touhou_queen_cirno
+		required_missions = { }
+		position = 6
+		trigger = {
+			OR = {
+				tag = GNK
+				government_rank = 3
+			}
+			total_development = 650
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cin_cirnos_empire"
+				duration = -1
+			}
+		}
+	}
+	
+	FTP_unite_makai_fairies = {
+		icon = mission_touhou_shinki
+		position = 7
+		required_missions = { FTP_defeat_kasha }
+		provinces_to_highlight = {
+			OR = {
+				area = Makai
+				area = Makai_peninsula_state
+				area = Western_makai_state
+				area = Makai_coast_state
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			Makai = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			Makai_peninsula_state = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			Western_makai_state = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			Makai_coast_state = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_dlc = "Dharma" }
+				change_government_reform_progress = 100
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+}

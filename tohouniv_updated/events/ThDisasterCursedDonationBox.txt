@@ -9,7 +9,7 @@ country_event = {
 	id = th_cursed_donation_box.1
 	title = th_cursed_donation_box.1.t
 	desc = th_cursed_donation_box.1.desc
-	picture = DONATIONBOX_eventPicture
+	picture = LIBERUM_VETO_eventPicture
 	
 	is_triggered_only = yes
 
@@ -21,21 +21,15 @@ country_event = {
 				duration = 3650
 				hidden = yes
 			}
-			add_country_modifier = {
-				name = th_donation_box_curse
-				duration = -1
-			}
 		}
 	}
 	
 	option = {
 		name = th_cursed_donation_box.1.a
 		custom_tooltip = th_cursed_donation_box.1.a.tt
-		tooltip = {
-			add_country_modifier = {
-				name = th_donation_box_curse
-				duration = -1
-			}
+		add_country_modifier = {
+			name = th_donation_box_curse
+			duration = -1
 		}
 		
 		ai_chance = { 
@@ -49,23 +43,17 @@ country_event = {
 	id = th_cursed_donation_box.2
 	title = th_cursed_donation_box.2.t
 	desc = th_cursed_donation_box.2.desc
-	picture = DONATIONBOX_eventPicture
+	picture = LIBERUM_VETO_eventPicture
 	
 	is_triggered_only = yes
 	
 	option = {
 		name = th_cursed_donation_box.2.a
 		custom_tooltip = th_cursed_donation_box.2.a.tt
-		add_stability = 2
-		add_devotion = 25
-		add_country_modifier = {
-			name = hkr_appealed_hakurei_god
-			duration = -1
-		}
 		remove_country_modifier = th_donation_box_curse
 		remove_country_modifier = th_dbc_renovated_shrine
 		remove_country_modifier = th_dbc_decaying_shrine
-		remove_country_modifier = th_dbc_natural_deflation
+		remove_country_modifier = th_dbc_natural_inflation
 		remove_country_modifier = th_dbc_pillaging_trivialized
 		remove_country_modifier = th_dbc_sticking_with_the_right_path
 		remove_country_modifier = th_dbc_eager_shrine_maidens
@@ -85,17 +73,18 @@ country_event = {
 	}
 }
 
+Unique events
+
 #Shrine Maidens eager to lift the curse
 country_event = {
 	id = th_cursed_donation_box.3
 	title = th_cursed_donation_box.3.t
 	desc = th_cursed_donation_box.3.desc
-	picture = DONATIONBOX_eventPicture
+	picture = SHRINE_eventPicture
 
 	trigger = {
 		NOT = { has_country_modifier = th_dbc_waiting }
 		has_country_modifier = th_donation_box_curse
-		NOT = { has_country_modifier = th_dbc_eager_shrine_maidens }
 	}
 
 	mean_time_to_happen = {
@@ -111,75 +100,6 @@ country_event = {
 	}
 }
 
-#Disaster End switch: Reimu is ruler or not
-country_event = {
-	id = th_cursed_donation_box.4
-	title = th_cursed_donation_box.4.t
-	desc = th_cursed_donation_box.4.desc
-	picture = DONATIONBOX_eventPicture
-	
-	is_triggered_only = yes
-	hidden = yes
-	
-	option = {
-		name = th_cursed_donation_box.4.a
-
-		#Reimu has pleased Hakurei Deity
-		if = {
-			limit = {
-				has_ruler_flag = th_current_ruler_reimu_hakurei
-			}
-			country_event = {
-				id = th_cursed_donation_box.2
-			}
-		}
-		else = {
-			country_event = {
-				id = th_cursed_donation_box.5
-			}
-		}
-		
-		ai_chance = { 
-			factor = 100
-		}
-	}
-}
-
-#Reimu left the shrine - the curse still looms
-country_event = {
-	id = th_cursed_donation_box.5
-	title = th_cursed_donation_box.5.t
-	desc = th_cursed_donation_box.5.desc
-	picture = DONATIONBOX_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = th_cursed_donation_box.5.a
-		custom_tooltip = th_cursed_donation_box.5.a.tt
-		remove_country_modifier = th_donation_box_curse
-		remove_country_modifier = th_dbc_renovated_shrine
-		remove_country_modifier = th_dbc_decaying_shrine
-		remove_country_modifier = th_dbc_natural_deflation
-		remove_country_modifier = th_dbc_pillaging_trivialized
-		remove_country_modifier = th_dbc_sticking_with_the_right_path
-		remove_country_modifier = th_dbc_eager_shrine_maidens
-		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					has_province_modifier = th_dbc_angered_locals
-				}
-				remove_province_modifier = th_dbc_angered_locals
-			}
-			remove_country_modifier = th_dbc_waiting
-			clr_country_flag = th_had_cursed_donation_box
-		}
-		
-		ai_chance = { 
-			factor = 100
-		}
-	}
-}
 
 #Random monthly events
 
@@ -188,51 +108,19 @@ country_event = {
 	id = th_cursed_donation_box.11
 	title = th_cursed_donation_box.11.t
 	desc = th_cursed_donation_box.11.desc
-	picture = DONATIONBOX_eventPicture
+	picture = SHRINE_eventPicture
 
 	is_triggered_only = yes
 
 	option = {
 		name = th_cursed_donation_box.11.a
-		if = {
-			limit = {
-				has_country_flag = th_hkr_increased_youkai_hunt_income
-			}
-			if = {
-				limit = {
-					NOT = { monthly_income = 10 }
-				}
-				add_treasury = 120
-			}
-			else = {
-				add_years_of_income = 0.1
-			}
-		}
-		else = {
-			add_treasury = 75
-		}
+		add_treasury = 75
 		add_mil_power = -50
-
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0
-				is_in_deficit = no
-			}
-		}
 	}
 
 	option = {
 		name = th_cursed_donation_box.11.b
 		add_mil_power = 15
-
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0
-				is_in_deficit = yes
-			}
-		}
 	}
 }
 
@@ -241,7 +129,7 @@ country_event = {
 	id = th_cursed_donation_box.12
 	title = th_cursed_donation_box.12.t
 	desc = th_cursed_donation_box.12.desc
-	picture = DONATIONBOX_eventPicture
+	picture = SHRINE_eventPicture
 
 	trigger = {
 		MHG = {
@@ -256,105 +144,37 @@ country_event = {
 
 	option = {
 		name = th_cursed_donation_box.12.a
-		if = {
-			limit = {
-				has_country_flag = th_increased_donations_from_events
-			}
-			if = {
-				limit = {
-					NOT = { monthly_income = 15 }
-				}
-				add_treasury = 180
-			}
-			else = {
-				add_years_of_income = 0.1
-			}
-		}
-		else = {
-			add_treasury = 135
-		}
+		add_treasury = 135
 	}
 }
 
 #People infurated by vanished money
-country_event = {
+province_event = {
 	id = th_cursed_donation_box.13
 	title = th_cursed_donation_box.13.t
 	desc = th_cursed_donation_box.13.desc
-	picture = DONATIONBOX_eventPicture
+	picture = SHRINE_eventPicture
 
 	trigger = {
-		any_owned_province = {
-			superregion = gensokyo_superregion
-			NOT = { has_province_modifier = th_dbc_angered_locals }
+		NOT = {
+			has_province_modifier = th_dbc_angered_locals
 		}
 	}
 
 	is_triggered_only = yes
 
-	immediate = {
-		hidden_effect = {
-			random_owned_province = {
-				limit = {
-					superregion = gensokyo_superregion
-					NOT = { has_province_modifier = th_dbc_angered_locals }
-				}
-				save_event_target_as = th_cdb_irritated_province
-			}
-		}
-	}
-
 	option = {	#Try to tell them the truth
 		name = th_cursed_donation_box.13.a
-		event_target:th_cdb_irritated_province = {
-			add_local_autonomy = 10
-			add_province_modifier = {
-				name = th_dbc_angered_locals
-				duration = 730
-			}
-		}
-		ai_chance = {
-			factor = 100
-			modifier = {
-				if = {
-					limit = {
-						has_dlc = "Common Sense"
-					}
-					NOT = { devotion = 80 }
-				}
-				else = {
-					NOT = { legitimacy = 80 }
-				}
-				factor = 0
-			}
+		add_province_modifier = {
+			name = th_dbc_angered_locals
+			duration = 730
 		}
 	}
 
 	option = {	#Don't say anything
-		name = th_cursed_donation_box.13.b
-		if = {
-			limit = {
-				has_dlc = "Common Sense"
-			}
-			add_devotion = -15
-		}
-		else = {
-			add_legitimacy = -15
-		}
-		ai_chance = {
-			factor = 100
-			modifier = {
-				if = {
-					limit = {
-						has_dlc = "Common Sense"
-					}
-					NOT = { devotion = 80 }
-				}
-				else = {
-					NOT = { legitimacy = 80 }
-				}
-				factor = 0
-			}
+		name = th_cursed_donation_box.13.a
+		owner = {
+			add_devotion = -25
 		}
 	}
 }
@@ -364,7 +184,7 @@ country_event = {
 	id = th_cursed_donation_box.14
 	title = th_cursed_donation_box.14.t
 	desc = th_cursed_donation_box.14.desc
-	picture = DONATIONBOX_eventPicture
+	picture = SHRINE_eventPicture
 
 	trigger = {
 		NOT = { has_country_modifier = th_dbc_renovated_shrine }
@@ -396,18 +216,18 @@ country_event = {
 	id = th_cursed_donation_box.15
 	title = th_cursed_donation_box.15.t
 	desc = th_cursed_donation_box.15.desc
-	picture = DONATIONBOX_eventPicture
+	picture = SHRINE_eventPicture
 
 	trigger = {
-		NOT = { has_country_modifier = th_dbc_natural_deflation }
+		NOT = { has_country_modifier = th_dbc_natural_inflation }
 	}
 
 	is_triggered_only = yes
 
 	option = {
 		name = th_cursed_donation_box.15.a
-		add_years_of_income = 0.5
-		add_inflation = 2
+		add_years_of_income = 2
+		add_inflation = 5
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -420,10 +240,10 @@ country_event = {
 	option = {
 		name = th_cursed_donation_box.15.b
 		add_country_modifier = {
-			name = th_dbc_natural_deflation
+			name = th_dbc_natural_inflation
 			duration = 1825
 		}
-		add_years_of_income = -0.5
+		add_years_of_income = -1
 		ai_chance = {
 			factor = 0
 			modifier = {
@@ -439,7 +259,7 @@ country_event = {
 	id = th_cursed_donation_box.16
 	title = th_cursed_donation_box.16.t
 	desc = th_cursed_donation_box.16.desc
-	picture = DONATIONBOX_eventPicture
+	picture = SHRINE_eventPicture
 
 	trigger = {
 		is_at_war = yes
@@ -476,154 +296,6 @@ country_event = {
 				factor = 0
 				is_in_deficit = yes
 			}
-		}
-	}
-}
-
-#Elite Youkai hunt
-country_event = {
-	id = th_cursed_donation_box.17
-	title = th_cursed_donation_box.17.t
-	desc = th_cursed_donation_box.17.desc
-	picture = DONATIONBOX_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		has_country_flag = th_hkr_increased_youkai_hunt_income		
-		NOT = { has_country_flag = th_incident_investigating }
-	}
-	
-	immediate = {
-		hidden_effect = {
-			th_getruler_fighting_skill = {
-				SKILL_BONI = 0
-			}
-			#Elite Youkai's Base Fighting Skills
-			set_variable = {
-				which = th_hkr_elite_youkai_combat_skills
-				value = 750
-			}
-			th_defineopponent_fighting_skill = {
-				VARIABLE = th_hkr_elite_youkai_combat_skills
-			}	
-		}
-	}
-	
-	option = {	#TAKE THIS
-		name = th_cursed_donation_box.17.a
-		custom_tooltip = th_cursed_donation_box.17.a.tt
-		highlight = yes
-		th_danmaku_fight_ruler_and_opponent = yes
-		hidden_effect = {
-			country_event = {
-				id = th_cursed_donation_box.18
-				days = 10
-			}
-		}			
-
-		ai_chance = { 
-			factor = 100
-			modifier = {
-				th_unwinnable_fight_trigger = yes
-				factor = 0
-			}
-		}
-	}
-	
-	option = {	#Not worth the risk
-		name = th_cursed_donation_box.17.b
-		add_mil_power = 25
-
-		ai_chance = { 
-			factor = 100
-			modifier = {
-				th_winnable_fight_trigger = yes
-				factor = 0
-			}
-		}
-	}
-}
-
-#Dragon fight result evaluation
-country_event = {
-	id = th_cursed_donation_box.18
-	title = th_cursed_donation_box.18.t
-	desc = th_cursed_donation_box.18.desc
-	picture = DONATIONBOX_eventPicture
-	
-	is_triggered_only = yes
-	hidden = yes
-	
-	option = {
-		name = th_cursed_donation_box.18.a
-
-		if = {
-			limit = {
-				has_country_flag = th_incident_last_fight_won
-			}
-			country_event = { id = th_cursed_donation_box.19 }
-		}
-		else = {
-			country_event = { id = th_cursed_donation_box.20 }
-		}
-
-		ai_chance = { 
-			factor = 100
-		}
-	}
-}
-
-#Victory over the Elite Youkai
-country_event = {
-	id = th_cursed_donation_box.19
-	title = th_cursed_donation_box.19.t
-	desc = th_cursed_donation_box.19.desc
-	picture = DONATIONBOX_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {	#Youkai Hunter Reaimu
-		name = th_cursed_donation_box.19.a
-		if = {
-			limit = {
-				monthly_income = 33.34
-			}
-			add_years_of_income = 0.1
-		}
-		else = {
-			add_treasury = 400
-		}
-
-		ai_chance = { 
-			factor = 100
-		}
-	}
-}
-
-#Defeat against the Elite Youkai
-country_event = {
-	id = th_cursed_donation_box.20
-	title = th_cursed_donation_box.20.t
-	desc = th_cursed_donation_box.20.desc
-	picture = DONATIONBOX_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {	#Oof
-		name = th_cursed_donation_box.20.a
-		if = {
-			limit = {
-				has_dlc = "Common Sense"
-			}
-			add_devotion = -15
-		}
-		else = {
-			add_legitimacy = -15
-		}
-
-		ai_chance = { 
-			factor = 100
 		}
 	}
 }

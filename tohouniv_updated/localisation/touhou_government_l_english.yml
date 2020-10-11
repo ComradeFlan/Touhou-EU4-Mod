@@ -67,6 +67,9 @@
  TH_fairies_become_fairy_republic_reform:0 "Reform into a Fairy Republic"
  TH_fairies_become_fairy_republic_reform_desc:0 "Our people have a variety of background stories, but the most common story is that of a fairy servant. In our realm we have to protect our people from subjugation. We shall live by the values of the republic."
  ###GOVERNMENT###
+ Fairy_colonial_empire: "Spring Empire"
+ Fairy_colonial_empire_legacy: "Spring Empire"
+ Fairy_colonial_empire_desc: "A government form issued by the fairy Lily White after her great voyage. Proclaimed the 'Empress of Spring' lily sought to unite the land,people and colonies into one governmental body.Emphasising Authority,Expansion and Tolerance"
  Gensokyan_republic_desc: "Republican government preferred by the human population of Gensokyo"
  Gensokyan_republic: "Touhou Republic"
  Gensokyan_republic_legacy: "Touhou Republic"
