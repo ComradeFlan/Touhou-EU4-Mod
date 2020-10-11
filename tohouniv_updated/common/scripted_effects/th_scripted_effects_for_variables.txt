@@ -66,3 +66,5 @@ th_fuj_decrement_volcano_counter = {
 		}
 	}
 }
+
+		

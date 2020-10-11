@@ -2,7 +2,7 @@ th_religious_turmoil = {
 	#All Touhou group can have. Can start after MOF incident begun.(And last till the end of game. It can cover Taoism and Buddhism incident too)
 	potential = {
 		religion_group = Touhou
-		NOT = { has_country_flag = had_th_religious_turmoil } 
+		NOT = { has_country_flag = had_religious_turmoil } 
 		current_age = age_of_reformation
 		is_force_converted = no
 	}
@@ -71,15 +71,15 @@ th_religious_turmoil = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = religious_turmoil_timelimit_tt
-				had_country_flag = { flag = active_th_religious_turmoil days = 9125 }
+				had_country_flag = { flag = active_religious_turmoil days = 9125 }
 			}
 		}
 	}
 	
 
 	
-	on_start = th_religious_turmoil.1
-	on_end = th_religious_turmoil.2
+	on_start = religious_turmoil.1
+	on_end = religious_turmoil.2
 	
 	on_monthly = {
 		events = {
@@ -87,10 +87,10 @@ th_religious_turmoil = {
 		
 		random_events = { 
 			1200 = 0
-			10 = th_religious_turmoil.3
-			10 = th_religious_turmoil.4
-			10 = th_religious_turmoil.5
-			10 = th_religious_turmoil.6		
+			10 = religious_turmoil.3
+			10 = religious_turmoil.4
+			10 = religious_turmoil.5
+			10 = religious_turmoil.6		
 		}
 	}
 }

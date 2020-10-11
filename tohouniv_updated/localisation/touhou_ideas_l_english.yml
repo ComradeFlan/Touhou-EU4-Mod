@@ -117,6 +117,9 @@
  LIL_ideas:0 "Winter Jasmine Ideas"
  LIL_ideas_start:0 "Winter Jasmine Traditions"
  LIL_ideas_bonus:0 "Winter Jasmine Ambition"
+ LWE_ideas:0 "Spring Ideas"
+ LWE_ideas_start:0 "Spring Traditions"
+ LWE_ideas_bonus:0 "Spring Ambition"
  LAR_ideas:0 "Eternal Ideas"
  LAR_ideas_start:0 "Eternal Traditions"
  LAR_ideas_bonus:0 "Eternal Ambition"
@@ -649,7 +652,7 @@
  KKO_arbitrator_in_religious_dispute_desc:0 "As the people of Gensokyo became depressed, religious leaders tried to use the situation to increase their religious influence. Our leader Kokoro saw this situation badly and determined to stop religious leaders' ambitions for the people of Gensokyo. If they don't listen to her, she will stop them with force!"
  KKO_mask_of_hope:0 "Mask of Hope"
  KKO_mask_of_hope_desc:0 "Gensokyo was a peaceful land, but eccentric incidents and endless disputes made people tired and seek instant satisfaction and pleasure. Mistress Kokoro saw this and decided to give hope again for these people. With her ability and passion, she will be able restore hope for the future and bring this to the people of Gensokyo."
- ###NAITONAL IDEAS LIL###
+ ###NATIONAL IDEAS LIL###
  LIL_embodiments_of_mother_nature:0 "Embodiments of Mother Nature"
  LIL_embodiments_of_mother_nature_desc:0 "We fairies are embodiments of nature. We know how to adapt well to tough environment and use nature goods without hurting her."
  LIL_the_strongest_fairy:0 "The Strongest Fairy"
@@ -664,6 +667,23 @@
  LIL_looking_for_a_new_home_desc:0 "Even though we have freedom, we fairies are still under a lot of threats. Now that the barrier has fallen, perhaps finding a new world beyond barrier is a way out of this hell hole!"
  LIL_adaptability_of_fairy:0 "Fairy Adaptability"
  LIL_adaptability_of_fairy_desc:0 "We are nature itself, and that is not just gensokyo but also New World! We're going to settle down quickly in new world's nature and new world's natives are also going to accept us without reluctance. Maybe those naive humans will even see us holy!"
+
+ ###National IDEAS LWE###
+ LWE_spring_empress:0 "The Empress of Spring"
+ LWE_spring_empress_desc:0 "Our mistress's voyages, along with her power to bloom, saw her proclaimed as the 'Empress of Spring' by the people she blessed. What was once a town herald has now become one of the most prestigious figures in the land! With a full continent to handle, Lily's blessed grip is sure to lead us to prosperity!"
+ LWE_trade_routes:0 "Continental Trade Routes"
+ LWE_trade_routes_desc:0 "Our nation relies on trade routes to keep both the income and populace connected with the Spring Capital. In addition to the profitable journeys, our sailors are sharpening their seafaring skills!"
+ LWE_tolerance_all:0 "Fairy Tolerance"
+ LWE_tolerance_all_desc:0 "When the blissful Lily White came to us, she didn't care what our gender,race or religion was. And as such, under -her now- offical and wise rule, there will be no discrimination."
+ LWE_supreme_loyalty:0 "Eternal Loyalty"
+ LWE_supreme_loyalty_desc:0 "We owe it to our mistress, who blesses our gardens every year, who keeps our lands safe from harm. Who doesn't have personal ill-will towards her people nor does she harbor feelings of greed towards power! We shall defend her to the last man!"
+ LWE_herald_mantle:0 "Mantle of the Herald"
+ LWE_herald_mantle_desc:0 "Lily White came to us first in the form of a herald; a simple messenger of blissful times. Only after learning of her true nature and origins we proclaimed her our Queen. She came from a far away land just to bless us! We should follow in her example of goodwill, in our everyday lives and towards each other."
+ LWE_spring_troops:0 "Fairy Modernization"
+ LWE_spring_troops_desc:0 "According to our mistress,Fairies used to be brash, barbaric creatures that challenged each other day and night in order to prove themselves. Under our fairy queen's guidance and rulership, she turned the fairies in our realm into a more disciplined force accommodating with the modern times. While she prefers peace over war, it helps having a standing force to defend our merry homeland"
+ LWE_eternal_spring:0 "Eternal Spring"
+ LWE_eternal_spring_desc:0 "Normal Kingdoms and Empires usually get eras of prosperity that don't last long. But not us! Our fortuitous Empire enjoys endless prosperity due to our mistress Lily's Aura that keeps our fields blooming!"
+
  ###NAITONAL IDEAS LAR###
  LAR_embodiments_of_mother_nature:0 "Embodiments of Mother Nature"
  LAR_embodiments_of_mother_nature_desc:0 "We fairies are embodiments of nature. We know how to adapt well to tough environment and use nature goods without hurting her."

@@ -5,41 +5,6 @@ th_has_incidents_enabled = {
 	}
 }
 
-th_incident_is_investigator = {
-	custom_trigger_tooltip = {
-		tooltip = th_incident_is_investigator_tt
-		has_country_flag = th_incident_investigating
-	}
-}
-
-th_incident_has_incident_active = {
-	custom_trigger_tooltip = {
-		tooltip = th_incident_has_incident_active_tt
-		has_global_flag = th_active_incident
-	}
-}
-
-th_has_incidents_disabled = {
-	custom_trigger_tooltip = {
-		tooltip = th_has_incidents_disabled_tt
-		NOT = { has_global_flag = th_deactivated_incidents }
-	}
-}
-
-th_incident_is_not_investigator = {
-	custom_trigger_tooltip = {
-		tooltip = th_incident_is_not_investigator_tt
-		NOT = { has_country_flag = th_incident_investigating }
-	}
-}
-
-th_incident_has_not_incident_active = {
-	custom_trigger_tooltip = {
-		tooltip = th_incident_has_not_incident_active_tt
-		NOT = { has_global_flag = th_active_incident }
-	}
-}
-
 th_incident_compare_good_outcomes = {
 	check_variable = {
 		which = th_incident_outcome_counter

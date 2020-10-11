@@ -25,24 +25,3 @@ th_incited_zealots = {
 th_religious_tributary_wrong_religion = {
     liberty_desire = 75
 }
-
-th_pledged_to_remain_religious = {
-    tolerance_heathen = -1
-    tolerance_heretic = -1
-    religion = yes
-}
-
-th_broke_pledging = {
-    diplomatic_reputation = -2
-    prestige = -1
-}
-
-th_subjugated_in_penance = {
-    liberty_desire = -50
-}
-
-th_penance_subjugator = {
-    tolerance_own = 2
-    prestige_decay = -0.01
-    diplomatic_upkeep = 2
-}

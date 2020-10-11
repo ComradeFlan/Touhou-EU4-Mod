@@ -1,0 +1,68 @@
+country_decisions = {
+
+	lil_form_empire = {
+		major = yes
+		potential = {
+			OR = {
+				tag = LIL
+				tag = LWE
+	        }
+			NOT = { has_country_flag = LIL_became_empire }
+			NOT = { tag = LWE }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4931
+				province_id = 4929
+				province_id = 4844
+				province_id = 4823
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+		}
+	}
+
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			stability = 1
+			owns_core_province = 4931 #Eternity Garden
+			owns_core_province = 4929 #Fairy Coast
+			owns_core_province = 4844 #Eastern Misty Shore
+			owns_core_province = 4823 #Three Fairies's home
+			colony = 1
+		}
+
+		effect = {
+			change_tag = LWE
+			remove_non_electors_emperors_from_empire_effect = yes
+			hidden_effect = {
+				set_country_flag = LIL_became_empire
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			add_prestige = 30
+			4932 = {
+				rename_capital = "Spring Capital"
+			}
+			add_mercantilism = 10
+			change_government = monarchy
+			add_government_reform = Fairy_colonial_empire
+			set_country_flag = recently_changed_government_flag
+			country_event = { id = ideagroups.1 }
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 6205
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}
