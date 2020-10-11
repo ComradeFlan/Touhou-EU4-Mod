@@ -2558,6 +2558,8 @@ country_event = {
 	desc = "th_incidents_mountainoffaith.28.desc"
 	picture = MOUNTAINOFFAITH_eventPicture
 	
+	hidden = yes
+	
 	trigger = {
 		NOT = { has_global_flag = th_current_incident_mountain_of_faith }
 		OR = {
@@ -2574,8 +2576,6 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
-	major = yes
 	
 	option = {		#The time of reformations is over
 		name = "th_incidents_mountainoffaith.28.a"
